@@ -29,6 +29,7 @@ class Provenance(str, Enum):
     DXF_TEXT = "dxf_text"             # MTEXT / TEXT labels
     SCHEDULE = "schedule"            # window/door schedule table
     PDF_VECTOR = "pdf_vector"          # vector line geometry / text from PDF
+    RASTER_CV = "raster_cv"           # geometry from OpenCV on a rasterised page
     OCR = "ocr"                  # pytesseract
     VISION_LLM = "vision_llm"           # Tier-2 cropped-region fallback (only if enabled)
     DERIVED = "derived"              # computed from other tracked values

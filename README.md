@@ -43,9 +43,16 @@ jurisdiction-keyed config** (`config/`), never hardcoded.
 | P0 | Repo scaffold, pydantic Building Model schema, CLI, jurisdiction config, synthetic fixtures, passing tests | ✅ done |
 | P1 | DXF ingestion → Building Model (wall-network room closing, north-arrow orientation, schedule parsing) | ✅ done |
 | P2 | Indicative thermal + jurisdiction compliance (BASIX / WoH) + report/gap/input-pack | ✅ done |
-| P3 | PDF vector ingestion | ⏳ next |
-| P4 | PDF raster Tier 1 (offline) + optional Tier 2 API fallback | ⏳ |
+| P3 | PDF vector ingestion (PyMuPDF; scale + north detection) | ✅ done |
+| P4 | PDF raster Tier 1 (OpenCV + tesseract, offline) + optional Tier 2 vision fallback (off by default) | ✅ done |
 | P5 | Review UI | out of scope (later) |
+
+PDF dispatch sniffs the first page: vector PDFs route to the vector adapter,
+scanned/image PDFs to the raster adapter. Raster is the lowest-confidence path
+(scanned room separation is unreliable), so its values are readily gap-flagged;
+the optional Tier-2 vision fallback (Anthropic API, **off by default**) can be
+enabled in `config/settings.yaml` to resolve residual cropped regions. The tool
+runs end to end with the API disabled.
 
 ## Install
 
