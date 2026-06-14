@@ -41,8 +41,8 @@ jurisdiction-keyed config** (`config/`), never hardcoded.
 | Phase | Deliverable | State |
 |------|-------------|-------|
 | P0 | Repo scaffold, pydantic Building Model schema, CLI, jurisdiction config, synthetic fixtures, passing tests | ✅ done |
-| P1 | DXF ingestion → Building Model | ⏳ next |
-| P2 | Indicative thermal + jurisdiction compliance (BASIX / WoH) + report/gap/input-pack | ⏳ |
+| P1 | DXF ingestion → Building Model (wall-network room closing, north-arrow orientation, schedule parsing) | ✅ done |
+| P2 | Indicative thermal + jurisdiction compliance (BASIX / WoH) + report/gap/input-pack | ⏳ next |
 | P3 | PDF vector ingestion | ⏳ |
 | P4 | PDF raster Tier 1 (offline) + optional Tier 2 API fallback | ⏳ |
 | P5 | Review UI | out of scope (later) |

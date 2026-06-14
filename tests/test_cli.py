@@ -27,12 +27,34 @@ def test_demo_runs_end_to_end(tmp_path: Path):
 
 
 def test_assess_pending_adapter_is_reported_not_guessed(tmp_path: Path):
-    dummy = tmp_path / "plan.dxf"
-    dummy.write_text("not a real dxf")
+    # DWG ingestion is still scheduled for P2 -> must report clearly, not guess.
+    dummy = tmp_path / "plan.dwg"
+    dummy.write_text("not a real dwg")
     result = runner.invoke(app, ["assess", str(dummy), "--state", "NSW"])
-    # DXF adapter is P1 -> must report clearly, not guess.
     assert result.exit_code == 3
-    assert "P1" in result.output
+    assert "P2" in result.output
+
+
+def test_assess_malformed_dxf_reports_cleanly(tmp_path: Path):
+    bad = tmp_path / "plan.dxf"
+    bad.write_text("not a real dxf")
+    result = runner.invoke(app, ["assess", str(bad), "--state", "NSW"])
+    # P1 adapter exists but the file is invalid -> clean error, not a traceback.
+    assert result.exit_code == 4
+    assert "Could not ingest" in result.output
+
+
+def test_assess_real_dxf_runs_end_to_end(tmp_path: Path):
+    fixture = Path(__file__).resolve().parent / "fixtures" / "synthetic_house.dxf"
+    if not fixture.exists():
+        import pytest
+
+        pytest.skip("DXF fixture not built")
+    result = runner.invoke(
+        app, ["assess", str(fixture), "--state", "NSW", "--postcode", "2000", "--out", str(tmp_path)]
+    )
+    assert result.exit_code == 0, result.output
+    assert (tmp_path / "building_model.json").exists()
 
 
 def test_assess_accepts_building_model_json(tmp_path: Path):

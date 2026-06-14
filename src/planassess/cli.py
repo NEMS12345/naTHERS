@@ -18,6 +18,8 @@ from pathlib import Path
 import typer
 
 from .constants import NOT_A_CERTIFICATE_CAVEAT
+from .ingest import AdapterNotAvailable
+from .ingest import ingest as ingest_plan
 from .model.building import BuildingModel
 from .model.enums import State
 from .pipeline import run_pipeline
@@ -29,13 +31,6 @@ app = typer.Typer(
     help="PlanAssess — indicative NatHERS thermal + jurisdiction sustainability PRE-ASSESSMENT. "
     "Not a certificate.",
 )
-
-# Formats whose ingestion adapters are not yet built (per phase plan).
-_PENDING_ADAPTERS = {
-    ".dxf": "P1",
-    ".dwg": "P2",
-    ".pdf": "P3/P4",
-}
 
 
 def _emit(review, compliance, written) -> None:
@@ -91,18 +86,26 @@ def assess(
         model = BuildingModel.model_validate_json(plan.read_text(encoding="utf-8"))
         model.extraction_meta.source_file = str(plan)
         model.extraction_meta.adapter = model.extraction_meta.adapter or "building_model.json"
-    elif suffix in _PENDING_ADAPTERS:
-        phase = _PENDING_ADAPTERS[suffix]
-        typer.secho(
-            f"Ingestion adapter for '{suffix}' is scheduled for phase {phase} and is not yet "
-            f"available. Provide a building_model.json for now, or run `planassess demo`.",
-            fg=typer.colors.YELLOW,
-            err=True,
-        )
-        raise typer.Exit(code=3)
     else:
-        typer.secho(f"Unsupported input format: '{suffix}'.", fg=typer.colors.RED, err=True)
-        raise typer.Exit(code=2)
+        try:
+            model = ingest_plan(plan, project_id=plan.stem)
+        except AdapterNotAvailable as exc:
+            typer.secho(
+                f"{exc} Provide a building_model.json for now, or run `planassess demo`.",
+                fg=typer.colors.YELLOW,
+                err=True,
+            )
+            raise typer.Exit(code=3)
+        except Exception as exc:  # parsing failure -> report, don't crash
+            typer.secho(f"Could not ingest '{plan}': {exc}", fg=typer.colors.RED, err=True)
+            raise typer.Exit(code=4)
+
+    # Postcode supplied on the CLI overrides/fills what the adapter couldn't read.
+    if postcode:
+        from .model.enums import Provenance
+        from .model.tracked import observed
+
+        model.project.postcode = observed(postcode, Provenance.HUMAN, 1.0)
 
     review, compliance, written = run_pipeline(model, state, out)
     _emit(review, compliance, written)
