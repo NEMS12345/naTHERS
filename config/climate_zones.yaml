@@ -1,0 +1,39 @@
+# Postcode -> NatHERS climate zone lookup (national, 1..69).
+#
+# This is a SEED SUBSET for P0/P1. The full national postcode table is a data
+# sourcing task (it is large and some postcodes span more than one zone). Where a
+# postcode maps to multiple zones, list them all under `ambiguous` so the lookup
+# resolves to a LOW-confidence value that trips the review gate rather than
+# silently picking one.
+#
+# Source of truth for the full table: NatHERS climate zone / postcode mapping.
+
+version: "seed-0.1"
+
+postcodes:
+  # Sydney / NSW coastal (zone 17 / 56 region — using NatHERS zone numbers)
+  "2000": { zone: 56, confidence: 0.9 }   # Sydney CBD
+  "2010": { zone: 56, confidence: 0.9 }
+  "2150": { zone: 56, confidence: 0.85 }  # Parramatta (western Sydney warmer)
+  # Melbourne / VIC
+  "3000": { zone: 60, confidence: 0.9 }   # Melbourne CBD
+  "3061": { zone: 60, confidence: 0.85 }
+  # Brisbane / QLD
+  "4000": { zone: 10, confidence: 0.9 }   # Brisbane CBD
+  # Adelaide / SA
+  "5000": { zone: 16, confidence: 0.9 }   # Adelaide CBD
+  # Perth / WA
+  "6000": { zone: 13, confidence: 0.9 }   # Perth CBD
+  # Hobart / TAS
+  "7000": { zone: 26, confidence: 0.9 }   # Hobart CBD
+  # Darwin / NT
+  "0800": { zone: 1, confidence: 0.9 }    # Darwin CBD
+  # Canberra / ACT
+  "2600": { zone: 24, confidence: 0.9 }   # Canberra
+
+ambiguous:
+  # Example: a postcode straddling two zones -> low confidence, human to confirm.
+  "2620":
+    zones: [24, 62]
+    confidence: 0.4
+    note: "Queanbeyan/ACT fringe spans more than one NatHERS zone."

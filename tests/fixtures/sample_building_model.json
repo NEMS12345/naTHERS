@@ -1,0 +1,419 @@
+{
+  "schema_version": "0.1.0",
+  "project": {
+    "id": "SAMPLE-HOUSE-001",
+    "address": {
+      "value": "1 Example St, Sydney NSW",
+      "source": "dxf_text",
+      "confidence": 0.7,
+      "unit": null,
+      "notes": null
+    },
+    "state": {
+      "value": "NSW",
+      "source": "dxf_text",
+      "confidence": 0.9,
+      "unit": null,
+      "notes": null
+    },
+    "postcode": {
+      "value": "2000",
+      "source": "dxf_text",
+      "confidence": 0.9,
+      "unit": null,
+      "notes": null
+    },
+    "climate_zone": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": "To be resolved by postcode lookup."
+    }
+  },
+  "site": {
+    "site_area": {
+      "value": 450.0,
+      "source": "dxf_geometry",
+      "confidence": 0.7,
+      "unit": "m2",
+      "notes": null
+    },
+    "north_angle_deg": {
+      "value": 0.0,
+      "source": "dxf_geometry",
+      "confidence": 0.6,
+      "unit": "deg",
+      "notes": null
+    },
+    "roof_plan_area": {
+      "value": 84.0,
+      "source": "dxf_geometry",
+      "confidence": 0.7,
+      "unit": "m2",
+      "notes": null
+    }
+  },
+  "dwellings": [
+    {
+      "id": "D1",
+      "type": {
+        "value": "house",
+        "source": "dxf_text",
+        "confidence": 0.9,
+        "unit": null,
+        "notes": null
+      },
+      "storeys": {
+        "value": 1,
+        "source": "dxf_text",
+        "confidence": 0.85,
+        "unit": null,
+        "notes": null
+      }
+    }
+  ],
+  "zones": [
+    {
+      "id": "Z1",
+      "dwelling_id": "D1",
+      "name": {
+        "value": "Living/Kitchen",
+        "source": "dxf_text",
+        "confidence": 0.9,
+        "unit": null,
+        "notes": null
+      },
+      "type": {
+        "value": "living",
+        "source": "dxf_text",
+        "confidence": 0.85,
+        "unit": null,
+        "notes": null
+      },
+      "floor_area": {
+        "value": 48.0,
+        "source": "dxf_geometry",
+        "confidence": 0.8,
+        "unit": "m2",
+        "notes": null
+      },
+      "ceiling_height": {
+        "value": 2.7,
+        "source": "dxf_text",
+        "confidence": 0.7,
+        "unit": "m",
+        "notes": null
+      },
+      "volume": {
+        "value": 129.6,
+        "source": "derived",
+        "confidence": 0.7,
+        "unit": "m3",
+        "notes": null
+      }
+    },
+    {
+      "id": "Z2",
+      "dwelling_id": "D1",
+      "name": {
+        "value": "Bedrooms",
+        "source": "dxf_text",
+        "confidence": 0.9,
+        "unit": null,
+        "notes": null
+      },
+      "type": {
+        "value": "night",
+        "source": "dxf_text",
+        "confidence": 0.85,
+        "unit": null,
+        "notes": null
+      },
+      "floor_area": {
+        "value": 36.0,
+        "source": "dxf_geometry",
+        "confidence": 0.8,
+        "unit": "m2",
+        "notes": null
+      },
+      "ceiling_height": {
+        "value": 2.7,
+        "source": "dxf_geometry",
+        "confidence": 0.4,
+        "unit": "m",
+        "notes": null
+      },
+      "volume": {
+        "value": null,
+        "source": "unknown",
+        "confidence": 0.0,
+        "unit": "m3",
+        "notes": "Not derivable until ceiling height confirmed."
+      }
+    }
+  ],
+  "walls": [
+    {
+      "id": "W1",
+      "zone_id": "Z1",
+      "construction": {
+        "value": "Brick veneer",
+        "source": "dxf_text",
+        "confidence": 0.8,
+        "unit": null,
+        "notes": null
+      },
+      "r_value": {
+        "value": 2.8,
+        "source": "schedule",
+        "confidence": 0.7,
+        "unit": "m2.K/W",
+        "notes": null
+      },
+      "area": {
+        "value": 21.6,
+        "source": "dxf_geometry",
+        "confidence": 0.8,
+        "unit": "m2",
+        "notes": null
+      },
+      "orientation": {
+        "value": "N",
+        "source": "dxf_geometry",
+        "confidence": 0.85,
+        "unit": null,
+        "notes": null
+      },
+      "adjacency": {
+        "value": "external",
+        "source": "dxf_geometry",
+        "confidence": 0.9,
+        "unit": null,
+        "notes": null
+      }
+    }
+  ],
+  "roofs": [
+    {
+      "id": "R1",
+      "zone_id": "Z1",
+      "roof_type": {
+        "value": "pitched",
+        "source": "dxf_text",
+        "confidence": 0.8,
+        "unit": null,
+        "notes": null
+      },
+      "construction": {
+        "value": "Concrete tile, ceiling insulation",
+        "source": "dxf_text",
+        "confidence": 0.7,
+        "unit": null,
+        "notes": null
+      },
+      "r_value": {
+        "value": 4.1,
+        "source": "schedule",
+        "confidence": 0.7,
+        "unit": "m2.K/W",
+        "notes": null
+      },
+      "area": {
+        "value": 84.0,
+        "source": "dxf_geometry",
+        "confidence": 0.75,
+        "unit": "m2",
+        "notes": null
+      },
+      "colour": {
+        "value": null,
+        "source": "unknown",
+        "confidence": 0.0,
+        "unit": null,
+        "notes": "Roof colour/finish not annotated on plan."
+      },
+      "solar_absorptance": {
+        "value": null,
+        "source": "unknown",
+        "confidence": 0.0,
+        "unit": null,
+        "notes": "Depends on roof colour."
+      }
+    }
+  ],
+  "floors": [],
+  "glazing": [
+    {
+      "id": "G1",
+      "zone_id": "Z1",
+      "wall_id": "W1",
+      "orientation": {
+        "value": "N",
+        "source": "dxf_geometry",
+        "confidence": 0.85,
+        "unit": null,
+        "notes": null
+      },
+      "area": {
+        "value": 6.0,
+        "source": "schedule",
+        "confidence": 0.8,
+        "unit": "m2",
+        "notes": null
+      },
+      "frame": {
+        "value": "Aluminium",
+        "source": "schedule",
+        "confidence": 0.8,
+        "unit": null,
+        "notes": null
+      },
+      "glazing_type": {
+        "value": "Double, clear",
+        "source": "schedule",
+        "confidence": 0.7,
+        "unit": null,
+        "notes": null
+      },
+      "u_value": {
+        "value": 3.9,
+        "source": "schedule",
+        "confidence": 0.6,
+        "unit": "W/m2.K",
+        "notes": null
+      },
+      "shgc": {
+        "value": 0.5,
+        "source": "schedule",
+        "confidence": 0.6,
+        "unit": null,
+        "notes": null
+      },
+      "eave_shading_depth": {
+        "value": 0.6,
+        "source": "dxf_geometry",
+        "confidence": 0.5,
+        "unit": "m",
+        "notes": null
+      }
+    }
+  ],
+  "doors": [],
+  "services": {
+    "hot_water": {
+      "value": "Heat pump",
+      "source": "dxf_text",
+      "confidence": 0.7,
+      "unit": null,
+      "notes": null
+    },
+    "heating": {
+      "value": "Reverse-cycle split",
+      "source": "dxf_text",
+      "confidence": 0.7,
+      "unit": null,
+      "notes": null
+    },
+    "cooling": {
+      "value": "Reverse-cycle split",
+      "source": "dxf_text",
+      "confidence": 0.7,
+      "unit": null,
+      "notes": null
+    },
+    "ventilation": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": null
+    },
+    "lighting": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": null
+    },
+    "cooktop": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": null
+    },
+    "pool_spa": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": null
+    },
+    "solar_pv_kw": {
+      "value": 6.6,
+      "source": "dxf_text",
+      "confidence": 0.8,
+      "unit": "kW",
+      "notes": null
+    },
+    "battery_kwh": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "kWh",
+      "notes": "No battery shown on plan."
+    }
+  },
+  "fixtures": {
+    "wels_taps": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "stars",
+      "notes": null
+    },
+    "wels_showers": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "stars",
+      "notes": null
+    },
+    "wels_toilets": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "stars",
+      "notes": null
+    },
+    "rainwater_tank_l": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "L",
+      "notes": null
+    },
+    "landscaping_area": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": "m2",
+      "notes": null
+    },
+    "landscaping_type": {
+      "value": null,
+      "source": "unknown",
+      "confidence": 0.0,
+      "unit": null,
+      "notes": null
+    }
+  },
+  "extraction_meta": {
+    "source_file": "<synthetic fixture>",
+    "adapter": "samples.synthetic_house",
+    "field_count": 0,
+    "populated_count": 0,
+    "flagged_count": 0
+  }
+}

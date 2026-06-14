@@ -1,0 +1,19 @@
+# PlanAssess runtime settings. No compliance targets live here — those are in
+# jurisdictions.yaml. These are tool behaviour knobs only.
+
+# Fields with confidence below this threshold (or missing, or config-defaulted)
+# are gap-flagged for human review. Configurable; no silent acceptance.
+review_confidence_threshold: 0.6
+
+vision_llm:
+  # Tier-2 PDF-raster fallback. OFF by default. The tool must run end to end with
+  # this disabled; with it off, unresolved fields go to the gap report.
+  enabled: false
+  model: "claude-sonnet-4-6"
+  # Never send the whole plan — only cropped regions still below threshold.
+  send_full_plan: false
+
+# External DWG -> DXF converter (P2). Auto-invoked if found on PATH.
+oda_file_converter:
+  enabled: true
+  executable: "ODAFileConverter"

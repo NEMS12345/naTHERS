@@ -1,0 +1,95 @@
+# Jurisdiction-keyed compliance targets and benchmarks.
+#
+# VERSIONED and config-driven by design: standards and adoption dates differ by
+# state/territory, and these values shift with NCC editions and BASIX updates.
+# Nothing here is hardcoded in the assessment modules.
+#
+# IMPORTANT: these are indicative pre-assessment targets for data-prep. They do
+# NOT substitute for the official BASIX tool (NSW Planning Portal) or accredited
+# NatHERS Whole-of-Home software. Verify current figures before relying on them.
+
+standards_version: "2022.1"          # internal config revision
+ncc_alignment: "NCC 2022"
+notes: >-
+  NCC 2022 lifted the energy efficiency provisions to a 7-star NatHERS
+  equivalent plus a Whole-of-Home budget. NSW implements its own pathway via
+  BASIX. NT has not mandated Whole-of-Home.
+
+# Default NatHERS-indicative thermal star target unless a jurisdiction overrides.
+default_star_target: 7.0
+
+jurisdictions:
+
+  NSW:
+    strategy: basix
+    nathers_star_target: 7.0
+    basix:
+      # BASIX scores three separate caps. Pass marks vary by climate zone and
+      # dwelling type; values below are indicative placeholders for pre-assessment
+      # and MUST be confirmed against the live BASIX tool.
+      thermal_comfort:
+        method: deemed_to_satisfy        # DIY elemental checks; flag if Simulation/NatHERS required
+        requires_simulation_above_area_m2: 0   # 0 => always offer simulation path note
+      energy:
+        # Target = % reduction in modelled energy/emissions vs benchmark.
+        target_pct_by_dwelling:
+          house: 50
+          dual_occupancy: 50
+          secondary: 50
+          apartment: 35
+      water:
+        # Target = % reduction in potable water use vs benchmark.
+        target_pct_by_dwelling:
+          house: 40
+          dual_occupancy: 40
+          secondary: 40
+          apartment: 40
+
+  VIC:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60        # indicative WoH pass mark (0..100)
+
+  QLD:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60
+
+  SA:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60
+
+  WA:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60
+
+  TAS:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60
+
+  ACT:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: true
+      benchmark_score: 60
+
+  NT:
+    strategy: woh
+    nathers_star_target: 7.0
+    woh:
+      mandatory: false           # NT: Whole-of-Home NOT mandated — mark not required
+      benchmark_score: null
