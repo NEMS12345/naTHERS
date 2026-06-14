@@ -57,12 +57,15 @@ runs end to end with the API disabled.
 ## Install
 
 ```bash
-pip install -e ".[dev]"          # core + tests (P0)
-pip install -e ".[dev,dxf]"      # add DXF ingestion (P1)
+pip install -e ".[dev]"                       # core + tests
+pip install -e ".[dev,dxf]"                   # + DXF ingestion (also used by DWG)
+pip install -e ".[dev,dxf,pdf,raster,report]" # + PDF vector/raster ingestion and PDF report
 ```
 
-External dependency (P2 DWG path): **ODA File Converter** (free desktop tool)
-converts DWG → DXF; PlanAssess auto-invokes it if present.
+External dependency (DWG path): **ODA File Converter** (free desktop tool)
+converts DWG → DXF; PlanAssess auto-invokes it if present and otherwise reports
+clearly. Raster OCR (P4) needs the **tesseract** binary. The `assessment_report.pdf`
+needs the `report` extra (reportlab); without it the markdown report is still produced.
 
 ## Usage
 

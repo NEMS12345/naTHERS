@@ -16,9 +16,18 @@ def test_pipeline_nsw_selects_basix_and_writes_outputs(tmp_path: Path, config_di
 
     assert out.compliance.strategy == JurisdictionStrategy.BASIX
     names = {p.name for p in out.written}
-    assert names == {
+    # The PDF is optional (depends on reportlab); the rest are always produced.
+    assert {
         "building_model.json",
         "assessment_report.md",
+        "gap_report.md",
+        "input_pack.md",
+        "input_pack.csv",
+    } <= names
+    assert names <= {
+        "building_model.json",
+        "assessment_report.md",
+        "assessment_report.pdf",
         "gap_report.md",
         "input_pack.md",
         "input_pack.csv",
@@ -88,6 +97,17 @@ def test_input_pack_woh_for_non_nsw(tmp_path: Path, config_dir: Path):
     csv_text = (tmp_path / "input_pack.csv").read_text(encoding="utf-8")
     assert "WoH" in csv_text
     assert "BASIX" not in csv_text
+
+
+def test_assessment_pdf_written_when_reportlab_available(tmp_path: Path, config_dir: Path):
+    pytest_importorskip = __import__("pytest").importorskip
+    pytest_importorskip("reportlab")
+    model = synthetic_house(postcode="2000")
+    out = run_pipeline(model, State.NSW, tmp_path, config_dir)
+    pdf = tmp_path / "assessment_report.pdf"
+    assert pdf.exists()
+    assert pdf in out.written
+    assert pdf.read_bytes().startswith(b"%PDF")  # valid PDF magic
 
 
 def test_building_model_json_preserves_confidence_and_source(tmp_path: Path, config_dir: Path):

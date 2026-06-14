@@ -13,7 +13,7 @@ from ..model.building import BuildingModel
 from .base import IngestionAdapter
 
 # Suffix -> phase the adapter is scheduled for (used for clear "not yet" errors).
-ADAPTER_PHASES = {".dwg": "P2"}
+ADAPTER_PHASES: dict[str, str] = {}  # all planned ingestion formats now implemented
 
 
 class AdapterNotAvailable(RuntimeError):
@@ -27,6 +27,10 @@ def ingest(path: Path, project_id: str) -> BuildingModel:
         from .dxf import DXFAdapter
 
         return DXFAdapter().ingest(path, project_id)
+    if suffix == ".dwg":
+        from .dwg import DWGAdapter
+
+        return DWGAdapter().ingest(path, project_id)
     if suffix == ".pdf":
         from .pdf_router import ingest_pdf
 

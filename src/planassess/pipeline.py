@@ -21,6 +21,7 @@ from .config.loader import (
 )
 from .model.building import BuildingModel
 from .model.enums import State
+from .report.assessment_pdf import write_assessment_pdf
 from .report.assessment_report import write_assessment_report
 from .report.building_model_json import write_building_model_json
 from .report.gap_report import write_gap_report
@@ -87,4 +88,8 @@ def run_pipeline(
         write_gap_report(review, out_dir),
         *write_input_pack(model, state, thermal, compliance, out_dir),
     ]
+    # PDF report is optional (reportlab); appended only if it was produced.
+    pdf = write_assessment_pdf(model, review, thermal, compliance, out_dir)
+    if pdf is not None:
+        written.append(pdf)
     return PipelineOutput(review, thermal, compliance, written)

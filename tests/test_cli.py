@@ -26,13 +26,20 @@ def test_demo_runs_end_to_end(tmp_path: Path):
     assert "basix" in result.stdout.lower()
 
 
-def test_assess_pending_adapter_is_reported_not_guessed(tmp_path: Path):
-    # DWG ingestion is still scheduled for P2 -> must report clearly, not guess.
+def test_assess_dwg_without_oda_reports_clearly(tmp_path: Path):
+    # DWG needs the external ODA File Converter; without it, report clearly.
     dummy = tmp_path / "plan.dwg"
     dummy.write_text("not a real dwg")
     result = runner.invoke(app, ["assess", str(dummy), "--state", "NSW"])
+    assert result.exit_code == 4
+    assert "ODA File Converter" in result.output
+
+def test_assess_unsupported_format_reported(tmp_path: Path):
+    dummy = tmp_path / "plan.xyz"
+    dummy.write_text("x")
+    result = runner.invoke(app, ["assess", str(dummy), "--state", "NSW"])
     assert result.exit_code == 3
-    assert "P2" in result.output
+    assert "Unsupported" in result.output
 
 
 def test_assess_malformed_dxf_reports_cleanly(tmp_path: Path):
