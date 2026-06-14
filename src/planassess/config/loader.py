@@ -50,13 +50,17 @@ def lookup_climate_zone(
     postcodes return an explicit missing value — never a guess.
     """
     table = _cached_climate_zones(str(config_dir) if config_dir else None)
+    seed = "UNVERIFIED" in (table.version or "").upper()
     if postcode in table.postcodes:
         entry = table.postcodes[postcode]
+        note = f"Postcode {postcode} -> NatHERS climate zone {entry.zone} (national lookup)."
+        if seed or entry.confidence < 0.7:
+            note += " Illustrative seed value — verify against the official NatHERS table."
         return TrackedValue(
             value=entry.zone,
             source=Provenance.DERIVED,
             confidence=entry.confidence,
-            notes=f"Postcode {postcode} -> NatHERS climate zone {entry.zone} (national lookup).",
+            notes=note,
         )
     if postcode in table.ambiguous:
         amb = table.ambiguous[postcode]

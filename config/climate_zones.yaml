@@ -1,39 +1,36 @@
 # Postcode -> NatHERS climate zone lookup (national, 1..69).
 #
-# This is a SEED SUBSET for P0/P1. The full national postcode table is a data
-# sourcing task (it is large and some postcodes span more than one zone). Where a
-# postcode maps to multiple zones, list them all under `ambiguous` so the lookup
-# resolves to a LOW-confidence value that trips the review gate rather than
-# silently picking one.
+# ⚠️ ILLUSTRATIVE / UNVERIFIED SEED. The zone numbers below are plausible
+# placeholders for development and demos only — they have NOT been verified
+# against the official NatHERS "Climate Zones by postcode" table. Every entry is
+# therefore given a LOW confidence (< the review threshold) so the review gate
+# flags it for human verification rather than presenting it as authoritative.
 #
-# Source of truth for the full table: NatHERS climate zone / postcode mapping.
+# Replace this file with the real table (thousands of postcodes) via:
+#   python scripts/build_climate_zone_table.py NatHERSclimatezones.xlsx --out config/climate_zones.yaml
+# Source: https://www.nathers.gov.au/climate-zone-postcodes  (see docs/DATA_SOURCES.md)
+#
+# Where a postcode maps to multiple zones, list them under `ambiguous` so the
+# lookup resolves to a low-confidence value that trips the review gate.
 
-version: "seed-0.1"
+version: "illustrative-seed-0.2-UNVERIFIED"
 
 postcodes:
-  # Sydney / NSW coastal (zone 17 / 56 region — using NatHERS zone numbers)
-  "2000": { zone: 56, confidence: 0.9 }   # Sydney CBD
-  "2010": { zone: 56, confidence: 0.9 }
-  "2150": { zone: 56, confidence: 0.85 }  # Parramatta (western Sydney warmer)
-  # Melbourne / VIC
-  "3000": { zone: 60, confidence: 0.9 }   # Melbourne CBD
-  "3061": { zone: 60, confidence: 0.85 }
-  # Brisbane / QLD
-  "4000": { zone: 10, confidence: 0.9 }   # Brisbane CBD
-  # Adelaide / SA
-  "5000": { zone: 16, confidence: 0.9 }   # Adelaide CBD
-  # Perth / WA
-  "6000": { zone: 13, confidence: 0.9 }   # Perth CBD
-  # Hobart / TAS
-  "7000": { zone: 26, confidence: 0.9 }   # Hobart CBD
-  # Darwin / NT
-  "0800": { zone: 1, confidence: 0.9 }    # Darwin CBD
-  # Canberra / ACT
-  "2600": { zone: 24, confidence: 0.9 }   # Canberra
+  # confidence 0.5 (< 0.6 threshold) => always gap-flagged pending verification.
+  "2000": { zone: 56, confidence: 0.5 }   # Sydney CBD (unverified)
+  "2010": { zone: 56, confidence: 0.5 }
+  "2150": { zone: 56, confidence: 0.5 }    # Parramatta
+  "3000": { zone: 60, confidence: 0.5 }    # Melbourne CBD (unverified)
+  "3061": { zone: 60, confidence: 0.5 }
+  "4000": { zone: 10, confidence: 0.5 }    # Brisbane CBD (unverified)
+  "5000": { zone: 16, confidence: 0.5 }    # Adelaide CBD (unverified)
+  "6000": { zone: 13, confidence: 0.5 }    # Perth CBD (unverified)
+  "7000": { zone: 26, confidence: 0.5 }    # Hobart CBD (unverified)
+  "0800": { zone: 1, confidence: 0.5 }     # Darwin CBD (zone 1 is the canonical hot-humid zone)
+  "2600": { zone: 24, confidence: 0.5 }    # Canberra (unverified)
 
 ambiguous:
-  # Example: a postcode straddling two zones -> low confidence, human to confirm.
   "2620":
     zones: [24, 62]
     confidence: 0.4
-    note: "Queanbeyan/ACT fringe spans more than one NatHERS zone."
+    note: "Queanbeyan/ACT fringe spans more than one NatHERS zone (illustrative)."

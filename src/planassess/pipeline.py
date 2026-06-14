@@ -28,6 +28,7 @@ from .report.building_model_json import write_building_model_json
 from .report.gap_report import write_gap_report
 from .report.input_pack import write_input_pack
 from .review.gate import ReviewResult, run_review_gate
+from .review.review_io import export_review_template
 
 
 def resolve_climate_zone(model: BuildingModel, config_dir: Path | None = None) -> None:
@@ -62,6 +63,29 @@ class PipelineOutput:
         self.thermal = thermal
         self.compliance = compliance
         self.written = written
+
+
+def review_only(
+    model: BuildingModel,
+    out_dir: Path,
+    config_dir: Path | None = None,
+) -> tuple[ReviewResult, list[Path]]:
+    """Run extract->normalise->review gate only, and export the editable review pack.
+
+    This is the human-in-the-loop checkpoint: it writes the gap report and an
+    editable review_template.csv (fill `your_value`, feed back via --apply-review)
+    without running any assessment.
+    """
+    settings = load_settings(config_dir)
+    resolve_state(model)
+    resolve_climate_zone(model, config_dir)
+    review = run_review_gate(model, settings.review_confidence_threshold)
+    written = [
+        write_building_model_json(model, out_dir),
+        write_gap_report(review, out_dir),
+        export_review_template(review, out_dir),
+    ]
+    return review, written
 
 
 def run_pipeline(

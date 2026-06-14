@@ -80,9 +80,11 @@ def test_targets_are_config_driven_not_hardcoded(config_dir: Path):
 
 def test_climate_zone_lookup_known(config_dir: Path):
     tv = lookup_climate_zone("2000", config_dir)
-    assert tv.value == 56
-    assert tv.confidence >= 0.6
     assert not tv.is_missing
+    assert tv.value is not None
+    # Seed table is unverified -> flagged for review until the official table is imported.
+    assert tv.below(0.6)
+    assert "verify" in (tv.notes or "").lower()
 
 
 def test_climate_zone_lookup_ambiguous_is_low_confidence(config_dir: Path):
