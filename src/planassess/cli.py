@@ -84,11 +84,13 @@ def demo(
 @app.command()
 def assess(
     plan: Path = typer.Argument(..., help="Plan file (DXF/DWG/PDF) or a building_model.json."),
-    state: State = typer.Option(..., help="State/territory (selects compliance strategy)."),
-    postcode: str | None = typer.Option(None, help="Postcode for climate-zone lookup."),
+    state: State | None = typer.Option(
+        None, help="State/territory (selects compliance strategy). Derived from postcode if omitted."
+    ),
+    postcode: str | None = typer.Option(None, help="Postcode for state + climate-zone lookup."),
     out: Path = typer.Option(Path("./out"), help="Output directory."),
 ) -> None:
-    """Assess a plan. P0 supports building_model.json input; adapters land in later phases."""
+    """Assess a plan (DXF/DWG/PDF or building_model.json) and write the pre-assessment pack."""
     if not plan.exists():
         typer.secho(f"File not found: {plan}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=2)
@@ -112,14 +114,33 @@ def assess(
             typer.secho(f"Could not ingest '{plan}': {exc}", fg=typer.colors.RED, err=True)
             raise typer.Exit(code=4)
 
+    from .model.enums import Provenance
+    from .model.tracked import observed
+
     # Postcode supplied on the CLI overrides/fills what the adapter couldn't read.
     if postcode:
-        from .model.enums import Provenance
-        from .model.tracked import observed
-
         model.project.postcode = observed(postcode, Provenance.HUMAN, 1.0)
 
-    _emit(run_pipeline(model, state, out))
+    # Resolve the jurisdiction: explicit --state wins; otherwise derive from postcode.
+    if state is not None:
+        model.project.state = observed(state, Provenance.HUMAN, 1.0)
+        resolved = state
+    else:
+        from .config.postcode_state import state_from_postcode
+
+        derived = state_from_postcode(postcode)
+        if derived.is_missing:
+            typer.secho(
+                "Could not determine the state/territory: pass --state, or a valid Australian "
+                "--postcode to derive it.",
+                fg=typer.colors.RED,
+                err=True,
+            )
+            raise typer.Exit(code=2)
+        resolved = derived.value
+        typer.echo(f"State derived from postcode {postcode}: {resolved.value} (confidence {derived.confidence:.2f})")
+
+    _emit(run_pipeline(model, resolved, out))
 
 
 if __name__ == "__main__":

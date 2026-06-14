@@ -19,6 +19,7 @@ from .config.loader import (
     load_settings,
     lookup_climate_zone,
 )
+from .config.postcode_state import state_from_postcode
 from .model.building import BuildingModel
 from .model.enums import State
 from .report.assessment_pdf import write_assessment_pdf
@@ -39,6 +40,12 @@ def resolve_climate_zone(model: BuildingModel, config_dir: Path | None = None) -
         model.project.climate_zone = lookup_climate_zone(
             str(model.project.postcode.value), config_dir
         )
+
+
+def resolve_state(model: BuildingModel) -> None:
+    """Fill project.state from the postcode (Australia Post ranges) if missing."""
+    if model.project.state.is_missing and not model.project.postcode.is_missing:
+        model.project.state = state_from_postcode(model.project.postcode.value)
 
 
 class PipelineOutput:
@@ -68,7 +75,8 @@ def run_pipeline(
     jurisdictions = load_jurisdictions(config_dir)
     climate_data = load_climate_data(config_dir)
 
-    # Normalise: resolve climate zone from postcode where possible.
+    # Normalise: resolve state and climate zone from postcode where possible.
+    resolve_state(model)
     resolve_climate_zone(model, config_dir)
 
     # Review gate (also refreshes extraction_meta counts).

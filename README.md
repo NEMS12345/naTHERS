@@ -48,7 +48,10 @@ scoring models (BASIX energy/water/thermal proxies and the WoH score) are
 calculations; the BASIX `energy` figure is an efficiency index, not the
 regulated percentage (the regulated target is recorded alongside as a note).
 The postcode→climate-zone and climate degree-day tables remain seed subsets
-pending a sourced national dataset.
+pending a sourced national dataset — see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)
+for the authoritative sources and the one-command importer
+(`scripts/build_climate_zone_table.py`). Postcode→**state** is fully wired from
+the Australia Post ranges (offline), so `--state` is optional.
 
 ## Status — build phases
 
@@ -85,6 +88,8 @@ needs the `report` extra (reportlab); without it the markdown report is still pr
 
 ```bash
 planassess assess path/to/plan.dxf --state NSW --postcode 2000 --out ./out
+# --state is optional: if omitted it is derived from the postcode
+planassess assess path/to/plan.dxf --postcode 4000 --out ./out   # -> QLD
 ```
 
 Outputs written to `--out`:

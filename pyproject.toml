@@ -20,7 +20,7 @@ dependencies = [
 [project.optional-dependencies]
 # Ingestion adapters are layered in per phase; kept optional so P0 runs lean.
 dxf = ["ezdxf>=1.1", "shapely>=2.0"]              # P1
-pdf = ["PyMuPDF>=1.24", "pdfplumber>=0.11"]       # P3
+pdf = ["PyMuPDF>=1.24", "pdfplumber>=0.11", "openpyxl>=3.1"]  # P3 + data-table builder
 raster = ["opencv-python-headless>=4.9", "pytesseract>=0.3", "numpy>=1.26", "Pillow>=10.0"]  # P4 Tier 1
 api = ["anthropic>=0.40"]                          # P4 Tier 2 (optional, off by default)
 report = ["reportlab>=4.0"]                        # PDF report output

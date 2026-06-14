@@ -51,6 +51,30 @@ def test_assess_malformed_dxf_reports_cleanly(tmp_path: Path):
     assert "Could not ingest" in result.output
 
 
+def test_assess_derives_state_from_postcode_when_omitted(tmp_path: Path):
+    fixture = Path(__file__).resolve().parent / "fixtures" / "synthetic_house.dxf"
+    if not fixture.exists():
+        import pytest
+
+        pytest.skip("DXF fixture not built")
+    # No --state: must be derived from the postcode (3000 -> VIC).
+    result = runner.invoke(app, ["assess", str(fixture), "--postcode", "3000", "--out", str(tmp_path)])
+    assert result.exit_code == 0, result.output
+    assert "derived from postcode" in result.output.lower()
+    assert "VIC" in result.output
+
+
+def test_assess_without_state_or_valid_postcode_errors(tmp_path: Path):
+    fixture = Path(__file__).resolve().parent / "fixtures" / "synthetic_house.dxf"
+    if not fixture.exists():
+        import pytest
+
+        pytest.skip("DXF fixture not built")
+    result = runner.invoke(app, ["assess", str(fixture), "--out", str(tmp_path)])
+    assert result.exit_code == 2
+    assert "state/territory" in result.output.lower()
+
+
 def test_assess_real_dxf_runs_end_to_end(tmp_path: Path):
     fixture = Path(__file__).resolve().parent / "fixtures" / "synthetic_house.dxf"
     if not fixture.exists():
