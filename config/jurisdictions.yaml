@@ -30,6 +30,13 @@ jurisdictions:
       thermal_comfort:
         method: deemed_to_satisfy        # DIY elemental checks; flag if Simulation/NatHERS required
         requires_simulation_above_area_m2: 0   # 0 => always offer simulation path note
+        dts:                             # indicative deemed-to-satisfy element minimums
+          min_ceiling_r: 4.1
+          min_wall_r: 2.8
+          min_floor_r: 1.0               # suspended floors
+          max_glazing_u: 5.4
+          max_glazing_shgc: 0.60
+          max_glazing_area_ratio: 0.30   # glazing area / floor area above this -> simulation recommended
       energy:
         # Target = % reduction in modelled energy/emissions vs benchmark.
         target_pct_by_dwelling:

@@ -1,0 +1,88 @@
+# INDICATIVE seasonal climate data and star-band thresholds, keyed by NatHERS
+# climate zone. Used by the simplified heat-balance thermal estimate ONLY.
+#
+# These figures are INDICATIVE placeholders for pre-assessment and are NOT the
+# CSIRO Chenath reference data. Heating/cooling degree days and star-band load
+# thresholds vary by zone; replace with sourced NatHERS zone data before relying
+# on output. star_bands give the maximum total (heating + cooling) load in
+# MJ/m2.yr to ACHIEVE a given star.
+
+version: "seed-0.1"
+
+default:
+  heating_degree_days: 1500      # base 18C, indicative
+  cooling_degree_days: 400       # base 24C, indicative
+  solar_irradiance_factor: 1.0   # relative annual solar availability
+  star_bands:
+    - { star: 5, max_load: 96 }
+    - { star: 6, max_load: 70 }
+    - { star: 7, max_load: 50 }
+    - { star: 8, max_load: 34 }
+    - { star: 9, max_load: 21 }
+    - { star: 10, max_load: 11 }
+
+zones:
+  1:    # Darwin — hot humid, cooling dominated
+    heating_degree_days: 30
+    cooling_degree_days: 1700
+    solar_irradiance_factor: 1.2
+    star_bands:
+      - { star: 5, max_load: 260 }
+      - { star: 6, max_load: 200 }
+      - { star: 7, max_load: 150 }
+      - { star: 8, max_load: 110 }
+      - { star: 9, max_load: 75 }
+      - { star: 10, max_load: 45 }
+  10:   # Brisbane — warm temperate
+    heating_degree_days: 300
+    cooling_degree_days: 700
+    solar_irradiance_factor: 1.1
+    star_bands:
+      - { star: 5, max_load: 110 }
+      - { star: 6, max_load: 80 }
+      - { star: 7, max_load: 55 }
+      - { star: 8, max_load: 38 }
+      - { star: 9, max_load: 24 }
+      - { star: 10, max_load: 13 }
+  13:   # Perth coastal
+    heating_degree_days: 800
+    cooling_degree_days: 550
+    solar_irradiance_factor: 1.15
+  16:   # Adelaide
+    heating_degree_days: 1100
+    cooling_degree_days: 500
+    solar_irradiance_factor: 1.05
+  24:   # Canberra — cool, heating dominated
+    heating_degree_days: 2300
+    cooling_degree_days: 250
+    solar_irradiance_factor: 1.0
+    star_bands:
+      - { star: 5, max_load: 150 }
+      - { star: 6, max_load: 110 }
+      - { star: 7, max_load: 80 }
+      - { star: 8, max_load: 55 }
+      - { star: 9, max_load: 34 }
+      - { star: 10, max_load: 18 }
+  26:   # Hobart — cool maritime, heating dominated
+    heating_degree_days: 2200
+    cooling_degree_days: 120
+    solar_irradiance_factor: 0.9
+    star_bands:
+      - { star: 5, max_load: 160 }
+      - { star: 6, max_load: 120 }
+      - { star: 7, max_load: 85 }
+      - { star: 8, max_load: 58 }
+      - { star: 9, max_load: 36 }
+      - { star: 10, max_load: 19 }
+  56:   # Sydney West / coastal — mild temperate
+    heating_degree_days: 700
+    cooling_degree_days: 400
+    solar_irradiance_factor: 1.05
+  60:   # Melbourne — temperate, heating leaning
+    heating_degree_days: 1600
+    cooling_degree_days: 250
+    solar_irradiance_factor: 0.95
+  62:   # Queanbeyan/ACT fringe (ambiguous example)
+    heating_degree_days: 2200
+    cooling_degree_days: 260
+    solar_irradiance_factor: 1.0

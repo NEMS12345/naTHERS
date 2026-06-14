@@ -9,7 +9,7 @@ import yaml
 
 from ..model.enums import Provenance
 from ..model.tracked import TrackedValue, missing
-from .models import ClimateZoneTable, JurisdictionsConfig, Settings
+from .models import ClimateDataTable, ClimateZoneTable, JurisdictionsConfig, Settings
 
 # Repo-root/config by default (…/src/planassess/config/loader.py -> repo root).
 DEFAULT_CONFIG_DIR = Path(__file__).resolve().parents[3] / "config"
@@ -33,6 +33,11 @@ def load_jurisdictions(config_dir: Path | None = None) -> JurisdictionsConfig:
 def load_climate_zones(config_dir: Path | None = None) -> ClimateZoneTable:
     config_dir = config_dir or DEFAULT_CONFIG_DIR
     return ClimateZoneTable.model_validate(_read_yaml(config_dir / "climate_zones.yaml"))
+
+
+def load_climate_data(config_dir: Path | None = None) -> ClimateDataTable:
+    config_dir = config_dir or DEFAULT_CONFIG_DIR
+    return ClimateDataTable.model_validate(_read_yaml(config_dir / "climate_data.yaml"))
 
 
 def lookup_climate_zone(

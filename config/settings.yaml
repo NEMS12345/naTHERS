@@ -17,3 +17,13 @@ vision_llm:
 oda_file_converter:
   enabled: true
   executable: "ODAFileConverter"
+
+# Method constants for the INDICATIVE simplified heat-balance thermal estimate.
+# These are calculation-methodology assumptions (not values extracted from the
+# plan); they are logged in the assumptions section of every report.
+thermal:
+  air_changes_per_hour: 0.7        # assumed infiltration/ventilation rate
+  internal_gain_w_per_m2: 4.0      # occupants + appliances, indicative
+  heating_utilisation_factor: 0.6  # fraction of gains usefully offsetting heating
+  solar_gain_factor: 0.6           # fraction of glazing solar gain reaching the zone
+  default_wall_height_m: 2.7       # used only to convert wall lengths to areas when height is known-missing; flagged as an assumption

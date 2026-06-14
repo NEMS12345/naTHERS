@@ -33,14 +33,27 @@ app = typer.Typer(
 )
 
 
-def _emit(review, compliance, written) -> None:
+def _emit(out) -> None:
     typer.echo("")
     typer.secho(NOT_A_CERTIFICATE_CAVEAT, fg=typer.colors.YELLOW)
     typer.echo("")
-    typer.echo(f"Strategy: {compliance.strategy.value} (mandatory={compliance.mandatory})")
-    typer.echo(f"Fields flagged for review: {len(review.gaps)} / {review.total_tracked} tracked")
+    t = out.thermal
+    if t.computed:
+        typer.echo(
+            f"Indicative thermal: {t.indicative_star} star "
+            f"(target {t.star_target}) · total {t.total_load_mj_per_m2} MJ/m².yr — INDICATIVE ONLY"
+        )
+    else:
+        typer.echo("Indicative thermal: not computable — insufficient data (see gap report)")
+    typer.echo(f"Strategy: {out.compliance.strategy.value} (mandatory={out.compliance.mandatory})")
+    for c in out.compliance.categories:
+        verdict = "PASS" if c.passed else ("FAIL" if c.passed is False else "n/a")
+        typer.echo(f"  - {c.name}: {verdict} (value {c.value} vs target {c.target})")
+    typer.echo(
+        f"Fields flagged for review: {len(out.review.gaps)} / {out.review.total_tracked} tracked"
+    )
     typer.echo("Outputs:")
-    for path in written:
+    for path in out.written:
         typer.echo(f"  - {path}")
 
 
@@ -65,8 +78,7 @@ def demo(
     model.project.state = observed(state, Provenance.HUMAN, 1.0)
     model.extraction_meta.source_file = "<synthetic demo>"
     model.extraction_meta.adapter = "samples.synthetic_house"
-    review, compliance, written = run_pipeline(model, state, out)
-    _emit(review, compliance, written)
+    _emit(run_pipeline(model, state, out))
 
 
 @app.command()
@@ -107,8 +119,7 @@ def assess(
 
         model.project.postcode = observed(postcode, Provenance.HUMAN, 1.0)
 
-    review, compliance, written = run_pipeline(model, state, out)
-    _emit(review, compliance, written)
+    _emit(run_pipeline(model, state, out))
 
 
 if __name__ == "__main__":
