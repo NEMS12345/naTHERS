@@ -1,21 +1,35 @@
-# Jurisdiction-keyed compliance targets and benchmarks.
+# Jurisdiction-keyed compliance reference data and targets.
 #
 # VERSIONED and config-driven by design: standards and adoption dates differ by
-# state/territory, and these values shift with NCC editions and BASIX updates.
-# Nothing here is hardcoded in the assessment modules.
+# state/territory and shift with NCC editions and BASIX updates. Nothing here is
+# hardcoded in the assessment modules.
 #
-# IMPORTANT: these are indicative pre-assessment targets for data-prep. They do
-# NOT substitute for the official BASIX tool (NSW Planning Portal) or accredited
-# NatHERS Whole-of-Home software. Verify current figures before relying on them.
+# IMPORTANT: PlanAssess is an INDICATIVE pre-assessment. These figures are
+# reference data for data-prep; they do NOT substitute for the official BASIX
+# tool (NSW Planning Portal) or accredited NatHERS Whole-of-Home software. The
+# indicative scoring models (BASIX energy/water/thermal proxies, WoH score) are
+# directional only and are NOT the regulated calculations. Verify current
+# figures against the cited sources before relying on them.
 
-standards_version: "2022.1"          # internal config revision
+standards_version: "2022.2"          # internal config revision
 ncc_alignment: "NCC 2022"
-notes: >-
-  NCC 2022 lifted the energy efficiency provisions to a 7-star NatHERS
-  equivalent plus a Whole-of-Home budget. NSW implements its own pathway via
-  BASIX. NT has not mandated Whole-of-Home.
+last_reviewed: "2026-06-14"
 
-# Default NatHERS-indicative thermal star target unless a jurisdiction overrides.
+# Sources consulted for the adoption dates and targets below (verify currency):
+sources:
+  - "https://www.nathers.gov.au/blog/victoria-and-queensland-adopt-ncc-2022"
+  - "https://www.nathers.gov.au/resources/faqs"
+  - "https://pp.planningportal.nsw.gov.au/BASIX-standards"
+  - "https://www.basix.nsw.gov.au/iframe/new-to-basix/basix-assessment/basix-targets.html"
+  - "https://ncc.abcb.gov.au/editions/ncc-2022/adopted/volume-one/j-energy-efficiency/part-j1-energy-efficiency-performance-requirements"
+
+notes: >-
+  NCC 2022 lifted the energy efficiency provisions to a 7-star NatHERS thermal
+  equivalent plus a Whole-of-Home (WoH) budget. NSW implements its own pathway
+  via BASIX. Adoption dates vary by jurisdiction; TAS and NT have not adopted the
+  7-star/WoH requirements. For Class 2 apartments NCC requires a WoH score of at
+  least 50; some states set higher (e.g. VIC 60 for Class 1).
+
 default_star_target: 7.0
 
 jurisdictions:
@@ -23,29 +37,36 @@ jurisdictions:
   NSW:
     strategy: basix
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2023-10-01"   # increased BASIX standards commenced
     basix:
-      # BASIX scores three separate caps. Pass marks vary by climate zone and
-      # dwelling type; values below are indicative placeholders for pre-assessment
-      # and MUST be confirmed against the live BASIX tool.
       thermal_comfort:
-        method: deemed_to_satisfy        # DIY elemental checks; flag if Simulation/NatHERS required
-        requires_simulation_above_area_m2: 0   # 0 => always offer simulation path note
-        dts:                             # indicative deemed-to-satisfy element minimums
+        method: deemed_to_satisfy
+        requires_simulation_above_area_m2: 0
+        dts:
           min_ceiling_r: 4.1
           min_wall_r: 2.8
-          min_floor_r: 1.0               # suspended floors
+          min_floor_r: 1.0
           max_glazing_u: 5.4
           max_glazing_shgc: 0.60
-          max_glazing_area_ratio: 0.30   # glazing area / floor area above this -> simulation recommended
+          max_glazing_area_ratio: 0.30
       energy:
-        # Target = % reduction in modelled energy/emissions vs benchmark.
-        target_pct_by_dwelling:
+        # Regulated BASIX energy target is a ~7-11% emissions reduction vs the
+        # NSW benchmark depending on climate zone and dwelling type (verify in
+        # the BASIX tool). PlanAssess computes an INDICATIVE efficiency index
+        # (0-100) instead, so the threshold below is an indicative index pass
+        # mark, NOT the regulated percentage.
+        regulated_reduction_note: "BASIX energy: ~7-11% emissions reduction vs NSW benchmark (climate/type dependent)."
+        indicative_index_target_by_dwelling:
           house: 50
           dual_occupancy: 50
           secondary: 50
-          apartment: 35
+          apartment: 45
       water:
-        # Target = % reduction in potable water use vs benchmark.
+        # Regulated BASIX water target is a percentage potable reduction vs the
+        # NSW benchmark, commonly 40% (0% in some northern climate zones). Our
+        # indicative water model targets the same percentage.
+        regulated_note: "BASIX water: 40% potable reduction applies to ~90% of new NSW dwellings (0% in CZ 9-11)."
         target_pct_by_dwelling:
           house: 40
           dual_occupancy: 40
@@ -55,48 +76,62 @@ jurisdictions:
   VIC:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2024-05-01"
     woh:
       mandatory: true
-      benchmark_score: 60        # indicative WoH pass mark (0..100)
+      benchmark_score: 60        # VIC: 7-star + WoH score >= 60
 
   QLD:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2024-05-01"   # commenced; transitional arrangements applied
     woh:
       mandatory: true
-      benchmark_score: 60
+      benchmark_score: 50        # NCC floor (Class 2 >= 50); indicative for Class 1
 
   SA:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2024-10-01"
     woh:
       mandatory: true
-      benchmark_score: 60
+      benchmark_score: 50
 
   WA:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2025-05-01"   # full adoption
     woh:
       mandatory: true
-      benchmark_score: 60
-
-  TAS:
-    strategy: woh
-    nathers_star_target: 7.0
-    woh:
-      mandatory: true
-      benchmark_score: 60
+      benchmark_score: 50
 
   ACT:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: true
+    ncc2022_adoption_date: "2024-01-01"
     woh:
       mandatory: true
-      benchmark_score: 60
+      benchmark_score: 50
+
+  TAS:
+    strategy: woh
+    nathers_star_target: 7.0
+    seven_star_mandatory: false           # TAS: 7-star/WoH NOT adopted (condensation provisions only)
+    ncc2022_adoption_date: null
+    woh:
+      mandatory: false                    # not required in TAS at time of review
+      benchmark_score: null
 
   NT:
     strategy: woh
     nathers_star_target: 7.0
+    seven_star_mandatory: false           # NT: has not adopted the 7-star/WoH requirements
+    ncc2022_adoption_date: null
     woh:
-      mandatory: false           # NT: Whole-of-Home NOT mandated — mark not required
+      mandatory: false                    # NT: Whole-of-Home NOT mandated
       benchmark_score: null

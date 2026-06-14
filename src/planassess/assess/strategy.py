@@ -23,6 +23,16 @@ def select_strategy(
     return jc.strategy, jc
 
 
+def _adoption_context(state: State, jc: JurisdictionConfig) -> str:
+    """One-line NCC 2022 adoption/7-star status for the jurisdiction (from config)."""
+    if jc.ncc2022_adoption_date:
+        base = f"NCC 2022 energy provisions adopted in {state.value} from {jc.ncc2022_adoption_date}"
+    else:
+        base = f"{state.value} has not adopted the NCC 2022 7-star/WoH energy provisions"
+    star = "7-star thermal mandatory" if jc.seven_star_mandatory else "7-star thermal NOT yet mandated"
+    return f"{base}; {star}."
+
+
 def run_compliance(
     model: BuildingModel,
     state: State,
@@ -31,17 +41,17 @@ def run_compliance(
 ) -> ComplianceResult:
     """Select and run the jurisdiction compliance pre-assessment."""
     strategy, jc = select_strategy(state, config)
+    adoption = _adoption_context(state, jc)
 
     if strategy == JurisdictionStrategy.BASIX:
         if jc.basix is None:
             raise ValueError("NSW jurisdiction config is missing the 'basix' section.")
         categories = assess_basix(model, jc.basix)
-        result = ComplianceResult(
+        return ComplianceResult(
             state=state, strategy=strategy, mandatory=True, implemented=True,
             categories=categories,
-            summary="NSW BASIX pre-assessment (Energy, Water, Thermal Comfort).",
+            summary=f"NSW BASIX pre-assessment (Energy, Water, Thermal Comfort). {adoption}",
         )
-        return result
 
     # NatHERS Whole-of-Home.
     mandatory = jc.woh.mandatory if jc.woh else True
@@ -50,7 +60,7 @@ def run_compliance(
             state=state, strategy=strategy, mandatory=False, implemented=True,
             summary=(
                 f"{state.value}: NatHERS Whole-of-Home is NOT mandatory in this "
-                "jurisdiction — marked not required."
+                f"jurisdiction — marked not required. {adoption}"
             ),
         )
     benchmark = jc.woh.benchmark_score if jc.woh and jc.woh.benchmark_score is not None else 60.0
@@ -58,5 +68,8 @@ def run_compliance(
     return ComplianceResult(
         state=state, strategy=strategy, mandatory=True, implemented=True,
         categories=[category],
-        summary=f"{state.value}: NatHERS Whole-of-Home pre-assessment (indicative score vs {benchmark}).",
+        summary=(
+            f"{state.value}: NatHERS Whole-of-Home pre-assessment (indicative score "
+            f"vs {benchmark}). {adoption}"
+        ),
     )

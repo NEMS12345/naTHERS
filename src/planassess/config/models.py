@@ -55,11 +55,15 @@ class BasixThermalComfort(BaseModel):
 
 
 class BasixEnergy(BaseModel):
-    target_pct_by_dwelling: dict[str, float] = Field(default_factory=dict)
+    # Indicative efficiency-index pass marks (0-100) for the PlanAssess proxy —
+    # NOT the regulated BASIX percentage (see regulated_reduction_note).
+    indicative_index_target_by_dwelling: dict[str, float] = Field(default_factory=dict)
+    regulated_reduction_note: str | None = None
 
 
 class BasixWater(BaseModel):
     target_pct_by_dwelling: dict[str, float] = Field(default_factory=dict)
+    regulated_note: str | None = None
 
 
 class BasixConfig(BaseModel):
@@ -76,6 +80,8 @@ class WohConfig(BaseModel):
 class JurisdictionConfig(BaseModel):
     strategy: JurisdictionStrategy
     nathers_star_target: float
+    seven_star_mandatory: bool = True
+    ncc2022_adoption_date: str | None = None
     basix: BasixConfig | None = None
     woh: WohConfig | None = None
 
@@ -84,6 +90,8 @@ class JurisdictionsConfig(BaseModel):
     standards_version: str
     ncc_alignment: str
     default_star_target: float = 7.0
+    last_reviewed: str | None = None
+    sources: list[str] = Field(default_factory=list)
     notes: str | None = None
     jurisdictions: dict[str, JurisdictionConfig]
 

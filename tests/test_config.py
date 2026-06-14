@@ -44,6 +44,33 @@ def test_nt_woh_not_mandatory(config_dir: Path):
     assert jc.woh.mandatory is False
 
 
+def test_non_adopting_jurisdictions_flagged(config_dir: Path):
+    cfg = load_jurisdictions(config_dir)
+    # TAS and NT have not adopted the 7-star/WoH provisions (sourced 2026-06).
+    for st in ("TAS", "NT"):
+        jc = cfg.for_state(st)
+        assert jc.seven_star_mandatory is False
+        assert jc.ncc2022_adoption_date is None
+        assert jc.woh.mandatory is False
+    # Adopting jurisdictions carry a dated adoption.
+    assert cfg.for_state("NSW").ncc2022_adoption_date == "2023-10-01"
+    assert cfg.for_state("VIC").seven_star_mandatory is True
+
+
+def test_config_carries_sources_and_review_date(config_dir: Path):
+    cfg = load_jurisdictions(config_dir)
+    assert cfg.last_reviewed  # provenance for the sourced figures
+    assert any("nathers.gov.au" in s for s in cfg.sources)
+
+
+def test_basix_energy_target_is_indicative_index_not_regulated_pct(config_dir: Path):
+    cfg = load_jurisdictions(config_dir)
+    energy = cfg.for_state("NSW").basix.energy
+    assert energy.indicative_index_target_by_dwelling["house"] > 0
+    # The regulated percentage is recorded as a note, not conflated with our index.
+    assert energy.regulated_reduction_note and "%" in energy.regulated_reduction_note
+
+
 def test_targets_are_config_driven_not_hardcoded(config_dir: Path):
     cfg = load_jurisdictions(config_dir)
     # standards_version pins the config revision; assessment modules read from here.

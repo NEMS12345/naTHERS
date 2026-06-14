@@ -36,6 +36,20 @@ The human-in-the-loop **review gate** sits between extract and assess. The
 All compliance targets, star thresholds and benchmarks live in a **versioned,
 jurisdiction-keyed config** (`config/`), never hardcoded.
 
+### Data & provenance
+
+`config/jurisdictions.yaml` carries `last_reviewed`, a `sources` list and
+per-jurisdiction NCC 2022 adoption dates / 7-star-mandatory flags (TAS and NT
+had not adopted the 7-star/WoH provisions at the last review). These figures
+were sourced from NatHERS/ABCB/NSW Planning publications and are **indicative —
+verify against the cited sources before relying on them**. The indicative
+scoring models (BASIX energy/water/thermal proxies and the WoH score) are
+**directional only** and are not the regulated BASIX or NatHERS Whole-of-Home
+calculations; the BASIX `energy` figure is an efficiency index, not the
+regulated percentage (the regulated target is recorded alongside as a note).
+The postcode→climate-zone and climate degree-day tables remain seed subsets
+pending a sourced national dataset.
+
 ## Status — build phases
 
 | Phase | Deliverable | State |

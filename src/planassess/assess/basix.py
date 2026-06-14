@@ -81,6 +81,8 @@ def assess_water(model: BuildingModel, cfg: BasixConfig, target_pct: float) -> C
     cat.value = value
     cat.margin = round(value - target_pct, 1)
     cat.passed = value >= target_pct
+    if cfg.water.regulated_note:
+        cat.notes.append(cfg.water.regulated_note)
     if cat.missing_inputs:
         cat.notes.append(
             "Missing fixture inputs were treated as no-credit; the estimate is "
@@ -89,8 +91,15 @@ def assess_water(model: BuildingModel, cfg: BasixConfig, target_pct: float) -> C
     return cat
 
 
-def assess_energy(model: BuildingModel, cfg: BasixConfig, target_pct: float) -> CategoryResult:
-    cat = CategoryResult(name="Energy", target=target_pct, unit="% emissions reduction", method="BASIX")
+def assess_energy(model: BuildingModel, cfg: BasixConfig, index_target: float) -> CategoryResult:
+    cat = CategoryResult(
+        name="Energy", target=index_target,
+        unit="indicative efficiency index (0-100)", method="BASIX (indicative proxy)",
+    )
+    if cfg.energy.regulated_reduction_note:
+        cat.notes.append(
+            f"Indicative index only — not the regulated BASIX metric. {cfg.energy.regulated_reduction_note}"
+        )
     s = model.services
     reduction = 0.0
 
@@ -121,8 +130,8 @@ def assess_energy(model: BuildingModel, cfg: BasixConfig, target_pct: float) -> 
 
     value = round(reduction * 100, 1)
     cat.value = value
-    cat.margin = round(value - target_pct, 1)
-    cat.passed = value >= target_pct
+    cat.margin = round(value - index_target, 1)
+    cat.passed = value >= index_target
     return cat
 
 
@@ -187,9 +196,9 @@ def assess_thermal_comfort(model: BuildingModel, cfg: BasixConfig) -> CategoryRe
 def assess_basix(model: BuildingModel, cfg: BasixConfig, dwelling_type: DwellingType | None = None) -> list[CategoryResult]:
     dt = (dwelling_type or _dwelling_type(model)).value
     water_target = cfg.water.target_pct_by_dwelling.get(dt, 40)
-    energy_target = cfg.energy.target_pct_by_dwelling.get(dt, 50)
+    energy_index_target = cfg.energy.indicative_index_target_by_dwelling.get(dt, 50)
     return [
-        assess_energy(model, cfg, energy_target),
+        assess_energy(model, cfg, energy_index_target),
         assess_water(model, cfg, water_target),
         assess_thermal_comfort(model, cfg),
     ]
