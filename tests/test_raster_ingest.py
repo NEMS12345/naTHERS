@@ -78,7 +78,7 @@ def test_pipeline_runs_on_raster_model(tmp_path: Path):
     from planassess.model.tracked import observed
 
     m.project.postcode = observed("4000", Provenance.HUMAN, 1.0)
-    out = run_pipeline(m, State.QLD, tmp_path, CONFIG)
+    run_pipeline(m, State.QLD, tmp_path, CONFIG)
     assert (tmp_path / "building_model.json").exists()
     assert (tmp_path / "gap_report.md").exists()
 

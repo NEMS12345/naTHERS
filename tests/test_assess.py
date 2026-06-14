@@ -133,3 +133,40 @@ def test_woh_flags_missing_services():
     model.services.lighting = missing()
     cat = assess_woh(model, benchmark_score=60)
     assert "services.lighting" in cat.missing_inputs
+
+
+def test_woh_pool_applies_penalty():
+    base = synthetic_house()
+    with_pool = synthetic_house()
+    with_pool.services.pool_spa = observed("Pool with electric pump", Provenance.DXF_TEXT, 0.8)
+    assert assess_woh(with_pool, 60).value < assess_woh(base, 60).value
+
+
+# --- expanded scoring keyword maps -------------------------------------------
+
+
+def test_scoring_recognises_common_systems():
+    from planassess.assess.scoring import (
+        COOKTOP_FACTORS,
+        HOT_WATER_FACTORS,
+        HVAC_FACTORS,
+        score_text,
+    )
+
+    assert score_text("Ducted reverse cycle", HVAC_FACTORS) == 0.6
+    assert score_text("Evaporative cooling", HVAC_FACTORS) == 0.4
+    assert score_text("Gas boosted solar HWS", HOT_WATER_FACTORS) == 0.70
+    assert score_text("CO2 heat pump", HOT_WATER_FACTORS) == 0.75
+    assert score_text("Induction cooktop", COOKTOP_FACTORS) == 0.6
+    assert score_text("Gas cooktop (LPG)", COOKTOP_FACTORS) == 0.0
+    assert score_text("Unknown widget", HVAC_FACTORS) is None
+
+
+def test_basix_apartment_uses_apartment_targets():
+    from planassess.model.enums import DwellingType
+
+    cfg = load_jurisdictions(CONFIG).for_state("NSW").basix
+    cats = assess_basix(synthetic_house(), cfg, dwelling_type=DwellingType.APARTMENT)
+    energy = next(c for c in cats if c.name == "Energy")
+    expected = cfg.energy.indicative_index_target_by_dwelling["apartment"]
+    assert energy.target == expected

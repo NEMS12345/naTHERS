@@ -24,8 +24,14 @@ jobs:
       - name: Install PlanAssess (all extras)
         run: pip install -e ".[dev,dxf,pdf,raster,report]"
 
-      - name: Run tests
-        run: pytest -q
+      - name: Lint (ruff)
+        run: ruff check src tests scripts
+
+      - name: Type-check (mypy, schema package)
+        run: mypy
+
+      - name: Run tests with coverage
+        run: pytest -q --cov=planassess --cov-report=term-missing --cov-fail-under=80
 
       - name: CLI end-to-end smoke
         run: bash scripts/smoke.sh out/smoke

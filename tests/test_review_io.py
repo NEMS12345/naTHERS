@@ -5,8 +5,6 @@ from __future__ import annotations
 import csv
 from pathlib import Path
 
-import pytest
-
 from planassess.model.enums import Orientation, Provenance, ZoneType
 from planassess.review.gate import run_review_gate
 from planassess.review.review_io import (

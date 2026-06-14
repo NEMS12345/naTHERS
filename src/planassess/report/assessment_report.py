@@ -54,6 +54,10 @@ def render_assessment_report(
         f"- NatHERS climate zone: **{cz.value if not cz.is_missing else 'UNKNOWN — see gap report'}** "
         f"(confidence {cz.confidence:.2f})"
     )
+    lines.append(
+        "  - _Note: NatHERS climate zones (1–69) are distinct from NCC climate "
+        "zones (1–8); this assessment uses the NatHERS zones._"
+    )
     if thermal.computed:
         lines.append(
             f"- **Indicative star: {_fmt(thermal.indicative_star)}** "

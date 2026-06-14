@@ -6,7 +6,6 @@ from pydantic import BaseModel, Field
 
 from ..model.enums import JurisdictionStrategy
 
-
 # --- settings.yaml -----------------------------------------------------------
 
 

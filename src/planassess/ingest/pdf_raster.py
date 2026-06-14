@@ -32,7 +32,7 @@ from ..config.models import Settings
 from ..model.building import BuildingModel
 from ..model.enums import Provenance
 from .builder import build_model_from_primitives
-from .schedule import ScheduleItem, parse_schedule
+from .schedule import parse_schedule
 
 _SCALE_RE = re.compile(r"\b1\s*[:：]\s*(\d{1,4})\b")
 _RENDER_DPI = 200

@@ -1,0 +1,14 @@
+Copyright (c) 2026 NEMS. All rights reserved.
+
+PlanAssess is proprietary software. No licence to use, copy, modify, merge,
+publish, distribute, sublicense, or sell copies of this software is granted
+except by separate written agreement with the copyright holder.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. PlanAssess produces INDICATIVE pre-assessments and data-preparation
+material only; it does not produce official or lodgeable certificates, and its
+thermal output is not a CSIRO Chenath NatHERS rating. The copyright holder
+accepts no liability for any use of, or reliance on, its output.
+
+Third-party reference data (e.g. NatHERS/ABCB/NSW BASIX figures) remains subject
+to the terms and licences of its respective publishers; see docs/DATA_SOURCES.md.

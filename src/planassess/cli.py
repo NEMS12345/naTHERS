@@ -119,6 +119,11 @@ def review(
 
         model.project.postcode = observed(postcode, Provenance.HUMAN, 1.0)
 
+    from .model.validation import check_integrity
+
+    for issue in check_integrity(model):
+        typer.secho(f"  integrity: {issue}", fg=typer.colors.YELLOW, err=True)
+
     result, written = review_only(model, out)
     typer.echo(f"Flagged {len(result.gaps)} / {result.total_tracked} fields for review.")
     for path in written:

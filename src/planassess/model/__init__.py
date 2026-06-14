@@ -28,6 +28,7 @@ from .enums import (
     ZoneType,
 )
 from .tracked import TrackedValue, missing, observed
+from .validation import check_integrity
 
 __all__ = [
     "BuildingModel",
@@ -46,6 +47,7 @@ __all__ = [
     "TrackedValue",
     "missing",
     "observed",
+    "check_integrity",
     "State",
     "Provenance",
     "DwellingType",

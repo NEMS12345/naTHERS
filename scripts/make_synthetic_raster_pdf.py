@@ -7,7 +7,7 @@ Run:
     python scripts/make_synthetic_raster_pdf.py
 """
 from __future__ import annotations
-import sys
+
 from pathlib import Path
 
 

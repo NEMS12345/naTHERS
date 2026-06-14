@@ -84,8 +84,7 @@ def parse_schedule_line(line: str) -> ScheduleItem | None:
                 item.room = p
                 break
 
-    # Confidence scales with how complete the parse is (windows expect more fields).
-    expected = 4 if item.is_door else 7
+    # Confidence scales with how complete the parse is.
     item.confidence = round(min(0.9, 0.35 + 0.1 * fields_found), 2)
     return item
 
