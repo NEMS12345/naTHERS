@@ -40,7 +40,7 @@ def test_pipeline_resolves_climate_zone_from_postcode(tmp_path: Path, config_dir
     model = synthetic_house(postcode="2000")
     assert model.project.climate_zone.is_missing
     run_pipeline(model, State.NSW, tmp_path, config_dir)
-    assert model.project.climate_zone.value == 56
+    assert model.project.climate_zone.value == 17
 
 
 def test_pipeline_vic_selects_woh(tmp_path: Path, config_dir: Path):

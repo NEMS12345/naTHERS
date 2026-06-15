@@ -1,36 +1,10145 @@
-# Postcode -> NatHERS climate zone lookup (national, 1..69).
-#
-# ⚠️ ILLUSTRATIVE / UNVERIFIED SEED. The zone numbers below are plausible
-# placeholders for development and demos only — they have NOT been verified
-# against the official NatHERS "Climate Zones by postcode" table. Every entry is
-# therefore given a LOW confidence (< the review threshold) so the review gate
-# flags it for human verification rather than presenting it as authoritative.
-#
-# Replace this file with the real table (thousands of postcodes) via:
-#   python scripts/build_climate_zone_table.py NatHERSclimatezones.xlsx --out config/climate_zones.yaml
-# Source: https://www.nathers.gov.au/climate-zone-postcodes  (see docs/DATA_SOURCES.md)
-#
-# Where a postcode maps to multiple zones, list them under `ambiguous` so the
-# lookup resolves to a low-confidence value that trips the review gate.
-
-version: "illustrative-seed-0.2-UNVERIFIED"
-
+version: nathers-2026-06-15
+source: NatHERSclimatezonesSept2025.xlsx
 postcodes:
-  # confidence 0.5 (< 0.6 threshold) => always gap-flagged pending verification.
-  "2000": { zone: 56, confidence: 0.5 }   # Sydney CBD (unverified)
-  "2010": { zone: 56, confidence: 0.5 }
-  "2150": { zone: 56, confidence: 0.5 }    # Parramatta
-  "3000": { zone: 60, confidence: 0.5 }    # Melbourne CBD (unverified)
-  "3061": { zone: 60, confidence: 0.5 }
-  "4000": { zone: 10, confidence: 0.5 }    # Brisbane CBD (unverified)
-  "5000": { zone: 16, confidence: 0.5 }    # Adelaide CBD (unverified)
-  "6000": { zone: 13, confidence: 0.5 }    # Perth CBD (unverified)
-  "7000": { zone: 26, confidence: 0.5 }    # Hobart CBD (unverified)
-  "0800": { zone: 1, confidence: 0.5 }     # Darwin CBD (zone 1 is the canonical hot-humid zone)
-  "2600": { zone: 24, confidence: 0.5 }    # Canberra (unverified)
-
+  0800:
+    zone: 1
+    confidence: 0.9
+  0801:
+    zone: 1
+    confidence: 0.9
+  0804:
+    zone: 1
+    confidence: 0.9
+  0810:
+    zone: 1
+    confidence: 0.9
+  0811:
+    zone: 1
+    confidence: 0.9
+  0812:
+    zone: 1
+    confidence: 0.9
+  0813:
+    zone: 1
+    confidence: 0.9
+  0814:
+    zone: 1
+    confidence: 0.9
+  0815:
+    zone: 1
+    confidence: 0.9
+  0820:
+    zone: 1
+    confidence: 0.9
+  0821:
+    zone: 1
+    confidence: 0.9
+  0828:
+    zone: 1
+    confidence: 0.9
+  0829:
+    zone: 1
+    confidence: 0.9
+  0830:
+    zone: 1
+    confidence: 0.9
+  0831:
+    zone: 1
+    confidence: 0.9
+  0832:
+    zone: 1
+    confidence: 0.9
+  0834:
+    zone: 1
+    confidence: 0.9
+  0835:
+    zone: 1
+    confidence: 0.9
+  0836:
+    zone: 1
+    confidence: 0.9
+  0837:
+    zone: 1
+    confidence: 0.9
+  0838:
+    zone: 1
+    confidence: 0.9
+  0839:
+    zone: 1
+    confidence: 0.9
+  0840:
+    zone: 1
+    confidence: 0.9
+  0841:
+    zone: 1
+    confidence: 0.9
+  0845:
+    zone: 1
+    confidence: 0.9
+  0846:
+    zone: 1
+    confidence: 0.9
+  0850:
+    zone: 37
+    confidence: 0.9
+  0851:
+    zone: 37
+    confidence: 0.9
+  0853:
+    zone: 37
+    confidence: 0.9
+  0854:
+    zone: 37
+    confidence: 0.9
+  0860:
+    zone: 38
+    confidence: 0.9
+  0861:
+    zone: 38
+    confidence: 0.9
+  0870:
+    zone: 6
+    confidence: 0.9
+  0871:
+    zone: 6
+    confidence: 0.9
+  0873:
+    zone: 6
+    confidence: 0.9
+  0874:
+    zone: 6
+    confidence: 0.9
+  0880:
+    zone: 1
+    confidence: 0.9
+  0881:
+    zone: 1
+    confidence: 0.9
+  0885:
+    zone: 1
+    confidence: 0.9
+  '1639':
+    zone: 56
+    confidence: 0.9
+  '2000':
+    zone: 17
+    confidence: 0.9
+  '2006':
+    zone: 56
+    confidence: 0.9
+  '2007':
+    zone: 17
+    confidence: 0.9
+  '2008':
+    zone: 17
+    confidence: 0.9
+  '2009':
+    zone: 56
+    confidence: 0.9
+  '2010':
+    zone: 17
+    confidence: 0.9
+  '2011':
+    zone: 17
+    confidence: 0.9
+  '2015':
+    zone: 56
+    confidence: 0.9
+  '2016':
+    zone: 56
+    confidence: 0.9
+  '2017':
+    zone: 56
+    confidence: 0.9
+  '2018':
+    zone: 56
+    confidence: 0.9
+  '2019':
+    zone: 56
+    confidence: 0.9
+  '2020':
+    zone: 56
+    confidence: 0.9
+  '2021':
+    zone: 56
+    confidence: 0.9
+  '2022':
+    zone: 56
+    confidence: 0.9
+  '2023':
+    zone: 56
+    confidence: 0.9
+  '2024':
+    zone: 56
+    confidence: 0.9
+  '2025':
+    zone: 56
+    confidence: 0.9
+  '2026':
+    zone: 56
+    confidence: 0.9
+  '2027':
+    zone: 56
+    confidence: 0.9
+  '2028':
+    zone: 56
+    confidence: 0.9
+  '2029':
+    zone: 56
+    confidence: 0.9
+  '2030':
+    zone: 56
+    confidence: 0.9
+  '2031':
+    zone: 56
+    confidence: 0.9
+  '2032':
+    zone: 56
+    confidence: 0.9
+  '2033':
+    zone: 56
+    confidence: 0.9
+  '2034':
+    zone: 56
+    confidence: 0.9
+  '2035':
+    zone: 56
+    confidence: 0.9
+  '2036':
+    zone: 56
+    confidence: 0.9
+  '2037':
+    zone: 56
+    confidence: 0.9
+  '2038':
+    zone: 56
+    confidence: 0.9
+  '2039':
+    zone: 56
+    confidence: 0.9
+  '2040':
+    zone: 56
+    confidence: 0.9
+  '2041':
+    zone: 56
+    confidence: 0.9
+  '2042':
+    zone: 56
+    confidence: 0.9
+  '2043':
+    zone: 56
+    confidence: 0.9
+  '2044':
+    zone: 56
+    confidence: 0.9
+  '2045':
+    zone: 56
+    confidence: 0.9
+  '2046':
+    zone: 56
+    confidence: 0.9
+  '2047':
+    zone: 56
+    confidence: 0.9
+  '2048':
+    zone: 56
+    confidence: 0.9
+  '2049':
+    zone: 56
+    confidence: 0.9
+  '2050':
+    zone: 56
+    confidence: 0.9
+  '2052':
+    zone: 56
+    confidence: 0.9
+  '2060':
+    zone: 17
+    confidence: 0.9
+  '2061':
+    zone: 17
+    confidence: 0.9
+  '2062':
+    zone: 56
+    confidence: 0.9
+  '2063':
+    zone: 56
+    confidence: 0.9
+  '2064':
+    zone: 56
+    confidence: 0.9
+  '2065':
+    zone: 56
+    confidence: 0.9
+  '2066':
+    zone: 56
+    confidence: 0.9
+  '2067':
+    zone: 56
+    confidence: 0.9
+  '2068':
+    zone: 56
+    confidence: 0.9
+  '2069':
+    zone: 56
+    confidence: 0.9
+  '2070':
+    zone: 56
+    confidence: 0.9
+  '2071':
+    zone: 56
+    confidence: 0.9
+  '2072':
+    zone: 56
+    confidence: 0.9
+  '2073':
+    zone: 56
+    confidence: 0.9
+  '2074':
+    zone: 56
+    confidence: 0.9
+  '2075':
+    zone: 56
+    confidence: 0.9
+  '2076':
+    zone: 56
+    confidence: 0.9
+  '2077':
+    zone: 56
+    confidence: 0.9
+  '2079':
+    zone: 56
+    confidence: 0.9
+  '2080':
+    zone: 56
+    confidence: 0.9
+  '2081':
+    zone: 56
+    confidence: 0.9
+  '2082':
+    zone: 56
+    confidence: 0.9
+  '2083':
+    zone: 56
+    confidence: 0.9
+  '2084':
+    zone: 56
+    confidence: 0.9
+  '2085':
+    zone: 56
+    confidence: 0.9
+  '2086':
+    zone: 56
+    confidence: 0.9
+  '2087':
+    zone: 56
+    confidence: 0.9
+  '2088':
+    zone: 56
+    confidence: 0.9
+  '2089':
+    zone: 56
+    confidence: 0.9
+  '2090':
+    zone: 56
+    confidence: 0.9
+  '2091':
+    zone: 56
+    confidence: 0.9
+  '2092':
+    zone: 56
+    confidence: 0.9
+  '2093':
+    zone: 56
+    confidence: 0.9
+  '2094':
+    zone: 56
+    confidence: 0.9
+  '2095':
+    zone: 56
+    confidence: 0.9
+  '2096':
+    zone: 56
+    confidence: 0.9
+  '2097':
+    zone: 56
+    confidence: 0.9
+  '2099':
+    zone: 56
+    confidence: 0.9
+  '2100':
+    zone: 56
+    confidence: 0.9
+  '2101':
+    zone: 56
+    confidence: 0.9
+  '2102':
+    zone: 56
+    confidence: 0.9
+  '2103':
+    zone: 56
+    confidence: 0.9
+  '2104':
+    zone: 56
+    confidence: 0.9
+  '2105':
+    zone: 56
+    confidence: 0.9
+  '2106':
+    zone: 56
+    confidence: 0.9
+  '2107':
+    zone: 56
+    confidence: 0.9
+  '2108':
+    zone: 56
+    confidence: 0.9
+  '2109':
+    zone: 56
+    confidence: 0.9
+  '2110':
+    zone: 56
+    confidence: 0.9
+  '2111':
+    zone: 56
+    confidence: 0.9
+  '2112':
+    zone: 56
+    confidence: 0.9
+  '2113':
+    zone: 56
+    confidence: 0.9
+  '2114':
+    zone: 56
+    confidence: 0.9
+  '2115':
+    zone: 56
+    confidence: 0.9
+  '2116':
+    zone: 56
+    confidence: 0.9
+  '2117':
+    zone: 56
+    confidence: 0.9
+  '2118':
+    zone: 56
+    confidence: 0.9
+  '2119':
+    zone: 56
+    confidence: 0.9
+  '2120':
+    zone: 56
+    confidence: 0.9
+  '2121':
+    zone: 56
+    confidence: 0.9
+  '2122':
+    zone: 56
+    confidence: 0.9
+  '2123':
+    zone: 56
+    confidence: 0.9
+  '2125':
+    zone: 56
+    confidence: 0.9
+  '2126':
+    zone: 56
+    confidence: 0.9
+  '2127':
+    zone: 56
+    confidence: 0.9
+  '2128':
+    zone: 56
+    confidence: 0.9
+  '2130':
+    zone: 56
+    confidence: 0.9
+  '2131':
+    zone: 56
+    confidence: 0.9
+  '2132':
+    zone: 56
+    confidence: 0.9
+  '2133':
+    zone: 56
+    confidence: 0.9
+  '2134':
+    zone: 56
+    confidence: 0.9
+  '2135':
+    zone: 56
+    confidence: 0.9
+  '2136':
+    zone: 56
+    confidence: 0.9
+  '2137':
+    zone: 56
+    confidence: 0.9
+  '2138':
+    zone: 56
+    confidence: 0.9
+  '2139':
+    zone: 56
+    confidence: 0.9
+  '2140':
+    zone: 56
+    confidence: 0.9
+  '2141':
+    zone: 56
+    confidence: 0.9
+  '2142':
+    zone: 56
+    confidence: 0.9
+  '2143':
+    zone: 56
+    confidence: 0.9
+  '2144':
+    zone: 56
+    confidence: 0.9
+  '2146':
+    zone: 28
+    confidence: 0.9
+  '2147':
+    zone: 28
+    confidence: 0.9
+  '2148':
+    zone: 28
+    confidence: 0.9
+  '2155':
+    zone: 28
+    confidence: 0.9
+  '2156':
+    zone: 28
+    confidence: 0.9
+  '2157':
+    zone: 28
+    confidence: 0.9
+  '2158':
+    zone: 28
+    confidence: 0.9
+  '2159':
+    zone: 28
+    confidence: 0.9
+  '2160':
+    zone: 56
+    confidence: 0.9
+  '2161':
+    zone: 56
+    confidence: 0.9
+  '2162':
+    zone: 56
+    confidence: 0.9
+  '2163':
+    zone: 56
+    confidence: 0.9
+  '2164':
+    zone: 28
+    confidence: 0.9
+  '2165':
+    zone: 28
+    confidence: 0.9
+  '2166':
+    zone: 28
+    confidence: 0.9
+  '2167':
+    zone: 28
+    confidence: 0.9
+  '2168':
+    zone: 28
+    confidence: 0.9
+  '2170':
+    zone: 28
+    confidence: 0.9
+  '2171':
+    zone: 28
+    confidence: 0.9
+  '2172':
+    zone: 28
+    confidence: 0.9
+  '2173':
+    zone: 28
+    confidence: 0.9
+  '2174':
+    zone: 28
+    confidence: 0.9
+  '2175':
+    zone: 28
+    confidence: 0.9
+  '2176':
+    zone: 28
+    confidence: 0.9
+  '2177':
+    zone: 28
+    confidence: 0.9
+  '2178':
+    zone: 28
+    confidence: 0.9
+  '2179':
+    zone: 28
+    confidence: 0.9
+  '2190':
+    zone: 56
+    confidence: 0.9
+  '2191':
+    zone: 56
+    confidence: 0.9
+  '2192':
+    zone: 56
+    confidence: 0.9
+  '2193':
+    zone: 56
+    confidence: 0.9
+  '2194':
+    zone: 56
+    confidence: 0.9
+  '2195':
+    zone: 56
+    confidence: 0.9
+  '2196':
+    zone: 56
+    confidence: 0.9
+  '2197':
+    zone: 56
+    confidence: 0.9
+  '2198':
+    zone: 56
+    confidence: 0.9
+  '2199':
+    zone: 56
+    confidence: 0.9
+  '2200':
+    zone: 56
+    confidence: 0.9
+  '2203':
+    zone: 56
+    confidence: 0.9
+  '2204':
+    zone: 56
+    confidence: 0.9
+  '2205':
+    zone: 56
+    confidence: 0.9
+  '2206':
+    zone: 56
+    confidence: 0.9
+  '2207':
+    zone: 56
+    confidence: 0.9
+  '2208':
+    zone: 56
+    confidence: 0.9
+  '2209':
+    zone: 56
+    confidence: 0.9
+  '2210':
+    zone: 56
+    confidence: 0.9
+  '2211':
+    zone: 56
+    confidence: 0.9
+  '2212':
+    zone: 56
+    confidence: 0.9
+  '2213':
+    zone: 56
+    confidence: 0.9
+  '2214':
+    zone: 56
+    confidence: 0.9
+  '2216':
+    zone: 56
+    confidence: 0.9
+  '2217':
+    zone: 56
+    confidence: 0.9
+  '2218':
+    zone: 56
+    confidence: 0.9
+  '2219':
+    zone: 56
+    confidence: 0.9
+  '2220':
+    zone: 56
+    confidence: 0.9
+  '2221':
+    zone: 56
+    confidence: 0.9
+  '2222':
+    zone: 56
+    confidence: 0.9
+  '2223':
+    zone: 56
+    confidence: 0.9
+  '2224':
+    zone: 56
+    confidence: 0.9
+  '2225':
+    zone: 56
+    confidence: 0.9
+  '2226':
+    zone: 56
+    confidence: 0.9
+  '2227':
+    zone: 56
+    confidence: 0.9
+  '2228':
+    zone: 56
+    confidence: 0.9
+  '2229':
+    zone: 56
+    confidence: 0.9
+  '2230':
+    zone: 56
+    confidence: 0.9
+  '2231':
+    zone: 56
+    confidence: 0.9
+  '2232':
+    zone: 56
+    confidence: 0.9
+  '2233':
+    zone: 56
+    confidence: 0.9
+  '2234':
+    zone: 56
+    confidence: 0.9
+  '2251':
+    zone: 15
+    confidence: 0.9
+  '2256':
+    zone: 15
+    confidence: 0.9
+  '2257':
+    zone: 15
+    confidence: 0.9
+  '2258':
+    zone: 15
+    confidence: 0.9
+  '2259':
+    zone: 15
+    confidence: 0.9
+  '2260':
+    zone: 15
+    confidence: 0.9
+  '2261':
+    zone: 15
+    confidence: 0.9
+  '2262':
+    zone: 15
+    confidence: 0.9
+  '2263':
+    zone: 15
+    confidence: 0.9
+  '2264':
+    zone: 15
+    confidence: 0.9
+  '2265':
+    zone: 15
+    confidence: 0.9
+  '2267':
+    zone: 15
+    confidence: 0.9
+  '2278':
+    zone: 15
+    confidence: 0.9
+  '2280':
+    zone: 15
+    confidence: 0.9
+  '2281':
+    zone: 15
+    confidence: 0.9
+  '2282':
+    zone: 15
+    confidence: 0.9
+  '2283':
+    zone: 15
+    confidence: 0.9
+  '2284':
+    zone: 15
+    confidence: 0.9
+  '2285':
+    zone: 15
+    confidence: 0.9
+  '2286':
+    zone: 15
+    confidence: 0.9
+  '2287':
+    zone: 15
+    confidence: 0.9
+  '2289':
+    zone: 15
+    confidence: 0.9
+  '2290':
+    zone: 15
+    confidence: 0.9
+  '2291':
+    zone: 15
+    confidence: 0.9
+  '2292':
+    zone: 15
+    confidence: 0.9
+  '2293':
+    zone: 15
+    confidence: 0.9
+  '2294':
+    zone: 15
+    confidence: 0.9
+  '2295':
+    zone: 15
+    confidence: 0.9
+  '2296':
+    zone: 15
+    confidence: 0.9
+  '2297':
+    zone: 15
+    confidence: 0.9
+  '2298':
+    zone: 15
+    confidence: 0.9
+  '2299':
+    zone: 15
+    confidence: 0.9
+  '2300':
+    zone: 15
+    confidence: 0.9
+  '2302':
+    zone: 15
+    confidence: 0.9
+  '2303':
+    zone: 15
+    confidence: 0.9
+  '2304':
+    zone: 15
+    confidence: 0.9
+  '2305':
+    zone: 15
+    confidence: 0.9
+  '2306':
+    zone: 15
+    confidence: 0.9
+  '2307':
+    zone: 15
+    confidence: 0.9
+  '2308':
+    zone: 15
+    confidence: 0.9
+  '2309':
+    zone: 15
+    confidence: 0.9
+  '2311':
+    zone: 28
+    confidence: 0.9
+  '2314':
+    zone: 15
+    confidence: 0.9
+  '2315':
+    zone: 15
+    confidence: 0.9
+  '2316':
+    zone: 15
+    confidence: 0.9
+  '2317':
+    zone: 15
+    confidence: 0.9
+  '2318':
+    zone: 15
+    confidence: 0.9
+  '2319':
+    zone: 15
+    confidence: 0.9
+  '2320':
+    zone: 28
+    confidence: 0.9
+  '2321':
+    zone: 28
+    confidence: 0.9
+  '2323':
+    zone: 28
+    confidence: 0.9
+  '2325':
+    zone: 28
+    confidence: 0.9
+  '2326':
+    zone: 28
+    confidence: 0.9
+  '2327':
+    zone: 28
+    confidence: 0.9
+  '2328':
+    zone: 65
+    confidence: 0.9
+  '2330':
+    zone: 28
+    confidence: 0.9
+  '2331':
+    zone: 28
+    confidence: 0.9
+  '2333':
+    zone: 65
+    confidence: 0.9
+  '2334':
+    zone: 28
+    confidence: 0.9
+  '2335':
+    zone: 28
+    confidence: 0.9
+  '2351':
+    zone: 14
+    confidence: 0.9
+  '2356':
+    zone: 14
+    confidence: 0.9
+  '2359':
+    zone: 14
+    confidence: 0.9
+  '2361':
+    zone: 14
+    confidence: 0.9
+  '2369':
+    zone: 14
+    confidence: 0.9
+  '2386':
+    zone: 8
+    confidence: 0.9
+  '2387':
+    zone: 8
+    confidence: 0.9
+  '2388':
+    zone: 8
+    confidence: 0.9
+  '2390':
+    zone: 8
+    confidence: 0.9
+  '2397':
+    zone: 8
+    confidence: 0.9
+  '2398':
+    zone: 8
+    confidence: 0.9
+  '2399':
+    zone: 8
+    confidence: 0.9
+  '2400':
+    zone: 8
+    confidence: 0.9
+  '2401':
+    zone: 8
+    confidence: 0.9
+  '2402':
+    zone: 8
+    confidence: 0.9
+  '2403':
+    zone: 14
+    confidence: 0.9
+  '2404':
+    zone: 14
+    confidence: 0.9
+  '2405':
+    zone: 8
+    confidence: 0.9
+  '2408':
+    zone: 8
+    confidence: 0.9
+  '2409':
+    zone: 8
+    confidence: 0.9
+  '2410':
+    zone: 8
+    confidence: 0.9
+  '2411':
+    zone: 8
+    confidence: 0.9
+  '2415':
+    zone: 28
+    confidence: 0.9
+  '2420':
+    zone: 28
+    confidence: 0.9
+  '2421':
+    zone: 28
+    confidence: 0.9
+  '2422':
+    zone: 28
+    confidence: 0.9
+  '2424':
+    zone: 28
+    confidence: 0.9
+  '2425':
+    zone: 28
+    confidence: 0.9
+  '2426':
+    zone: 15
+    confidence: 0.9
+  '2429':
+    zone: 15
+    confidence: 0.9
+  '2430':
+    zone: 15
+    confidence: 0.9
+  '2431':
+    zone: 11
+    confidence: 0.9
+  '2439':
+    zone: 15
+    confidence: 0.9
+  '2440':
+    zone: 11
+    confidence: 0.9
+  '2441':
+    zone: 11
+    confidence: 0.9
+  '2443':
+    zone: 15
+    confidence: 0.9
+  '2444':
+    zone: 15
+    confidence: 0.9
+  '2445':
+    zone: 15
+    confidence: 0.9
+  '2447':
+    zone: 11
+    confidence: 0.9
+  '2448':
+    zone: 11
+    confidence: 0.9
+  '2449':
+    zone: 11
+    confidence: 0.9
+  '2450':
+    zone: 11
+    confidence: 0.9
+  '2452':
+    zone: 11
+    confidence: 0.9
+  '2455':
+    zone: 11
+    confidence: 0.9
+  '2456':
+    zone: 11
+    confidence: 0.9
+  '2460':
+    zone: 11
+    confidence: 0.9
+  '2462':
+    zone: 11
+    confidence: 0.9
+  '2463':
+    zone: 11
+    confidence: 0.9
+  '2464':
+    zone: 11
+    confidence: 0.9
+  '2465':
+    zone: 11
+    confidence: 0.9
+  '2466':
+    zone: 11
+    confidence: 0.9
+  '2473':
+    zone: 11
+    confidence: 0.9
+  '2474':
+    zone: 9
+    confidence: 0.9
+  '2477':
+    zone: 10
+    confidence: 0.9
+  '2478':
+    zone: 10
+    confidence: 0.9
+  '2479':
+    zone: 10
+    confidence: 0.9
+  '2481':
+    zone: 10
+    confidence: 0.9
+  '2482':
+    zone: 10
+    confidence: 0.9
+  '2483':
+    zone: 10
+    confidence: 0.9
+  '2484':
+    zone: 10
+    confidence: 0.9
+  '2485':
+    zone: 10
+    confidence: 0.9
+  '2486':
+    zone: 10
+    confidence: 0.9
+  '2487':
+    zone: 10
+    confidence: 0.9
+  '2488':
+    zone: 10
+    confidence: 0.9
+  '2489':
+    zone: 10
+    confidence: 0.9
+  '2490':
+    zone: 10
+    confidence: 0.9
+  '2500':
+    zone: 56
+    confidence: 0.9
+  '2502':
+    zone: 56
+    confidence: 0.9
+  '2505':
+    zone: 56
+    confidence: 0.9
+  '2506':
+    zone: 56
+    confidence: 0.9
+  '2508':
+    zone: 56
+    confidence: 0.9
+  '2515':
+    zone: 56
+    confidence: 0.9
+  '2516':
+    zone: 56
+    confidence: 0.9
+  '2517':
+    zone: 56
+    confidence: 0.9
+  '2518':
+    zone: 56
+    confidence: 0.9
+  '2519':
+    zone: 56
+    confidence: 0.9
+  '2527':
+    zone: 18
+    confidence: 0.9
+  '2529':
+    zone: 18
+    confidence: 0.9
+  '2533':
+    zone: 18
+    confidence: 0.9
+  '2534':
+    zone: 18
+    confidence: 0.9
+  '2535':
+    zone: 18
+    confidence: 0.9
+  '2536':
+    zone: 18
+    confidence: 0.9
+  '2537':
+    zone: 18
+    confidence: 0.9
+  '2538':
+    zone: 18
+    confidence: 0.9
+  '2539':
+    zone: 18
+    confidence: 0.9
+  '2540':
+    zone: 18
+    confidence: 0.9
+  '2541':
+    zone: 18
+    confidence: 0.9
+  '2545':
+    zone: 18
+    confidence: 0.9
+  '2546':
+    zone: 18
+    confidence: 0.9
+  '2548':
+    zone: 18
+    confidence: 0.9
+  '2549':
+    zone: 18
+    confidence: 0.9
+  '2550':
+    zone: 18
+    confidence: 0.9
+  '2551':
+    zone: 18
+    confidence: 0.9
+  '2555':
+    zone: 28
+    confidence: 0.9
+  '2556':
+    zone: 28
+    confidence: 0.9
+  '2557':
+    zone: 28
+    confidence: 0.9
+  '2558':
+    zone: 28
+    confidence: 0.9
+  '2559':
+    zone: 28
+    confidence: 0.9
+  '2560':
+    zone: 28
+    confidence: 0.9
+  '2563':
+    zone: 28
+    confidence: 0.9
+  '2564':
+    zone: 28
+    confidence: 0.9
+  '2565':
+    zone: 28
+    confidence: 0.9
+  '2566':
+    zone: 28
+    confidence: 0.9
+  '2567':
+    zone: 28
+    confidence: 0.9
+  '2568':
+    zone: 28
+    confidence: 0.9
+  '2569':
+    zone: 28
+    confidence: 0.9
+  '2570':
+    zone: 28
+    confidence: 0.9
+  '2571':
+    zone: 28
+    confidence: 0.9
+  '2572':
+    zone: 28
+    confidence: 0.9
+  '2573':
+    zone: 28
+    confidence: 0.9
+  '2574':
+    zone: 28
+    confidence: 0.9
+  '2575':
+    zone: 24
+    confidence: 0.9
+  '2576':
+    zone: 24
+    confidence: 0.9
+  '2578':
+    zone: 24
+    confidence: 0.9
+  '2579':
+    zone: 24
+    confidence: 0.9
+  '2580':
+    zone: 24
+    confidence: 0.9
+  '2581':
+    zone: 24
+    confidence: 0.9
+  '2582':
+    zone: 24
+    confidence: 0.9
+  '2583':
+    zone: 65
+    confidence: 0.9
+  '2584':
+    zone: 20
+    confidence: 0.9
+  '2585':
+    zone: 20
+    confidence: 0.9
+  '2586':
+    zone: 65
+    confidence: 0.9
+  '2588':
+    zone: 20
+    confidence: 0.9
+  '2590':
+    zone: 20
+    confidence: 0.9
+  '2600':
+    zone: 24
+    confidence: 0.9
+  '2601':
+    zone: 24
+    confidence: 0.9
+  '2602':
+    zone: 24
+    confidence: 0.9
+  '2603':
+    zone: 24
+    confidence: 0.9
+  '2604':
+    zone: 24
+    confidence: 0.9
+  '2605':
+    zone: 24
+    confidence: 0.9
+  '2606':
+    zone: 24
+    confidence: 0.9
+  '2607':
+    zone: 24
+    confidence: 0.9
+  '2609':
+    zone: 24
+    confidence: 0.9
+  '2611':
+    zone: 24
+    confidence: 0.9
+  '2612':
+    zone: 24
+    confidence: 0.9
+  '2614':
+    zone: 24
+    confidence: 0.9
+  '2615':
+    zone: 24
+    confidence: 0.9
+  '2617':
+    zone: 24
+    confidence: 0.9
+  '2619':
+    zone: 24
+    confidence: 0.9
+  '2621':
+    zone: 24
+    confidence: 0.9
+  '2623':
+    zone: 24
+    confidence: 0.9
+  '2626':
+    zone: 24
+    confidence: 0.9
+  '2630':
+    zone: 24
+    confidence: 0.9
+  '2631':
+    zone: 24
+    confidence: 0.9
+  '2632':
+    zone: 24
+    confidence: 0.9
+  '2633':
+    zone: 24
+    confidence: 0.9
+  '2640':
+    zone: 20
+    confidence: 0.9
+  '2641':
+    zone: 20
+    confidence: 0.9
+  '2643':
+    zone: 20
+    confidence: 0.9
+  '2644':
+    zone: 20
+    confidence: 0.9
+  '2645':
+    zone: 20
+    confidence: 0.9
+  '2646':
+    zone: 20
+    confidence: 0.9
+  '2647':
+    zone: 20
+    confidence: 0.9
+  '2648':
+    zone: 27
+    confidence: 0.9
+  '2650':
+    zone: 20
+    confidence: 0.9
+  '2651':
+    zone: 20
+    confidence: 0.9
+  '2655':
+    zone: 20
+    confidence: 0.9
+  '2656':
+    zone: 20
+    confidence: 0.9
+  '2658':
+    zone: 20
+    confidence: 0.9
+  '2659':
+    zone: 20
+    confidence: 0.9
+  '2660':
+    zone: 20
+    confidence: 0.9
+  '2661':
+    zone: 20
+    confidence: 0.9
+  '2663':
+    zone: 20
+    confidence: 0.9
+  '2665':
+    zone: 20
+    confidence: 0.9
+  '2666':
+    zone: 20
+    confidence: 0.9
+  '2668':
+    zone: 20
+    confidence: 0.9
+  '2669':
+    zone: 27
+    confidence: 0.9
+  '2672':
+    zone: 46
+    confidence: 0.9
+  '2675':
+    zone: 46
+    confidence: 0.9
+  '2700':
+    zone: 27
+    confidence: 0.9
+  '2701':
+    zone: 20
+    confidence: 0.9
+  '2702':
+    zone: 20
+    confidence: 0.9
+  '2703':
+    zone: 27
+    confidence: 0.9
+  '2705':
+    zone: 27
+    confidence: 0.9
+  '2706':
+    zone: 27
+    confidence: 0.9
+  '2707':
+    zone: 27
+    confidence: 0.9
+  '2710':
+    zone: 27
+    confidence: 0.9
+  '2711':
+    zone: 27
+    confidence: 0.9
+  '2712':
+    zone: 20
+    confidence: 0.9
+  '2713':
+    zone: 27
+    confidence: 0.9
+  '2714':
+    zone: 27
+    confidence: 0.9
+  '2715':
+    zone: 27
+    confidence: 0.9
+  '2716':
+    zone: 27
+    confidence: 0.9
+  '2717':
+    zone: 27
+    confidence: 0.9
+  '2721':
+    zone: 20
+    confidence: 0.9
+  '2722':
+    zone: 20
+    confidence: 0.9
+  '2725':
+    zone: 20
+    confidence: 0.9
+  '2726':
+    zone: 20
+    confidence: 0.9
+  '2727':
+    zone: 20
+    confidence: 0.9
+  '2729':
+    zone: 20
+    confidence: 0.9
+  '2730':
+    zone: 24
+    confidence: 0.9
+  '2731':
+    zone: 27
+    confidence: 0.9
+  '2732':
+    zone: 27
+    confidence: 0.9
+  '2733':
+    zone: 27
+    confidence: 0.9
+  '2734':
+    zone: 27
+    confidence: 0.9
+  '2735':
+    zone: 27
+    confidence: 0.9
+  '2736':
+    zone: 27
+    confidence: 0.9
+  '2737':
+    zone: 27
+    confidence: 0.9
+  '2738':
+    zone: 27
+    confidence: 0.9
+  '2739':
+    zone: 27
+    confidence: 0.9
+  '2745':
+    zone: 28
+    confidence: 0.9
+  '2747':
+    zone: 28
+    confidence: 0.9
+  '2748':
+    zone: 28
+    confidence: 0.9
+  '2749':
+    zone: 28
+    confidence: 0.9
+  '2750':
+    zone: 28
+    confidence: 0.9
+  '2752':
+    zone: 28
+    confidence: 0.9
+  '2753':
+    zone: 28
+    confidence: 0.9
+  '2754':
+    zone: 28
+    confidence: 0.9
+  '2755':
+    zone: 28
+    confidence: 0.9
+  '2756':
+    zone: 28
+    confidence: 0.9
+  '2757':
+    zone: 28
+    confidence: 0.9
+  '2758':
+    zone: 28
+    confidence: 0.9
+  '2759':
+    zone: 28
+    confidence: 0.9
+  '2760':
+    zone: 28
+    confidence: 0.9
+  '2761':
+    zone: 28
+    confidence: 0.9
+  '2762':
+    zone: 28
+    confidence: 0.9
+  '2763':
+    zone: 28
+    confidence: 0.9
+  '2765':
+    zone: 28
+    confidence: 0.9
+  '2766':
+    zone: 28
+    confidence: 0.9
+  '2767':
+    zone: 28
+    confidence: 0.9
+  '2768':
+    zone: 28
+    confidence: 0.9
+  '2769':
+    zone: 28
+    confidence: 0.9
+  '2770':
+    zone: 28
+    confidence: 0.9
+  '2773':
+    zone: 28
+    confidence: 0.9
+  '2774':
+    zone: 28
+    confidence: 0.9
+  '2775':
+    zone: 28
+    confidence: 0.9
+  '2776':
+    zone: 24
+    confidence: 0.9
+  '2777':
+    zone: 28
+    confidence: 0.9
+  '2778':
+    zone: 24
+    confidence: 0.9
+  '2779':
+    zone: 24
+    confidence: 0.9
+  '2780':
+    zone: 24
+    confidence: 0.9
+  '2782':
+    zone: 24
+    confidence: 0.9
+  '2783':
+    zone: 24
+    confidence: 0.9
+  '2784':
+    zone: 24
+    confidence: 0.9
+  '2785':
+    zone: 24
+    confidence: 0.9
+  '2786':
+    zone: 24
+    confidence: 0.9
+  '2791':
+    zone: 65
+    confidence: 0.9
+  '2792':
+    zone: 65
+    confidence: 0.9
+  '2793':
+    zone: 65
+    confidence: 0.9
+  '2795':
+    zone: 65
+    confidence: 0.9
+  '2797':
+    zone: 65
+    confidence: 0.9
+  '2798':
+    zone: 65
+    confidence: 0.9
+  '2799':
+    zone: 65
+    confidence: 0.9
+  '2800':
+    zone: 65
+    confidence: 0.9
+  '2808':
+    zone: 65
+    confidence: 0.9
+  '2817':
+    zone: 48
+    confidence: 0.9
+  '2818':
+    zone: 48
+    confidence: 0.9
+  '2820':
+    zone: 48
+    confidence: 0.9
+  '2821':
+    zone: 48
+    confidence: 0.9
+  '2822':
+    zone: 48
+    confidence: 0.9
+  '2823':
+    zone: 48
+    confidence: 0.9
+  '2826':
+    zone: 48
+    confidence: 0.9
+  '2828':
+    zone: 48
+    confidence: 0.9
+  '2830':
+    zone: 48
+    confidence: 0.9
+  '2832':
+    zone: 8
+    confidence: 0.9
+  '2833':
+    zone: 8
+    confidence: 0.9
+  '2834':
+    zone: 8
+    confidence: 0.9
+  '2835':
+    zone: 46
+    confidence: 0.9
+  '2836':
+    zone: 46
+    confidence: 0.9
+  '2839':
+    zone: 46
+    confidence: 0.9
+  '2840':
+    zone: 46
+    confidence: 0.9
+  '2842':
+    zone: 48
+    confidence: 0.9
+  '2843':
+    zone: 48
+    confidence: 0.9
+  '2844':
+    zone: 48
+    confidence: 0.9
+  '2845':
+    zone: 65
+    confidence: 0.9
+  '2848':
+    zone: 65
+    confidence: 0.9
+  '2849':
+    zone: 65
+    confidence: 0.9
+  '2850':
+    zone: 65
+    confidence: 0.9
+  '2852':
+    zone: 48
+    confidence: 0.9
+  '2864':
+    zone: 48
+    confidence: 0.9
+  '2865':
+    zone: 65
+    confidence: 0.9
+  '2866':
+    zone: 65
+    confidence: 0.9
+  '2867':
+    zone: 65
+    confidence: 0.9
+  '2868':
+    zone: 48
+    confidence: 0.9
+  '2869':
+    zone: 48
+    confidence: 0.9
+  '2870':
+    zone: 48
+    confidence: 0.9
+  '2871':
+    zone: 48
+    confidence: 0.9
+  '2873':
+    zone: 48
+    confidence: 0.9
+  '2874':
+    zone: 48
+    confidence: 0.9
+  '2875':
+    zone: 48
+    confidence: 0.9
+  '2876':
+    zone: 48
+    confidence: 0.9
+  '2877':
+    zone: 46
+    confidence: 0.9
+  '2878':
+    zone: 46
+    confidence: 0.9
+  '2879':
+    zone: 46
+    confidence: 0.9
+  '2880':
+    zone: 46
+    confidence: 0.9
+  '2898':
+    zone: 11
+    confidence: 0.9
+  '2899':
+    zone: 11
+    confidence: 0.9
+  '2900':
+    zone: 24
+    confidence: 0.9
+  '2902':
+    zone: 24
+    confidence: 0.9
+  '2903':
+    zone: 24
+    confidence: 0.9
+  '2904':
+    zone: 24
+    confidence: 0.9
+  '2905':
+    zone: 24
+    confidence: 0.9
+  '2906':
+    zone: 24
+    confidence: 0.9
+  '2911':
+    zone: 24
+    confidence: 0.9
+  '2912':
+    zone: 24
+    confidence: 0.9
+  '2913':
+    zone: 24
+    confidence: 0.9
+  '2914':
+    zone: 24
+    confidence: 0.9
+  '3000':
+    zone: 21
+    confidence: 0.9
+  '3002':
+    zone: 21
+    confidence: 0.9
+  '3003':
+    zone: 21
+    confidence: 0.9
+  '3004':
+    zone: 21
+    confidence: 0.9
+  '3005':
+    zone: 21
+    confidence: 0.9
+  '3006':
+    zone: 21
+    confidence: 0.9
+  '3008':
+    zone: 21
+    confidence: 0.9
+  '3010':
+    zone: 21
+    confidence: 0.9
+  '3011':
+    zone: 60
+    confidence: 0.9
+  '3012':
+    zone: 60
+    confidence: 0.9
+  '3013':
+    zone: 60
+    confidence: 0.9
+  '3015':
+    zone: 60
+    confidence: 0.9
+  '3016':
+    zone: 60
+    confidence: 0.9
+  '3018':
+    zone: 60
+    confidence: 0.9
+  '3019':
+    zone: 60
+    confidence: 0.9
+  '3020':
+    zone: 60
+    confidence: 0.9
+  '3021':
+    zone: 60
+    confidence: 0.9
+  '3022':
+    zone: 60
+    confidence: 0.9
+  '3023':
+    zone: 60
+    confidence: 0.9
+  '3024':
+    zone: 60
+    confidence: 0.9
+  '3025':
+    zone: 60
+    confidence: 0.9
+  '3026':
+    zone: 60
+    confidence: 0.9
+  '3027':
+    zone: 60
+    confidence: 0.9
+  '3028':
+    zone: 60
+    confidence: 0.9
+  '3029':
+    zone: 60
+    confidence: 0.9
+  '3030':
+    zone: 60
+    confidence: 0.9
+  '3031':
+    zone: 60
+    confidence: 0.9
+  '3032':
+    zone: 60
+    confidence: 0.9
+  '3033':
+    zone: 60
+    confidence: 0.9
+  '3034':
+    zone: 60
+    confidence: 0.9
+  '3036':
+    zone: 60
+    confidence: 0.9
+  '3037':
+    zone: 60
+    confidence: 0.9
+  '3038':
+    zone: 60
+    confidence: 0.9
+  '3039':
+    zone: 60
+    confidence: 0.9
+  '3040':
+    zone: 60
+    confidence: 0.9
+  '3041':
+    zone: 60
+    confidence: 0.9
+  '3042':
+    zone: 60
+    confidence: 0.9
+  '3043':
+    zone: 60
+    confidence: 0.9
+  '3044':
+    zone: 60
+    confidence: 0.9
+  '3045':
+    zone: 60
+    confidence: 0.9
+  '3046':
+    zone: 60
+    confidence: 0.9
+  '3047':
+    zone: 60
+    confidence: 0.9
+  '3048':
+    zone: 60
+    confidence: 0.9
+  '3049':
+    zone: 60
+    confidence: 0.9
+  '3050':
+    zone: 21
+    confidence: 0.9
+  '3051':
+    zone: 21
+    confidence: 0.9
+  '3052':
+    zone: 21
+    confidence: 0.9
+  '3053':
+    zone: 21
+    confidence: 0.9
+  '3059':
+    zone: 60
+    confidence: 0.9
+  '3060':
+    zone: 60
+    confidence: 0.9
+  '3061':
+    zone: 60
+    confidence: 0.9
+  '3062':
+    zone: 60
+    confidence: 0.9
+  '3063':
+    zone: 60
+    confidence: 0.9
+  '3064':
+    zone: 60
+    confidence: 0.9
+  '3065':
+    zone: 21
+    confidence: 0.9
+  '3066':
+    zone: 21
+    confidence: 0.9
+  '3067':
+    zone: 21
+    confidence: 0.9
+  '3068':
+    zone: 21
+    confidence: 0.9
+  '3070':
+    zone: 21
+    confidence: 0.9
+  '3071':
+    zone: 21
+    confidence: 0.9
+  '3072':
+    zone: 21
+    confidence: 0.9
+  '3073':
+    zone: 21
+    confidence: 0.9
+  '3074':
+    zone: 60
+    confidence: 0.9
+  '3075':
+    zone: 60
+    confidence: 0.9
+  '3076':
+    zone: 60
+    confidence: 0.9
+  '3078':
+    zone: 62
+    confidence: 0.9
+  '3079':
+    zone: 62
+    confidence: 0.9
+  '3081':
+    zone: 62
+    confidence: 0.9
+  '3082':
+    zone: 62
+    confidence: 0.9
+  '3083':
+    zone: 62
+    confidence: 0.9
+  '3084':
+    zone: 62
+    confidence: 0.9
+  '3085':
+    zone: 62
+    confidence: 0.9
+  '3086':
+    zone: 62
+    confidence: 0.9
+  '3087':
+    zone: 62
+    confidence: 0.9
+  '3088':
+    zone: 62
+    confidence: 0.9
+  '3089':
+    zone: 62
+    confidence: 0.9
+  '3090':
+    zone: 62
+    confidence: 0.9
+  '3091':
+    zone: 62
+    confidence: 0.9
+  '3093':
+    zone: 62
+    confidence: 0.9
+  '3094':
+    zone: 62
+    confidence: 0.9
+  '3095':
+    zone: 62
+    confidence: 0.9
+  '3096':
+    zone: 62
+    confidence: 0.9
+  '3097':
+    zone: 62
+    confidence: 0.9
+  '3099':
+    zone: 62
+    confidence: 0.9
+  '3102':
+    zone: 62
+    confidence: 0.9
+  '3103':
+    zone: 62
+    confidence: 0.9
+  '3104':
+    zone: 62
+    confidence: 0.9
+  '3105':
+    zone: 62
+    confidence: 0.9
+  '3106':
+    zone: 62
+    confidence: 0.9
+  '3107':
+    zone: 62
+    confidence: 0.9
+  '3108':
+    zone: 62
+    confidence: 0.9
+  '3109':
+    zone: 62
+    confidence: 0.9
+  '3111':
+    zone: 62
+    confidence: 0.9
+  '3113':
+    zone: 62
+    confidence: 0.9
+  '3114':
+    zone: 62
+    confidence: 0.9
+  '3115':
+    zone: 62
+    confidence: 0.9
+  '3116':
+    zone: 62
+    confidence: 0.9
+  '3121':
+    zone: 21
+    confidence: 0.9
+  '3122':
+    zone: 62
+    confidence: 0.9
+  '3123':
+    zone: 62
+    confidence: 0.9
+  '3124':
+    zone: 62
+    confidence: 0.9
+  '3125':
+    zone: 62
+    confidence: 0.9
+  '3126':
+    zone: 62
+    confidence: 0.9
+  '3127':
+    zone: 62
+    confidence: 0.9
+  '3128':
+    zone: 62
+    confidence: 0.9
+  '3129':
+    zone: 62
+    confidence: 0.9
+  '3130':
+    zone: 62
+    confidence: 0.9
+  '3131':
+    zone: 62
+    confidence: 0.9
+  '3132':
+    zone: 62
+    confidence: 0.9
+  '3133':
+    zone: 62
+    confidence: 0.9
+  '3134':
+    zone: 62
+    confidence: 0.9
+  '3135':
+    zone: 62
+    confidence: 0.9
+  '3136':
+    zone: 62
+    confidence: 0.9
+  '3137':
+    zone: 62
+    confidence: 0.9
+  '3138':
+    zone: 62
+    confidence: 0.9
+  '3139':
+    zone: 62
+    confidence: 0.9
+  '3140':
+    zone: 62
+    confidence: 0.9
+  '3147':
+    zone: 62
+    confidence: 0.9
+  '3148':
+    zone: 62
+    confidence: 0.9
+  '3149':
+    zone: 62
+    confidence: 0.9
+  '3150':
+    zone: 62
+    confidence: 0.9
+  '3151':
+    zone: 62
+    confidence: 0.9
+  '3152':
+    zone: 62
+    confidence: 0.9
+  '3153':
+    zone: 62
+    confidence: 0.9
+  '3154':
+    zone: 62
+    confidence: 0.9
+  '3155':
+    zone: 62
+    confidence: 0.9
+  '3156':
+    zone: 62
+    confidence: 0.9
+  '3158':
+    zone: 62
+    confidence: 0.9
+  '3159':
+    zone: 62
+    confidence: 0.9
+  '3160':
+    zone: 62
+    confidence: 0.9
+  '3161':
+    zone: 62
+    confidence: 0.9
+  '3162':
+    zone: 62
+    confidence: 0.9
+  '3163':
+    zone: 62
+    confidence: 0.9
+  '3165':
+    zone: 62
+    confidence: 0.9
+  '3166':
+    zone: 62
+    confidence: 0.9
+  '3167':
+    zone: 62
+    confidence: 0.9
+  '3168':
+    zone: 62
+    confidence: 0.9
+  '3169':
+    zone: 62
+    confidence: 0.9
+  '3170':
+    zone: 62
+    confidence: 0.9
+  '3171':
+    zone: 62
+    confidence: 0.9
+  '3172':
+    zone: 62
+    confidence: 0.9
+  '3173':
+    zone: 62
+    confidence: 0.9
+  '3174':
+    zone: 62
+    confidence: 0.9
+  '3175':
+    zone: 62
+    confidence: 0.9
+  '3177':
+    zone: 62
+    confidence: 0.9
+  '3178':
+    zone: 62
+    confidence: 0.9
+  '3179':
+    zone: 62
+    confidence: 0.9
+  '3180':
+    zone: 62
+    confidence: 0.9
+  '3189':
+    zone: 62
+    confidence: 0.9
+  '3190':
+    zone: 62
+    confidence: 0.9
+  '3191':
+    zone: 62
+    confidence: 0.9
+  '3192':
+    zone: 62
+    confidence: 0.9
+  '3193':
+    zone: 62
+    confidence: 0.9
+  '3194':
+    zone: 62
+    confidence: 0.9
+  '3195':
+    zone: 62
+    confidence: 0.9
+  '3196':
+    zone: 62
+    confidence: 0.9
+  '3197':
+    zone: 62
+    confidence: 0.9
+  '3198':
+    zone: 62
+    confidence: 0.9
+  '3199':
+    zone: 62
+    confidence: 0.9
+  '3200':
+    zone: 62
+    confidence: 0.9
+  '3201':
+    zone: 62
+    confidence: 0.9
+  '3202':
+    zone: 62
+    confidence: 0.9
+  '3205':
+    zone: 21
+    confidence: 0.9
+  '3206':
+    zone: 21
+    confidence: 0.9
+  '3207':
+    zone: 21
+    confidence: 0.9
+  '3211':
+    zone: 60
+    confidence: 0.9
+  '3212':
+    zone: 60
+    confidence: 0.9
+  '3213':
+    zone: 60
+    confidence: 0.9
+  '3214':
+    zone: 60
+    confidence: 0.9
+  '3215':
+    zone: 60
+    confidence: 0.9
+  '3216':
+    zone: 60
+    confidence: 0.9
+  '3217':
+    zone: 60
+    confidence: 0.9
+  '3218':
+    zone: 60
+    confidence: 0.9
+  '3219':
+    zone: 60
+    confidence: 0.9
+  '3220':
+    zone: 60
+    confidence: 0.9
+  '3222':
+    zone: 64
+    confidence: 0.9
+  '3223':
+    zone: 64
+    confidence: 0.9
+  '3224':
+    zone: 64
+    confidence: 0.9
+  '3225':
+    zone: 64
+    confidence: 0.9
+  '3226':
+    zone: 64
+    confidence: 0.9
+  '3227':
+    zone: 64
+    confidence: 0.9
+  '3228':
+    zone: 64
+    confidence: 0.9
+  '3230':
+    zone: 64
+    confidence: 0.9
+  '3231':
+    zone: 64
+    confidence: 0.9
+  '3232':
+    zone: 64
+    confidence: 0.9
+  '3233':
+    zone: 64
+    confidence: 0.9
+  '3234':
+    zone: 64
+    confidence: 0.9
+  '3235':
+    zone: 64
+    confidence: 0.9
+  '3236':
+    zone: 64
+    confidence: 0.9
+  '3237':
+    zone: 64
+    confidence: 0.9
+  '3238':
+    zone: 64
+    confidence: 0.9
+  '3239':
+    zone: 64
+    confidence: 0.9
+  '3240':
+    zone: 64
+    confidence: 0.9
+  '3241':
+    zone: 64
+    confidence: 0.9
+  '3242':
+    zone: 64
+    confidence: 0.9
+  '3243':
+    zone: 64
+    confidence: 0.9
+  '3249':
+    zone: 64
+    confidence: 0.9
+  '3250':
+    zone: 64
+    confidence: 0.9
+  '3251':
+    zone: 64
+    confidence: 0.9
+  '3254':
+    zone: 64
+    confidence: 0.9
+  '3264':
+    zone: 63
+    confidence: 0.9
+  '3265':
+    zone: 63
+    confidence: 0.9
+  '3269':
+    zone: 64
+    confidence: 0.9
+  '3270':
+    zone: 64
+    confidence: 0.9
+  '3271':
+    zone: 63
+    confidence: 0.9
+  '3272':
+    zone: 63
+    confidence: 0.9
+  '3273':
+    zone: 63
+    confidence: 0.9
+  '3274':
+    zone: 63
+    confidence: 0.9
+  '3275':
+    zone: 63
+    confidence: 0.9
+  '3276':
+    zone: 63
+    confidence: 0.9
+  '3277':
+    zone: 63
+    confidence: 0.9
+  '3278':
+    zone: 63
+    confidence: 0.9
+  '3279':
+    zone: 63
+    confidence: 0.9
+  '3280':
+    zone: 63
+    confidence: 0.9
+  '3281':
+    zone: 63
+    confidence: 0.9
+  '3282':
+    zone: 63
+    confidence: 0.9
+  '3283':
+    zone: 63
+    confidence: 0.9
+  '3284':
+    zone: 63
+    confidence: 0.9
+  '3285':
+    zone: 63
+    confidence: 0.9
+  '3286':
+    zone: 63
+    confidence: 0.9
+  '3287':
+    zone: 63
+    confidence: 0.9
+  '3289':
+    zone: 63
+    confidence: 0.9
+  '3292':
+    zone: 61
+    confidence: 0.9
+  '3293':
+    zone: 63
+    confidence: 0.9
+  '3294':
+    zone: 63
+    confidence: 0.9
+  '3300':
+    zone: 63
+    confidence: 0.9
+  '3301':
+    zone: 63
+    confidence: 0.9
+  '3302':
+    zone: 63
+    confidence: 0.9
+  '3303':
+    zone: 63
+    confidence: 0.9
+  '3304':
+    zone: 63
+    confidence: 0.9
+  '3305':
+    zone: 63
+    confidence: 0.9
+  '3309':
+    zone: 63
+    confidence: 0.9
+  '3310':
+    zone: 63
+    confidence: 0.9
+  '3311':
+    zone: 61
+    confidence: 0.9
+  '3315':
+    zone: 61
+    confidence: 0.9
+  '3317':
+    zone: 61
+    confidence: 0.9
+  '3318':
+    zone: 61
+    confidence: 0.9
+  '3319':
+    zone: 61
+    confidence: 0.9
+  '3321':
+    zone: 64
+    confidence: 0.9
+  '3325':
+    zone: 63
+    confidence: 0.9
+  '3328':
+    zone: 66
+    confidence: 0.9
+  '3329':
+    zone: 63
+    confidence: 0.9
+  '3332':
+    zone: 66
+    confidence: 0.9
+  '3333':
+    zone: 66
+    confidence: 0.9
+  '3334':
+    zone: 66
+    confidence: 0.9
+  '3335':
+    zone: 60
+    confidence: 0.9
+  '3336':
+    zone: 60
+    confidence: 0.9
+  '3337':
+    zone: 60
+    confidence: 0.9
+  '3338':
+    zone: 60
+    confidence: 0.9
+  '3358':
+    zone: 66
+    confidence: 0.9
+  '3374':
+    zone: 66
+    confidence: 0.9
+  '3381':
+    zone: 66
+    confidence: 0.9
+  '3384':
+    zone: 66
+    confidence: 0.9
+  '3385':
+    zone: 66
+    confidence: 0.9
+  '3387':
+    zone: 66
+    confidence: 0.9
+  '3388':
+    zone: 66
+    confidence: 0.9
+  '3390':
+    zone: 66
+    confidence: 0.9
+  '3391':
+    zone: 27
+    confidence: 0.9
+  '3392':
+    zone: 27
+    confidence: 0.9
+  '3393':
+    zone: 27
+    confidence: 0.9
+  '3395':
+    zone: 27
+    confidence: 0.9
+  '3396':
+    zone: 27
+    confidence: 0.9
+  '3400':
+    zone: 27
+    confidence: 0.9
+  '3401':
+    zone: 27
+    confidence: 0.9
+  '3413':
+    zone: 61
+    confidence: 0.9
+  '3414':
+    zone: 27
+    confidence: 0.9
+  '3415':
+    zone: 27
+    confidence: 0.9
+  '3418':
+    zone: 27
+    confidence: 0.9
+  '3420':
+    zone: 61
+    confidence: 0.9
+  '3423':
+    zone: 27
+    confidence: 0.9
+  '3424':
+    zone: 27
+    confidence: 0.9
+  '3427':
+    zone: 60
+    confidence: 0.9
+  '3428':
+    zone: 60
+    confidence: 0.9
+  '3429':
+    zone: 60
+    confidence: 0.9
+  '3430':
+    zone: 60
+    confidence: 0.9
+  '3431':
+    zone: 60
+    confidence: 0.9
+  '3432':
+    zone: 60
+    confidence: 0.9
+  '3433':
+    zone: 60
+    confidence: 0.9
+  '3434':
+    zone: 60
+    confidence: 0.9
+  '3435':
+    zone: 66
+    confidence: 0.9
+  '3437':
+    zone: 60
+    confidence: 0.9
+  '3438':
+    zone: 66
+    confidence: 0.9
+  '3440':
+    zone: 66
+    confidence: 0.9
+  '3441':
+    zone: 66
+    confidence: 0.9
+  '3442':
+    zone: 66
+    confidence: 0.9
+  '3444':
+    zone: 66
+    confidence: 0.9
+  '3446':
+    zone: 66
+    confidence: 0.9
+  '3447':
+    zone: 66
+    confidence: 0.9
+  '3448':
+    zone: 66
+    confidence: 0.9
+  '3450':
+    zone: 66
+    confidence: 0.9
+  '3451':
+    zone: 66
+    confidence: 0.9
+  '3453':
+    zone: 66
+    confidence: 0.9
+  '3458':
+    zone: 66
+    confidence: 0.9
+  '3460':
+    zone: 66
+    confidence: 0.9
+  '3461':
+    zone: 66
+    confidence: 0.9
+  '3462':
+    zone: 66
+    confidence: 0.9
+  '3463':
+    zone: 66
+    confidence: 0.9
+  '3464':
+    zone: 66
+    confidence: 0.9
+  '3465':
+    zone: 66
+    confidence: 0.9
+  '3467':
+    zone: 66
+    confidence: 0.9
+  '3468':
+    zone: 66
+    confidence: 0.9
+  '3469':
+    zone: 66
+    confidence: 0.9
+  '3472':
+    zone: 66
+    confidence: 0.9
+  '3475':
+    zone: 66
+    confidence: 0.9
+  '3477':
+    zone: 66
+    confidence: 0.9
+  '3482':
+    zone: 27
+    confidence: 0.9
+  '3483':
+    zone: 27
+    confidence: 0.9
+  '3485':
+    zone: 27
+    confidence: 0.9
+  '3487':
+    zone: 27
+    confidence: 0.9
+  '3488':
+    zone: 27
+    confidence: 0.9
+  '3489':
+    zone: 27
+    confidence: 0.9
+  '3490':
+    zone: 27
+    confidence: 0.9
+  '3491':
+    zone: 27
+    confidence: 0.9
+  '3494':
+    zone: 27
+    confidence: 0.9
+  '3496':
+    zone: 27
+    confidence: 0.9
+  '3498':
+    zone: 27
+    confidence: 0.9
+  '3500':
+    zone: 27
+    confidence: 0.9
+  '3501':
+    zone: 27
+    confidence: 0.9
+  '3505':
+    zone: 27
+    confidence: 0.9
+  '3506':
+    zone: 27
+    confidence: 0.9
+  '3507':
+    zone: 27
+    confidence: 0.9
+  '3509':
+    zone: 27
+    confidence: 0.9
+  '3512':
+    zone: 27
+    confidence: 0.9
+  '3520':
+    zone: 66
+    confidence: 0.9
+  '3521':
+    zone: 66
+    confidence: 0.9
+  '3522':
+    zone: 66
+    confidence: 0.9
+  '3527':
+    zone: 27
+    confidence: 0.9
+  '3529':
+    zone: 27
+    confidence: 0.9
+  '3530':
+    zone: 27
+    confidence: 0.9
+  '3531':
+    zone: 27
+    confidence: 0.9
+  '3533':
+    zone: 27
+    confidence: 0.9
+  '3537':
+    zone: 27
+    confidence: 0.9
+  '3540':
+    zone: 27
+    confidence: 0.9
+  '3542':
+    zone: 27
+    confidence: 0.9
+  '3544':
+    zone: 27
+    confidence: 0.9
+  '3546':
+    zone: 27
+    confidence: 0.9
+  '3549':
+    zone: 27
+    confidence: 0.9
+  '3563':
+    zone: 27
+    confidence: 0.9
+  '3567':
+    zone: 27
+    confidence: 0.9
+  '3568':
+    zone: 27
+    confidence: 0.9
+  '3576':
+    zone: 27
+    confidence: 0.9
+  '3579':
+    zone: 27
+    confidence: 0.9
+  '3580':
+    zone: 27
+    confidence: 0.9
+  '3581':
+    zone: 27
+    confidence: 0.9
+  '3583':
+    zone: 27
+    confidence: 0.9
+  '3584':
+    zone: 27
+    confidence: 0.9
+  '3585':
+    zone: 27
+    confidence: 0.9
+  '3586':
+    zone: 27
+    confidence: 0.9
+  '3588':
+    zone: 27
+    confidence: 0.9
+  '3589':
+    zone: 27
+    confidence: 0.9
+  '3590':
+    zone: 27
+    confidence: 0.9
+  '3591':
+    zone: 27
+    confidence: 0.9
+  '3658':
+    zone: 66
+    confidence: 0.9
+  '3682':
+    zone: 66
+    confidence: 0.9
+  '3683':
+    zone: 66
+    confidence: 0.9
+  '3685':
+    zone: 66
+    confidence: 0.9
+  '3687':
+    zone: 66
+    confidence: 0.9
+  '3688':
+    zone: 66
+    confidence: 0.9
+  '3694':
+    zone: 66
+    confidence: 0.9
+  '3695':
+    zone: 66
+    confidence: 0.9
+  '3697':
+    zone: 66
+    confidence: 0.9
+  '3698':
+    zone: 66
+    confidence: 0.9
+  '3704':
+    zone: 66
+    confidence: 0.9
+  '3713':
+    zone: 66
+    confidence: 0.9
+  '3714':
+    zone: 66
+    confidence: 0.9
+  '3715':
+    zone: 66
+    confidence: 0.9
+  '3717':
+    zone: 66
+    confidence: 0.9
+  '3718':
+    zone: 66
+    confidence: 0.9
+  '3719':
+    zone: 66
+    confidence: 0.9
+  '3720':
+    zone: 66
+    confidence: 0.9
+  '3726':
+    zone: 20
+    confidence: 0.9
+  '3727':
+    zone: 20
+    confidence: 0.9
+  '3728':
+    zone: 20
+    confidence: 0.9
+  '3730':
+    zone: 20
+    confidence: 0.9
+  '3732':
+    zone: 66
+    confidence: 0.9
+  '3733':
+    zone: 66
+    confidence: 0.9
+  '3735':
+    zone: 66
+    confidence: 0.9
+  '3746':
+    zone: 66
+    confidence: 0.9
+  '3747':
+    zone: 66
+    confidence: 0.9
+  '3749':
+    zone: 66
+    confidence: 0.9
+  '3750':
+    zone: 60
+    confidence: 0.9
+  '3751':
+    zone: 60
+    confidence: 0.9
+  '3752':
+    zone: 60
+    confidence: 0.9
+  '3753':
+    zone: 60
+    confidence: 0.9
+  '3754':
+    zone: 60
+    confidence: 0.9
+  '3755':
+    zone: 60
+    confidence: 0.9
+  '3756':
+    zone: 60
+    confidence: 0.9
+  '3757':
+    zone: 60
+    confidence: 0.9
+  '3758':
+    zone: 60
+    confidence: 0.9
+  '3759':
+    zone: 60
+    confidence: 0.9
+  '3760':
+    zone: 60
+    confidence: 0.9
+  '3761':
+    zone: 60
+    confidence: 0.9
+  '3762':
+    zone: 60
+    confidence: 0.9
+  '3763':
+    zone: 66
+    confidence: 0.9
+  '3764':
+    zone: 66
+    confidence: 0.9
+  '3765':
+    zone: 66
+    confidence: 0.9
+  '3766':
+    zone: 66
+    confidence: 0.9
+  '3767':
+    zone: 66
+    confidence: 0.9
+  '3770':
+    zone: 66
+    confidence: 0.9
+  '3775':
+    zone: 66
+    confidence: 0.9
+  '3777':
+    zone: 66
+    confidence: 0.9
+  '3778':
+    zone: 66
+    confidence: 0.9
+  '3779':
+    zone: 66
+    confidence: 0.9
+  '3781':
+    zone: 66
+    confidence: 0.9
+  '3782':
+    zone: 66
+    confidence: 0.9
+  '3783':
+    zone: 66
+    confidence: 0.9
+  '3785':
+    zone: 62
+    confidence: 0.9
+  '3786':
+    zone: 66
+    confidence: 0.9
+  '3787':
+    zone: 66
+    confidence: 0.9
+  '3788':
+    zone: 66
+    confidence: 0.9
+  '3789':
+    zone: 66
+    confidence: 0.9
+  '3791':
+    zone: 66
+    confidence: 0.9
+  '3792':
+    zone: 66
+    confidence: 0.9
+  '3793':
+    zone: 66
+    confidence: 0.9
+  '3795':
+    zone: 66
+    confidence: 0.9
+  '3796':
+    zone: 66
+    confidence: 0.9
+  '3797':
+    zone: 60
+    confidence: 0.9
+  '3799':
+    zone: 60
+    confidence: 0.9
+  '3800':
+    zone: 62
+    confidence: 0.9
+  '3802':
+    zone: 62
+    confidence: 0.9
+  '3803':
+    zone: 62
+    confidence: 0.9
+  '3804':
+    zone: 62
+    confidence: 0.9
+  '3805':
+    zone: 62
+    confidence: 0.9
+  '3806':
+    zone: 62
+    confidence: 0.9
+  '3807':
+    zone: 62
+    confidence: 0.9
+  '3808':
+    zone: 62
+    confidence: 0.9
+  '3809':
+    zone: 62
+    confidence: 0.9
+  '3810':
+    zone: 62
+    confidence: 0.9
+  '3812':
+    zone: 62
+    confidence: 0.9
+  '3813':
+    zone: 62
+    confidence: 0.9
+  '3814':
+    zone: 62
+    confidence: 0.9
+  '3815':
+    zone: 62
+    confidence: 0.9
+  '3816':
+    zone: 62
+    confidence: 0.9
+  '3818':
+    zone: 62
+    confidence: 0.9
+  '3820':
+    zone: 22
+    confidence: 0.9
+  '3821':
+    zone: 22
+    confidence: 0.9
+  '3822':
+    zone: 22
+    confidence: 0.9
+  '3823':
+    zone: 22
+    confidence: 0.9
+  '3824':
+    zone: 22
+    confidence: 0.9
+  '3831':
+    zone: 22
+    confidence: 0.9
+  '3832':
+    zone: 22
+    confidence: 0.9
+  '3835':
+    zone: 22
+    confidence: 0.9
+  '3840':
+    zone: 22
+    confidence: 0.9
+  '3842':
+    zone: 22
+    confidence: 0.9
+  '3844':
+    zone: 22
+    confidence: 0.9
+  '3847':
+    zone: 22
+    confidence: 0.9
+  '3850':
+    zone: 22
+    confidence: 0.9
+  '3851':
+    zone: 22
+    confidence: 0.9
+  '3852':
+    zone: 22
+    confidence: 0.9
+  '3854':
+    zone: 22
+    confidence: 0.9
+  '3856':
+    zone: 22
+    confidence: 0.9
+  '3857':
+    zone: 22
+    confidence: 0.9
+  '3859':
+    zone: 22
+    confidence: 0.9
+  '3864':
+    zone: 22
+    confidence: 0.9
+  '3865':
+    zone: 22
+    confidence: 0.9
+  '3869':
+    zone: 22
+    confidence: 0.9
+  '3870':
+    zone: 22
+    confidence: 0.9
+  '3871':
+    zone: 22
+    confidence: 0.9
+  '3873':
+    zone: 22
+    confidence: 0.9
+  '3874':
+    zone: 22
+    confidence: 0.9
+  '3875':
+    zone: 22
+    confidence: 0.9
+  '3878':
+    zone: 22
+    confidence: 0.9
+  '3880':
+    zone: 22
+    confidence: 0.9
+  '3882':
+    zone: 22
+    confidence: 0.9
+  '3886':
+    zone: 22
+    confidence: 0.9
+  '3887':
+    zone: 22
+    confidence: 0.9
+  '3888':
+    zone: 22
+    confidence: 0.9
+  '3889':
+    zone: 22
+    confidence: 0.9
+  '3890':
+    zone: 22
+    confidence: 0.9
+  '3891':
+    zone: 22
+    confidence: 0.9
+  '3892':
+    zone: 22
+    confidence: 0.9
+  '3902':
+    zone: 22
+    confidence: 0.9
+  '3903':
+    zone: 22
+    confidence: 0.9
+  '3904':
+    zone: 22
+    confidence: 0.9
+  '3909':
+    zone: 22
+    confidence: 0.9
+  '3910':
+    zone: 62
+    confidence: 0.9
+  '3911':
+    zone: 62
+    confidence: 0.9
+  '3912':
+    zone: 62
+    confidence: 0.9
+  '3913':
+    zone: 62
+    confidence: 0.9
+  '3915':
+    zone: 62
+    confidence: 0.9
+  '3916':
+    zone: 62
+    confidence: 0.9
+  '3918':
+    zone: 62
+    confidence: 0.9
+  '3919':
+    zone: 62
+    confidence: 0.9
+  '3920':
+    zone: 62
+    confidence: 0.9
+  '3921':
+    zone: 22
+    confidence: 0.9
+  '3922':
+    zone: 22
+    confidence: 0.9
+  '3923':
+    zone: 22
+    confidence: 0.9
+  '3925':
+    zone: 62
+    confidence: 0.9
+  '3926':
+    zone: 62
+    confidence: 0.9
+  '3927':
+    zone: 62
+    confidence: 0.9
+  '3928':
+    zone: 62
+    confidence: 0.9
+  '3929':
+    zone: 62
+    confidence: 0.9
+  '3930':
+    zone: 62
+    confidence: 0.9
+  '3931':
+    zone: 62
+    confidence: 0.9
+  '3933':
+    zone: 62
+    confidence: 0.9
+  '3934':
+    zone: 62
+    confidence: 0.9
+  '3936':
+    zone: 62
+    confidence: 0.9
+  '3937':
+    zone: 62
+    confidence: 0.9
+  '3938':
+    zone: 62
+    confidence: 0.9
+  '3939':
+    zone: 62
+    confidence: 0.9
+  '3940':
+    zone: 62
+    confidence: 0.9
+  '3941':
+    zone: 62
+    confidence: 0.9
+  '3942':
+    zone: 62
+    confidence: 0.9
+  '3943':
+    zone: 62
+    confidence: 0.9
+  '3944':
+    zone: 62
+    confidence: 0.9
+  '3945':
+    zone: 22
+    confidence: 0.9
+  '3946':
+    zone: 22
+    confidence: 0.9
+  '3950':
+    zone: 22
+    confidence: 0.9
+  '3951':
+    zone: 22
+    confidence: 0.9
+  '3953':
+    zone: 22
+    confidence: 0.9
+  '3954':
+    zone: 22
+    confidence: 0.9
+  '3957':
+    zone: 22
+    confidence: 0.9
+  '3958':
+    zone: 22
+    confidence: 0.9
+  '3960':
+    zone: 64
+    confidence: 0.9
+  '3966':
+    zone: 22
+    confidence: 0.9
+  '3967':
+    zone: 22
+    confidence: 0.9
+  '3971':
+    zone: 22
+    confidence: 0.9
+  '3975':
+    zone: 62
+    confidence: 0.9
+  '3976':
+    zone: 62
+    confidence: 0.9
+  '3977':
+    zone: 62
+    confidence: 0.9
+  '3978':
+    zone: 62
+    confidence: 0.9
+  '3979':
+    zone: 22
+    confidence: 0.9
+  '3987':
+    zone: 22
+    confidence: 0.9
+  '3988':
+    zone: 22
+    confidence: 0.9
+  '3990':
+    zone: 22
+    confidence: 0.9
+  '3991':
+    zone: 22
+    confidence: 0.9
+  '3992':
+    zone: 22
+    confidence: 0.9
+  '4000':
+    zone: 10
+    confidence: 0.9
+  '4005':
+    zone: 10
+    confidence: 0.9
+  '4006':
+    zone: 10
+    confidence: 0.9
+  '4007':
+    zone: 10
+    confidence: 0.9
+  '4008':
+    zone: 10
+    confidence: 0.9
+  '4009':
+    zone: 10
+    confidence: 0.9
+  '4010':
+    zone: 10
+    confidence: 0.9
+  '4011':
+    zone: 10
+    confidence: 0.9
+  '4012':
+    zone: 10
+    confidence: 0.9
+  '4013':
+    zone: 10
+    confidence: 0.9
+  '4014':
+    zone: 10
+    confidence: 0.9
+  '4017':
+    zone: 10
+    confidence: 0.9
+  '4018':
+    zone: 10
+    confidence: 0.9
+  '4019':
+    zone: 10
+    confidence: 0.9
+  '4020':
+    zone: 10
+    confidence: 0.9
+  '4021':
+    zone: 10
+    confidence: 0.9
+  '4022':
+    zone: 10
+    confidence: 0.9
+  '4025':
+    zone: 10
+    confidence: 0.9
+  '4029':
+    zone: 10
+    confidence: 0.9
+  '4030':
+    zone: 10
+    confidence: 0.9
+  '4031':
+    zone: 10
+    confidence: 0.9
+  '4032':
+    zone: 10
+    confidence: 0.9
+  '4034':
+    zone: 10
+    confidence: 0.9
+  '4035':
+    zone: 10
+    confidence: 0.9
+  '4036':
+    zone: 10
+    confidence: 0.9
+  '4037':
+    zone: 10
+    confidence: 0.9
+  '4051':
+    zone: 10
+    confidence: 0.9
+  '4053':
+    zone: 10
+    confidence: 0.9
+  '4054':
+    zone: 10
+    confidence: 0.9
+  '4055':
+    zone: 10
+    confidence: 0.9
+  '4059':
+    zone: 10
+    confidence: 0.9
+  '4060':
+    zone: 10
+    confidence: 0.9
+  '4061':
+    zone: 10
+    confidence: 0.9
+  '4064':
+    zone: 10
+    confidence: 0.9
+  '4065':
+    zone: 10
+    confidence: 0.9
+  '4067':
+    zone: 10
+    confidence: 0.9
+  '4068':
+    zone: 10
+    confidence: 0.9
+  '4072':
+    zone: 10
+    confidence: 0.9
+  '4101':
+    zone: 10
+    confidence: 0.9
+  '4102':
+    zone: 10
+    confidence: 0.9
+  '4103':
+    zone: 10
+    confidence: 0.9
+  '4104':
+    zone: 10
+    confidence: 0.9
+  '4119':
+    zone: 10
+    confidence: 0.9
+  '4120':
+    zone: 10
+    confidence: 0.9
+  '4121':
+    zone: 10
+    confidence: 0.9
+  '4122':
+    zone: 10
+    confidence: 0.9
+  '4123':
+    zone: 10
+    confidence: 0.9
+  '4124':
+    zone: 9
+    confidence: 0.9
+  '4125':
+    zone: 10
+    confidence: 0.9
+  '4127':
+    zone: 10
+    confidence: 0.9
+  '4128':
+    zone: 10
+    confidence: 0.9
+  '4129':
+    zone: 10
+    confidence: 0.9
+  '4130':
+    zone: 10
+    confidence: 0.9
+  '4131':
+    zone: 10
+    confidence: 0.9
+  '4132':
+    zone: 9
+    confidence: 0.9
+  '4133':
+    zone: 9
+    confidence: 0.9
+  '4151':
+    zone: 10
+    confidence: 0.9
+  '4152':
+    zone: 10
+    confidence: 0.9
+  '4153':
+    zone: 10
+    confidence: 0.9
+  '4154':
+    zone: 10
+    confidence: 0.9
+  '4155':
+    zone: 10
+    confidence: 0.9
+  '4156':
+    zone: 10
+    confidence: 0.9
+  '4157':
+    zone: 10
+    confidence: 0.9
+  '4158':
+    zone: 10
+    confidence: 0.9
+  '4159':
+    zone: 10
+    confidence: 0.9
+  '4160':
+    zone: 10
+    confidence: 0.9
+  '4161':
+    zone: 10
+    confidence: 0.9
+  '4163':
+    zone: 10
+    confidence: 0.9
+  '4164':
+    zone: 10
+    confidence: 0.9
+  '4165':
+    zone: 10
+    confidence: 0.9
+  '4169':
+    zone: 10
+    confidence: 0.9
+  '4170':
+    zone: 10
+    confidence: 0.9
+  '4171':
+    zone: 10
+    confidence: 0.9
+  '4172':
+    zone: 10
+    confidence: 0.9
+  '4173':
+    zone: 10
+    confidence: 0.9
+  '4174':
+    zone: 10
+    confidence: 0.9
+  '4178':
+    zone: 10
+    confidence: 0.9
+  '4179':
+    zone: 10
+    confidence: 0.9
+  '4183':
+    zone: 10
+    confidence: 0.9
+  '4184':
+    zone: 10
+    confidence: 0.9
+  '4205':
+    zone: 10
+    confidence: 0.9
+  '4207':
+    zone: 10
+    confidence: 0.9
+  '4208':
+    zone: 10
+    confidence: 0.9
+  '4209':
+    zone: 10
+    confidence: 0.9
+  '4210':
+    zone: 10
+    confidence: 0.9
+  '4211':
+    zone: 10
+    confidence: 0.9
+  '4212':
+    zone: 10
+    confidence: 0.9
+  '4213':
+    zone: 10
+    confidence: 0.9
+  '4214':
+    zone: 10
+    confidence: 0.9
+  '4215':
+    zone: 10
+    confidence: 0.9
+  '4216':
+    zone: 10
+    confidence: 0.9
+  '4217':
+    zone: 10
+    confidence: 0.9
+  '4218':
+    zone: 10
+    confidence: 0.9
+  '4219':
+    zone: 10
+    confidence: 0.9
+  '4220':
+    zone: 10
+    confidence: 0.9
+  '4221':
+    zone: 10
+    confidence: 0.9
+  '4223':
+    zone: 10
+    confidence: 0.9
+  '4224':
+    zone: 10
+    confidence: 0.9
+  '4225':
+    zone: 10
+    confidence: 0.9
+  '4226':
+    zone: 10
+    confidence: 0.9
+  '4227':
+    zone: 10
+    confidence: 0.9
+  '4228':
+    zone: 10
+    confidence: 0.9
+  '4229':
+    zone: 10
+    confidence: 0.9
+  '4230':
+    zone: 10
+    confidence: 0.9
+  '4306':
+    zone: 9
+    confidence: 0.9
+  '4307':
+    zone: 9
+    confidence: 0.9
+  '4309':
+    zone: 9
+    confidence: 0.9
+  '4310':
+    zone: 9
+    confidence: 0.9
+  '4311':
+    zone: 9
+    confidence: 0.9
+  '4312':
+    zone: 9
+    confidence: 0.9
+  '4313':
+    zone: 9
+    confidence: 0.9
+  '4314':
+    zone: 50
+    confidence: 0.9
+  '4340':
+    zone: 9
+    confidence: 0.9
+  '4341':
+    zone: 9
+    confidence: 0.9
+  '4342':
+    zone: 9
+    confidence: 0.9
+  '4343':
+    zone: 9
+    confidence: 0.9
+  '4344':
+    zone: 50
+    confidence: 0.9
+  '4345':
+    zone: 9
+    confidence: 0.9
+  '4346':
+    zone: 9
+    confidence: 0.9
+  '4347':
+    zone: 50
+    confidence: 0.9
+  '4350':
+    zone: 50
+    confidence: 0.9
+  '4352':
+    zone: 50
+    confidence: 0.9
+  '4353':
+    zone: 50
+    confidence: 0.9
+  '4354':
+    zone: 50
+    confidence: 0.9
+  '4355':
+    zone: 50
+    confidence: 0.9
+  '4356':
+    zone: 50
+    confidence: 0.9
+  '4358':
+    zone: 50
+    confidence: 0.9
+  '4359':
+    zone: 50
+    confidence: 0.9
+  '4360':
+    zone: 50
+    confidence: 0.9
+  '4361':
+    zone: 50
+    confidence: 0.9
+  '4362':
+    zone: 50
+    confidence: 0.9
+  '4363':
+    zone: 50
+    confidence: 0.9
+  '4364':
+    zone: 50
+    confidence: 0.9
+  '4365':
+    zone: 50
+    confidence: 0.9
+  '4381':
+    zone: 50
+    confidence: 0.9
+  '4382':
+    zone: 50
+    confidence: 0.9
+  '4383':
+    zone: 50
+    confidence: 0.9
+  '4384':
+    zone: 50
+    confidence: 0.9
+  '4387':
+    zone: 50
+    confidence: 0.9
+  '4400':
+    zone: 50
+    confidence: 0.9
+  '4401':
+    zone: 50
+    confidence: 0.9
+  '4402':
+    zone: 50
+    confidence: 0.9
+  '4404':
+    zone: 50
+    confidence: 0.9
+  '4407':
+    zone: 50
+    confidence: 0.9
+  '4408':
+    zone: 19
+    confidence: 0.9
+  '4410':
+    zone: 19
+    confidence: 0.9
+  '4412':
+    zone: 19
+    confidence: 0.9
+  '4413':
+    zone: 19
+    confidence: 0.9
+  '4415':
+    zone: 19
+    confidence: 0.9
+  '4416':
+    zone: 19
+    confidence: 0.9
+  '4417':
+    zone: 19
+    confidence: 0.9
+  '4418':
+    zone: 19
+    confidence: 0.9
+  '4419':
+    zone: 19
+    confidence: 0.9
+  '4420':
+    zone: 19
+    confidence: 0.9
+  '4421':
+    zone: 19
+    confidence: 0.9
+  '4422':
+    zone: 19
+    confidence: 0.9
+  '4423':
+    zone: 19
+    confidence: 0.9
+  '4424':
+    zone: 19
+    confidence: 0.9
+  '4425':
+    zone: 19
+    confidence: 0.9
+  '4426':
+    zone: 19
+    confidence: 0.9
+  '4427':
+    zone: 19
+    confidence: 0.9
+  '4428':
+    zone: 19
+    confidence: 0.9
+  '4454':
+    zone: 19
+    confidence: 0.9
+  '4455':
+    zone: 19
+    confidence: 0.9
+  '4461':
+    zone: 19
+    confidence: 0.9
+  '4462':
+    zone: 19
+    confidence: 0.9
+  '4465':
+    zone: 19
+    confidence: 0.9
+  '4467':
+    zone: 19
+    confidence: 0.9
+  '4468':
+    zone: 19
+    confidence: 0.9
+  '4470':
+    zone: 19
+    confidence: 0.9
+  '4471':
+    zone: 19
+    confidence: 0.9
+  '4474':
+    zone: 19
+    confidence: 0.9
+  '4475':
+    zone: 19
+    confidence: 0.9
+  '4477':
+    zone: 19
+    confidence: 0.9
+  '4478':
+    zone: 19
+    confidence: 0.9
+  '4479':
+    zone: 19
+    confidence: 0.9
+  '4486':
+    zone: 19
+    confidence: 0.9
+  '4487':
+    zone: 19
+    confidence: 0.9
+  '4488':
+    zone: 19
+    confidence: 0.9
+  '4489':
+    zone: 19
+    confidence: 0.9
+  '4490':
+    zone: 19
+    confidence: 0.9
+  '4491':
+    zone: 19
+    confidence: 0.9
+  '4492':
+    zone: 19
+    confidence: 0.9
+  '4493':
+    zone: 19
+    confidence: 0.9
+  '4494':
+    zone: 19
+    confidence: 0.9
+  '4496':
+    zone: 19
+    confidence: 0.9
+  '4497':
+    zone: 19
+    confidence: 0.9
+  '4498':
+    zone: 19
+    confidence: 0.9
+  '4550':
+    zone: 9
+    confidence: 0.9
+  '4551':
+    zone: 10
+    confidence: 0.9
+  '4567':
+    zone: 10
+    confidence: 0.9
+  '4572':
+    zone: 10
+    confidence: 0.9
+  '4573':
+    zone: 10
+    confidence: 0.9
+  '4575':
+    zone: 10
+    confidence: 0.9
+  '4581':
+    zone: 10
+    confidence: 0.9
+  '4601':
+    zone: 50
+    confidence: 0.9
+  '4605':
+    zone: 50
+    confidence: 0.9
+  '4606':
+    zone: 50
+    confidence: 0.9
+  '4608':
+    zone: 50
+    confidence: 0.9
+  '4610':
+    zone: 50
+    confidence: 0.9
+  '4611':
+    zone: 50
+    confidence: 0.9
+  '4612':
+    zone: 19
+    confidence: 0.9
+  '4613':
+    zone: 19
+    confidence: 0.9
+  '4614':
+    zone: 50
+    confidence: 0.9
+  '4615':
+    zone: 50
+    confidence: 0.9
+  '4621':
+    zone: 36
+    confidence: 0.9
+  '4626':
+    zone: 19
+    confidence: 0.9
+  '4627':
+    zone: 19
+    confidence: 0.9
+  '4630':
+    zone: 19
+    confidence: 0.9
+  '4650':
+    zone: 36
+    confidence: 0.9
+  '4655':
+    zone: 36
+    confidence: 0.9
+  '4659':
+    zone: 36
+    confidence: 0.9
+  '4660':
+    zone: 36
+    confidence: 0.9
+  '4662':
+    zone: 36
+    confidence: 0.9
+  '4670':
+    zone: 36
+    confidence: 0.9
+  '4671':
+    zone: 36
+    confidence: 0.9
+  '4673':
+    zone: 36
+    confidence: 0.9
+  '4674':
+    zone: 36
+    confidence: 0.9
+  '4677':
+    zone: 36
+    confidence: 0.9
+  '4678':
+    zone: 36
+    confidence: 0.9
+  '4680':
+    zone: 36
+    confidence: 0.9
+  '4694':
+    zone: 36
+    confidence: 0.9
+  '4695':
+    zone: 36
+    confidence: 0.9
+  '4697':
+    zone: 7
+    confidence: 0.9
+  '4699':
+    zone: 7
+    confidence: 0.9
+  '4700':
+    zone: 7
+    confidence: 0.9
+  '4701':
+    zone: 7
+    confidence: 0.9
+  '4703':
+    zone: 7
+    confidence: 0.9
+  '4704':
+    zone: 7
+    confidence: 0.9
+  '4707':
+    zone: 35
+    confidence: 0.9
+  '4710':
+    zone: 7
+    confidence: 0.9
+  '4711':
+    zone: 7
+    confidence: 0.9
+  '4714':
+    zone: 7
+    confidence: 0.9
+  '4721':
+    zone: 3
+    confidence: 0.9
+  '4722':
+    zone: 19
+    confidence: 0.9
+  '4725':
+    zone: 3
+    confidence: 0.9
+  '4726':
+    zone: 3
+    confidence: 0.9
+  '4727':
+    zone: 3
+    confidence: 0.9
+  '4728':
+    zone: 3
+    confidence: 0.9
+  '4730':
+    zone: 3
+    confidence: 0.9
+  '4731':
+    zone: 3
+    confidence: 0.9
+  '4732':
+    zone: 3
+    confidence: 0.9
+  '4733':
+    zone: 3
+    confidence: 0.9
+  '4736':
+    zone: 19
+    confidence: 0.9
+  '4737':
+    zone: 35
+    confidence: 0.9
+  '4738':
+    zone: 35
+    confidence: 0.9
+  '4739':
+    zone: 35
+    confidence: 0.9
+  '4740':
+    zone: 35
+    confidence: 0.9
+  '4743':
+    zone: 35
+    confidence: 0.9
+  '4746':
+    zone: 7
+    confidence: 0.9
+  '4750':
+    zone: 35
+    confidence: 0.9
+  '4753':
+    zone: 35
+    confidence: 0.9
+  '4754':
+    zone: 35
+    confidence: 0.9
+  '4756':
+    zone: 35
+    confidence: 0.9
+  '4757':
+    zone: 35
+    confidence: 0.9
+  '4798':
+    zone: 35
+    confidence: 0.9
+  '4799':
+    zone: 35
+    confidence: 0.9
+  '4800':
+    zone: 35
+    confidence: 0.9
+  '4801':
+    zone: 35
+    confidence: 0.9
+  '4802':
+    zone: 35
+    confidence: 0.9
+  '4803':
+    zone: 35
+    confidence: 0.9
+  '4805':
+    zone: 5
+    confidence: 0.9
+  '4806':
+    zone: 5
+    confidence: 0.9
+  '4807':
+    zone: 5
+    confidence: 0.9
+  '4808':
+    zone: 5
+    confidence: 0.9
+  '4809':
+    zone: 5
+    confidence: 0.9
+  '4810':
+    zone: 5
+    confidence: 0.9
+  '4811':
+    zone: 5
+    confidence: 0.9
+  '4812':
+    zone: 5
+    confidence: 0.9
+  '4813':
+    zone: 5
+    confidence: 0.9
+  '4814':
+    zone: 5
+    confidence: 0.9
+  '4815':
+    zone: 5
+    confidence: 0.9
+  '4817':
+    zone: 5
+    confidence: 0.9
+  '4818':
+    zone: 5
+    confidence: 0.9
+  '4819':
+    zone: 5
+    confidence: 0.9
+  '4821':
+    zone: 39
+    confidence: 0.9
+  '4822':
+    zone: 39
+    confidence: 0.9
+  '4823':
+    zone: 39
+    confidence: 0.9
+  '4824':
+    zone: 39
+    confidence: 0.9
+  '4828':
+    zone: 39
+    confidence: 0.9
+  '4829':
+    zone: 39
+    confidence: 0.9
+  '4852':
+    zone: 32
+    confidence: 0.9
+  '4854':
+    zone: 32
+    confidence: 0.9
+  '4855':
+    zone: 32
+    confidence: 0.9
+  '4856':
+    zone: 32
+    confidence: 0.9
+  '4857':
+    zone: 32
+    confidence: 0.9
+  '4858':
+    zone: 32
+    confidence: 0.9
+  '4859':
+    zone: 32
+    confidence: 0.9
+  '4860':
+    zone: 32
+    confidence: 0.9
+  '4861':
+    zone: 32
+    confidence: 0.9
+  '4865':
+    zone: 32
+    confidence: 0.9
+  '4868':
+    zone: 32
+    confidence: 0.9
+  '4869':
+    zone: 32
+    confidence: 0.9
+  '4870':
+    zone: 32
+    confidence: 0.9
+  '4872':
+    zone: 32
+    confidence: 0.9
+  '4873':
+    zone: 32
+    confidence: 0.9
+  '4874':
+    zone: 29
+    confidence: 0.9
+  '4877':
+    zone: 32
+    confidence: 0.9
+  '4878':
+    zone: 32
+    confidence: 0.9
+  '4879':
+    zone: 32
+    confidence: 0.9
+  '4880':
+    zone: 32
+    confidence: 0.9
+  '4881':
+    zone: 32
+    confidence: 0.9
+  '4882':
+    zone: 32
+    confidence: 0.9
+  '4883':
+    zone: 32
+    confidence: 0.9
+  '4890':
+    zone: 29
+    confidence: 0.9
+  '4891':
+    zone: 29
+    confidence: 0.9
+  '4895':
+    zone: 32
+    confidence: 0.9
+  '5000':
+    zone: 16
+    confidence: 0.9
+  '5005':
+    zone: 16
+    confidence: 0.9
+  '5006':
+    zone: 16
+    confidence: 0.9
+  '5007':
+    zone: 16
+    confidence: 0.9
+  '5008':
+    zone: 16
+    confidence: 0.9
+  '5009':
+    zone: 16
+    confidence: 0.9
+  '5010':
+    zone: 16
+    confidence: 0.9
+  '5011':
+    zone: 16
+    confidence: 0.9
+  '5012':
+    zone: 16
+    confidence: 0.9
+  '5013':
+    zone: 16
+    confidence: 0.9
+  '5014':
+    zone: 16
+    confidence: 0.9
+  '5015':
+    zone: 16
+    confidence: 0.9
+  '5016':
+    zone: 16
+    confidence: 0.9
+  '5017':
+    zone: 16
+    confidence: 0.9
+  '5018':
+    zone: 16
+    confidence: 0.9
+  '5019':
+    zone: 16
+    confidence: 0.9
+  '5020':
+    zone: 16
+    confidence: 0.9
+  '5021':
+    zone: 16
+    confidence: 0.9
+  '5022':
+    zone: 16
+    confidence: 0.9
+  '5023':
+    zone: 16
+    confidence: 0.9
+  '5024':
+    zone: 16
+    confidence: 0.9
+  '5025':
+    zone: 16
+    confidence: 0.9
+  '5031':
+    zone: 16
+    confidence: 0.9
+  '5032':
+    zone: 16
+    confidence: 0.9
+  '5033':
+    zone: 16
+    confidence: 0.9
+  '5034':
+    zone: 16
+    confidence: 0.9
+  '5035':
+    zone: 16
+    confidence: 0.9
+  '5037':
+    zone: 16
+    confidence: 0.9
+  '5038':
+    zone: 16
+    confidence: 0.9
+  '5039':
+    zone: 16
+    confidence: 0.9
+  '5040':
+    zone: 16
+    confidence: 0.9
+  '5041':
+    zone: 16
+    confidence: 0.9
+  '5042':
+    zone: 16
+    confidence: 0.9
+  '5043':
+    zone: 16
+    confidence: 0.9
+  '5044':
+    zone: 16
+    confidence: 0.9
+  '5045':
+    zone: 16
+    confidence: 0.9
+  '5046':
+    zone: 16
+    confidence: 0.9
+  '5047':
+    zone: 16
+    confidence: 0.9
+  '5048':
+    zone: 16
+    confidence: 0.9
+  '5049':
+    zone: 16
+    confidence: 0.9
+  '5050':
+    zone: 16
+    confidence: 0.9
+  '5051':
+    zone: 16
+    confidence: 0.9
+  '5052':
+    zone: 16
+    confidence: 0.9
+  '5061':
+    zone: 16
+    confidence: 0.9
+  '5062':
+    zone: 16
+    confidence: 0.9
+  '5063':
+    zone: 16
+    confidence: 0.9
+  '5064':
+    zone: 16
+    confidence: 0.9
+  '5065':
+    zone: 16
+    confidence: 0.9
+  '5066':
+    zone: 16
+    confidence: 0.9
+  '5067':
+    zone: 16
+    confidence: 0.9
+  '5068':
+    zone: 16
+    confidence: 0.9
+  '5069':
+    zone: 16
+    confidence: 0.9
+  '5070':
+    zone: 16
+    confidence: 0.9
+  '5073':
+    zone: 16
+    confidence: 0.9
+  '5074':
+    zone: 16
+    confidence: 0.9
+  '5075':
+    zone: 16
+    confidence: 0.9
+  '5081':
+    zone: 16
+    confidence: 0.9
+  '5082':
+    zone: 16
+    confidence: 0.9
+  '5083':
+    zone: 16
+    confidence: 0.9
+  '5084':
+    zone: 16
+    confidence: 0.9
+  '5085':
+    zone: 16
+    confidence: 0.9
+  '5086':
+    zone: 16
+    confidence: 0.9
+  '5087':
+    zone: 16
+    confidence: 0.9
+  '5088':
+    zone: 16
+    confidence: 0.9
+  '5089':
+    zone: 16
+    confidence: 0.9
+  '5090':
+    zone: 16
+    confidence: 0.9
+  '5091':
+    zone: 16
+    confidence: 0.9
+  '5092':
+    zone: 16
+    confidence: 0.9
+  '5093':
+    zone: 16
+    confidence: 0.9
+  '5094':
+    zone: 16
+    confidence: 0.9
+  '5095':
+    zone: 16
+    confidence: 0.9
+  '5096':
+    zone: 16
+    confidence: 0.9
+  '5097':
+    zone: 16
+    confidence: 0.9
+  '5098':
+    zone: 16
+    confidence: 0.9
+  '5106':
+    zone: 16
+    confidence: 0.9
+  '5107':
+    zone: 16
+    confidence: 0.9
+  '5108':
+    zone: 16
+    confidence: 0.9
+  '5109':
+    zone: 16
+    confidence: 0.9
+  '5110':
+    zone: 16
+    confidence: 0.9
+  '5111':
+    zone: 16
+    confidence: 0.9
+  '5112':
+    zone: 16
+    confidence: 0.9
+  '5113':
+    zone: 16
+    confidence: 0.9
+  '5114':
+    zone: 16
+    confidence: 0.9
+  '5115':
+    zone: 16
+    confidence: 0.9
+  '5116':
+    zone: 16
+    confidence: 0.9
+  '5117':
+    zone: 16
+    confidence: 0.9
+  '5118':
+    zone: 16
+    confidence: 0.9
+  '5120':
+    zone: 16
+    confidence: 0.9
+  '5121':
+    zone: 16
+    confidence: 0.9
+  '5125':
+    zone: 16
+    confidence: 0.9
+  '5126':
+    zone: 16
+    confidence: 0.9
+  '5127':
+    zone: 16
+    confidence: 0.9
+  '5131':
+    zone: 16
+    confidence: 0.9
+  '5137':
+    zone: 59
+    confidence: 0.9
+  '5138':
+    zone: 59
+    confidence: 0.9
+  '5139':
+    zone: 59
+    confidence: 0.9
+  '5140':
+    zone: 59
+    confidence: 0.9
+  '5141':
+    zone: 59
+    confidence: 0.9
+  '5142':
+    zone: 59
+    confidence: 0.9
+  '5144':
+    zone: 59
+    confidence: 0.9
+  '5150':
+    zone: 59
+    confidence: 0.9
+  '5151':
+    zone: 59
+    confidence: 0.9
+  '5152':
+    zone: 59
+    confidence: 0.9
+  '5153':
+    zone: 59
+    confidence: 0.9
+  '5154':
+    zone: 59
+    confidence: 0.9
+  '5155':
+    zone: 59
+    confidence: 0.9
+  '5156':
+    zone: 59
+    confidence: 0.9
+  '5158':
+    zone: 16
+    confidence: 0.9
+  '5159':
+    zone: 16
+    confidence: 0.9
+  '5160':
+    zone: 16
+    confidence: 0.9
+  '5161':
+    zone: 16
+    confidence: 0.9
+  '5162':
+    zone: 16
+    confidence: 0.9
+  '5163':
+    zone: 16
+    confidence: 0.9
+  '5164':
+    zone: 16
+    confidence: 0.9
+  '5165':
+    zone: 16
+    confidence: 0.9
+  '5166':
+    zone: 16
+    confidence: 0.9
+  '5167':
+    zone: 16
+    confidence: 0.9
+  '5168':
+    zone: 16
+    confidence: 0.9
+  '5169':
+    zone: 16
+    confidence: 0.9
+  '5170':
+    zone: 16
+    confidence: 0.9
+  '5171':
+    zone: 16
+    confidence: 0.9
+  '5172':
+    zone: 16
+    confidence: 0.9
+  '5173':
+    zone: 16
+    confidence: 0.9
+  '5174':
+    zone: 16
+    confidence: 0.9
+  '5201':
+    zone: 16
+    confidence: 0.9
+  '5202':
+    zone: 16
+    confidence: 0.9
+  '5211':
+    zone: 16
+    confidence: 0.9
+  '5212':
+    zone: 16
+    confidence: 0.9
+  '5213':
+    zone: 16
+    confidence: 0.9
+  '5214':
+    zone: 16
+    confidence: 0.9
+  '5220':
+    zone: 53
+    confidence: 0.9
+  '5221':
+    zone: 53
+    confidence: 0.9
+  '5232':
+    zone: 16
+    confidence: 0.9
+  '5233':
+    zone: 59
+    confidence: 0.9
+  '5234':
+    zone: 59
+    confidence: 0.9
+  '5235':
+    zone: 59
+    confidence: 0.9
+  '5236':
+    zone: 59
+    confidence: 0.9
+  '5237':
+    zone: 59
+    confidence: 0.9
+  '5238':
+    zone: 27
+    confidence: 0.9
+  '5240':
+    zone: 59
+    confidence: 0.9
+  '5241':
+    zone: 59
+    confidence: 0.9
+  '5242':
+    zone: 59
+    confidence: 0.9
+  '5243':
+    zone: 59
+    confidence: 0.9
+  '5244':
+    zone: 59
+    confidence: 0.9
+  '5245':
+    zone: 59
+    confidence: 0.9
+  '5250':
+    zone: 59
+    confidence: 0.9
+  '5251':
+    zone: 59
+    confidence: 0.9
+  '5252':
+    zone: 59
+    confidence: 0.9
+  '5253':
+    zone: 16
+    confidence: 0.9
+  '5254':
+    zone: 16
+    confidence: 0.9
+  '5259':
+    zone: 61
+    confidence: 0.9
+  '5262':
+    zone: 61
+    confidence: 0.9
+  '5263':
+    zone: 61
+    confidence: 0.9
+  '5264':
+    zone: 61
+    confidence: 0.9
+  '5266':
+    zone: 61
+    confidence: 0.9
+  '5270':
+    zone: 61
+    confidence: 0.9
+  '5271':
+    zone: 61
+    confidence: 0.9
+  '5272':
+    zone: 61
+    confidence: 0.9
+  '5273':
+    zone: 61
+    confidence: 0.9
+  '5275':
+    zone: 61
+    confidence: 0.9
+  '5276':
+    zone: 61
+    confidence: 0.9
+  '5277':
+    zone: 61
+    confidence: 0.9
+  '5278':
+    zone: 61
+    confidence: 0.9
+  '5279':
+    zone: 61
+    confidence: 0.9
+  '5280':
+    zone: 61
+    confidence: 0.9
+  '5290':
+    zone: 61
+    confidence: 0.9
+  '5291':
+    zone: 61
+    confidence: 0.9
+  '5350':
+    zone: 16
+    confidence: 0.9
+  '5356':
+    zone: 59
+    confidence: 0.9
+  '5373':
+    zone: 59
+    confidence: 0.9
+  '5374':
+    zone: 59
+    confidence: 0.9
+  '5401':
+    zone: 59
+    confidence: 0.9
+  '5410':
+    zone: 59
+    confidence: 0.9
+  '5411':
+    zone: 59
+    confidence: 0.9
+  '5412':
+    zone: 59
+    confidence: 0.9
+  '5413':
+    zone: 59
+    confidence: 0.9
+  '5414':
+    zone: 59
+    confidence: 0.9
+  '5416':
+    zone: 59
+    confidence: 0.9
+  '5431':
+    zone: 16
+    confidence: 0.9
+  '5558':
+    zone: 53
+    confidence: 0.9
+  '5560':
+    zone: 53
+    confidence: 0.9
+  '5570':
+    zone: 53
+    confidence: 0.9
+  '5571':
+    zone: 53
+    confidence: 0.9
+  '5572':
+    zone: 53
+    confidence: 0.9
+  '5573':
+    zone: 53
+    confidence: 0.9
+  '5575':
+    zone: 53
+    confidence: 0.9
+  '5576':
+    zone: 53
+    confidence: 0.9
+  '5577':
+    zone: 53
+    confidence: 0.9
+  '5580':
+    zone: 53
+    confidence: 0.9
+  '5630':
+    zone: 53
+    confidence: 0.9
+  '5631':
+    zone: 53
+    confidence: 0.9
+  '5632':
+    zone: 53
+    confidence: 0.9
+  '5633':
+    zone: 53
+    confidence: 0.9
+  '5640':
+    zone: 53
+    confidence: 0.9
+  '5641':
+    zone: 53
+    confidence: 0.9
+  '5642':
+    zone: 53
+    confidence: 0.9
+  '5650':
+    zone: 45
+    confidence: 0.9
+  '5651':
+    zone: 45
+    confidence: 0.9
+  '5652':
+    zone: 45
+    confidence: 0.9
+  '5653':
+    zone: 45
+    confidence: 0.9
+  '5654':
+    zone: 45
+    confidence: 0.9
+  '5655':
+    zone: 45
+    confidence: 0.9
+  '5660':
+    zone: 45
+    confidence: 0.9
+  '5661':
+    zone: 53
+    confidence: 0.9
+  '5670':
+    zone: 53
+    confidence: 0.9
+  '5671':
+    zone: 53
+    confidence: 0.9
+  '5680':
+    zone: 53
+    confidence: 0.9
+  '5690':
+    zone: 53
+    confidence: 0.9
+  '5700':
+    zone: 45
+    confidence: 0.9
+  '5701':
+    zone: 45
+    confidence: 0.9
+  '5710':
+    zone: 45
+    confidence: 0.9
+  '5713':
+    zone: 45
+    confidence: 0.9
+  '5715':
+    zone: 45
+    confidence: 0.9
+  '5717':
+    zone: 45
+    confidence: 0.9
+  '5719':
+    zone: 45
+    confidence: 0.9
+  '5720':
+    zone: 45
+    confidence: 0.9
+  '5722':
+    zone: 45
+    confidence: 0.9
+  '5723':
+    zone: 43
+    confidence: 0.9
+  '5724':
+    zone: 43
+    confidence: 0.9
+  '5725':
+    zone: 45
+    confidence: 0.9
+  '5730':
+    zone: 43
+    confidence: 0.9
+  '5731':
+    zone: 43
+    confidence: 0.9
+  '5732':
+    zone: 43
+    confidence: 0.9
+  '5733':
+    zone: 43
+    confidence: 0.9
+  '5734':
+    zone: 43
+    confidence: 0.9
+  '5950':
+    zone: 16
+    confidence: 0.9
+  '6000':
+    zone: 13
+    confidence: 0.9
+  '6003':
+    zone: 13
+    confidence: 0.9
+  '6004':
+    zone: 13
+    confidence: 0.9
+  '6005':
+    zone: 13
+    confidence: 0.9
+  '6006':
+    zone: 13
+    confidence: 0.9
+  '6007':
+    zone: 13
+    confidence: 0.9
+  '6008':
+    zone: 13
+    confidence: 0.9
+  '6011':
+    zone: 52
+    confidence: 0.9
+  '6012':
+    zone: 52
+    confidence: 0.9
+  '6014':
+    zone: 13
+    confidence: 0.9
+  '6015':
+    zone: 52
+    confidence: 0.9
+  '6016':
+    zone: 13
+    confidence: 0.9
+  '6017':
+    zone: 13
+    confidence: 0.9
+  '6019':
+    zone: 52
+    confidence: 0.9
+  '6020':
+    zone: 52
+    confidence: 0.9
+  '6021':
+    zone: 13
+    confidence: 0.9
+  '6022':
+    zone: 13
+    confidence: 0.9
+  '6024':
+    zone: 13
+    confidence: 0.9
+  '6026':
+    zone: 13
+    confidence: 0.9
+  '6028':
+    zone: 52
+    confidence: 0.9
+  '6029':
+    zone: 52
+    confidence: 0.9
+  '6030':
+    zone: 52
+    confidence: 0.9
+  '6032':
+    zone: 13
+    confidence: 0.9
+  '6033':
+    zone: 13
+    confidence: 0.9
+  '6034':
+    zone: 52
+    confidence: 0.9
+  '6036':
+    zone: 52
+    confidence: 0.9
+  '6038':
+    zone: 52
+    confidence: 0.9
+  '6041':
+    zone: 52
+    confidence: 0.9
+  '6042':
+    zone: 52
+    confidence: 0.9
+  '6050':
+    zone: 13
+    confidence: 0.9
+  '6051':
+    zone: 13
+    confidence: 0.9
+  '6052':
+    zone: 13
+    confidence: 0.9
+  '6053':
+    zone: 13
+    confidence: 0.9
+  '6054':
+    zone: 13
+    confidence: 0.9
+  '6055':
+    zone: 13
+    confidence: 0.9
+  '6057':
+    zone: 13
+    confidence: 0.9
+  '6058':
+    zone: 13
+    confidence: 0.9
+  '6059':
+    zone: 13
+    confidence: 0.9
+  '6060':
+    zone: 13
+    confidence: 0.9
+  '6061':
+    zone: 13
+    confidence: 0.9
+  '6062':
+    zone: 13
+    confidence: 0.9
+  '6063':
+    zone: 13
+    confidence: 0.9
+  '6064':
+    zone: 13
+    confidence: 0.9
+  '6065':
+    zone: 13
+    confidence: 0.9
+  '6066':
+    zone: 13
+    confidence: 0.9
+  '6067':
+    zone: 13
+    confidence: 0.9
+  '6068':
+    zone: 13
+    confidence: 0.9
+  '6069':
+    zone: 13
+    confidence: 0.9
+  '6070':
+    zone: 47
+    confidence: 0.9
+  '6071':
+    zone: 47
+    confidence: 0.9
+  '6072':
+    zone: 47
+    confidence: 0.9
+  '6073':
+    zone: 47
+    confidence: 0.9
+  '6074':
+    zone: 47
+    confidence: 0.9
+  '6076':
+    zone: 47
+    confidence: 0.9
+  '6077':
+    zone: 13
+    confidence: 0.9
+  '6078':
+    zone: 13
+    confidence: 0.9
+  '6079':
+    zone: 13
+    confidence: 0.9
+  '6081':
+    zone: 47
+    confidence: 0.9
+  '6082':
+    zone: 47
+    confidence: 0.9
+  '6083':
+    zone: 47
+    confidence: 0.9
+  '6090':
+    zone: 13
+    confidence: 0.9
+  '6100':
+    zone: 13
+    confidence: 0.9
+  '6101':
+    zone: 13
+    confidence: 0.9
+  '6102':
+    zone: 13
+    confidence: 0.9
+  '6103':
+    zone: 13
+    confidence: 0.9
+  '6104':
+    zone: 13
+    confidence: 0.9
+  '6105':
+    zone: 13
+    confidence: 0.9
+  '6106':
+    zone: 13
+    confidence: 0.9
+  '6107':
+    zone: 13
+    confidence: 0.9
+  '6108':
+    zone: 13
+    confidence: 0.9
+  '6121':
+    zone: 13
+    confidence: 0.9
+  '6124':
+    zone: 47
+    confidence: 0.9
+  '6147':
+    zone: 13
+    confidence: 0.9
+  '6148':
+    zone: 13
+    confidence: 0.9
+  '6149':
+    zone: 13
+    confidence: 0.9
+  '6150':
+    zone: 13
+    confidence: 0.9
+  '6151':
+    zone: 13
+    confidence: 0.9
+  '6152':
+    zone: 13
+    confidence: 0.9
+  '6153':
+    zone: 13
+    confidence: 0.9
+  '6154':
+    zone: 13
+    confidence: 0.9
+  '6155':
+    zone: 13
+    confidence: 0.9
+  '6156':
+    zone: 13
+    confidence: 0.9
+  '6157':
+    zone: 13
+    confidence: 0.9
+  '6158':
+    zone: 52
+    confidence: 0.9
+  '6159':
+    zone: 52
+    confidence: 0.9
+  '6160':
+    zone: 52
+    confidence: 0.9
+  '6161':
+    zone: 52
+    confidence: 0.9
+  '6162':
+    zone: 52
+    confidence: 0.9
+  '6180':
+    zone: 54
+    confidence: 0.9
+  '6181':
+    zone: 13
+    confidence: 0.9
+  '6182':
+    zone: 13
+    confidence: 0.9
+  '6209':
+    zone: 54
+    confidence: 0.9
+  '6211':
+    zone: 54
+    confidence: 0.9
+  '6243':
+    zone: 58
+    confidence: 0.9
+  '6260':
+    zone: 58
+    confidence: 0.9
+  '6262':
+    zone: 58
+    confidence: 0.9
+  '6275':
+    zone: 57
+    confidence: 0.9
+  '6280':
+    zone: 54
+    confidence: 0.9
+  '6281':
+    zone: 54
+    confidence: 0.9
+  '6282':
+    zone: 54
+    confidence: 0.9
+  '6285':
+    zone: 54
+    confidence: 0.9
+  '6286':
+    zone: 54
+    confidence: 0.9
+  '6290':
+    zone: 54
+    confidence: 0.9
+  '6304':
+    zone: 44
+    confidence: 0.9
+  '6306':
+    zone: 44
+    confidence: 0.9
+  '6308':
+    zone: 44
+    confidence: 0.9
+  '6309':
+    zone: 44
+    confidence: 0.9
+  '6311':
+    zone: 44
+    confidence: 0.9
+  '6312':
+    zone: 49
+    confidence: 0.9
+  '6313':
+    zone: 49
+    confidence: 0.9
+  '6315':
+    zone: 49
+    confidence: 0.9
+  '6316':
+    zone: 49
+    confidence: 0.9
+  '6317':
+    zone: 49
+    confidence: 0.9
+  '6318':
+    zone: 49
+    confidence: 0.9
+  '6320':
+    zone: 49
+    confidence: 0.9
+  '6321':
+    zone: 49
+    confidence: 0.9
+  '6322':
+    zone: 49
+    confidence: 0.9
+  '6324':
+    zone: 49
+    confidence: 0.9
+  '6326':
+    zone: 49
+    confidence: 0.9
+  '6327':
+    zone: 58
+    confidence: 0.9
+  '6328':
+    zone: 58
+    confidence: 0.9
+  '6330':
+    zone: 58
+    confidence: 0.9
+  '6333':
+    zone: 58
+    confidence: 0.9
+  '6335':
+    zone: 49
+    confidence: 0.9
+  '6336':
+    zone: 49
+    confidence: 0.9
+  '6338':
+    zone: 58
+    confidence: 0.9
+  '6341':
+    zone: 49
+    confidence: 0.9
+  '6343':
+    zone: 49
+    confidence: 0.9
+  '6348':
+    zone: 58
+    confidence: 0.9
+  '6350':
+    zone: 49
+    confidence: 0.9
+  '6351':
+    zone: 49
+    confidence: 0.9
+  '6352':
+    zone: 49
+    confidence: 0.9
+  '6353':
+    zone: 44
+    confidence: 0.9
+  '6356':
+    zone: 44
+    confidence: 0.9
+  '6357':
+    zone: 44
+    confidence: 0.9
+  '6358':
+    zone: 44
+    confidence: 0.9
+  '6359':
+    zone: 44
+    confidence: 0.9
+  '6361':
+    zone: 49
+    confidence: 0.9
+  '6363':
+    zone: 44
+    confidence: 0.9
+  '6365':
+    zone: 44
+    confidence: 0.9
+  '6367':
+    zone: 44
+    confidence: 0.9
+  '6368':
+    zone: 44
+    confidence: 0.9
+  '6369':
+    zone: 44
+    confidence: 0.9
+  '6370':
+    zone: 44
+    confidence: 0.9
+  '6372':
+    zone: 44
+    confidence: 0.9
+  '6373':
+    zone: 44
+    confidence: 0.9
+  '6375':
+    zone: 44
+    confidence: 0.9
+  '6383':
+    zone: 44
+    confidence: 0.9
+  '6384':
+    zone: 44
+    confidence: 0.9
+  '6385':
+    zone: 44
+    confidence: 0.9
+  '6386':
+    zone: 44
+    confidence: 0.9
+  '6391':
+    zone: 49
+    confidence: 0.9
+  '6392':
+    zone: 49
+    confidence: 0.9
+  '6393':
+    zone: 49
+    confidence: 0.9
+  '6394':
+    zone: 49
+    confidence: 0.9
+  '6395':
+    zone: 49
+    confidence: 0.9
+  '6396':
+    zone: 49
+    confidence: 0.9
+  '6397':
+    zone: 57
+    confidence: 0.9
+  '6398':
+    zone: 58
+    confidence: 0.9
+  '6401':
+    zone: 44
+    confidence: 0.9
+  '6403':
+    zone: 44
+    confidence: 0.9
+  '6405':
+    zone: 44
+    confidence: 0.9
+  '6407':
+    zone: 44
+    confidence: 0.9
+  '6409':
+    zone: 44
+    confidence: 0.9
+  '6410':
+    zone: 44
+    confidence: 0.9
+  '6411':
+    zone: 44
+    confidence: 0.9
+  '6412':
+    zone: 44
+    confidence: 0.9
+  '6413':
+    zone: 44
+    confidence: 0.9
+  '6414':
+    zone: 44
+    confidence: 0.9
+  '6415':
+    zone: 44
+    confidence: 0.9
+  '6418':
+    zone: 44
+    confidence: 0.9
+  '6419':
+    zone: 44
+    confidence: 0.9
+  '6420':
+    zone: 44
+    confidence: 0.9
+  '6421':
+    zone: 44
+    confidence: 0.9
+  '6422':
+    zone: 44
+    confidence: 0.9
+  '6423':
+    zone: 44
+    confidence: 0.9
+  '6424':
+    zone: 44
+    confidence: 0.9
+  '6425':
+    zone: 44
+    confidence: 0.9
+  '6426':
+    zone: 44
+    confidence: 0.9
+  '6427':
+    zone: 44
+    confidence: 0.9
+  '6428':
+    zone: 44
+    confidence: 0.9
+  '6429':
+    zone: 44
+    confidence: 0.9
+  '6430':
+    zone: 44
+    confidence: 0.9
+  '6431':
+    zone: 42
+    confidence: 0.9
+  '6432':
+    zone: 44
+    confidence: 0.9
+  '6434':
+    zone: 51
+    confidence: 0.9
+  '6436':
+    zone: 42
+    confidence: 0.9
+  '6437':
+    zone: 42
+    confidence: 0.9
+  '6438':
+    zone: 41
+    confidence: 0.9
+  '6442':
+    zone: 44
+    confidence: 0.9
+  '6460':
+    zone: 44
+    confidence: 0.9
+  '6461':
+    zone: 44
+    confidence: 0.9
+  '6462':
+    zone: 44
+    confidence: 0.9
+  '6463':
+    zone: 44
+    confidence: 0.9
+  '6465':
+    zone: 44
+    confidence: 0.9
+  '6466':
+    zone: 44
+    confidence: 0.9
+  '6467':
+    zone: 44
+    confidence: 0.9
+  '6468':
+    zone: 42
+    confidence: 0.9
+  '6470':
+    zone: 42
+    confidence: 0.9
+  '6472':
+    zone: 42
+    confidence: 0.9
+  '6475':
+    zone: 44
+    confidence: 0.9
+  '6476':
+    zone: 44
+    confidence: 0.9
+  '6477':
+    zone: 44
+    confidence: 0.9
+  '6479':
+    zone: 44
+    confidence: 0.9
+  '6480':
+    zone: 44
+    confidence: 0.9
+  '6484':
+    zone: 44
+    confidence: 0.9
+  '6485':
+    zone: 44
+    confidence: 0.9
+  '6487':
+    zone: 44
+    confidence: 0.9
+  '6488':
+    zone: 44
+    confidence: 0.9
+  '6489':
+    zone: 44
+    confidence: 0.9
+  '6490':
+    zone: 44
+    confidence: 0.9
+  '6501':
+    zone: 13
+    confidence: 0.9
+  '6502':
+    zone: 44
+    confidence: 0.9
+  '6504':
+    zone: 13
+    confidence: 0.9
+  '6505':
+    zone: 13
+    confidence: 0.9
+  '6507':
+    zone: 44
+    confidence: 0.9
+  '6509':
+    zone: 44
+    confidence: 0.9
+  '6510':
+    zone: 44
+    confidence: 0.9
+  '6517':
+    zone: 42
+    confidence: 0.9
+  '6518':
+    zone: 12
+    confidence: 0.9
+  '6519':
+    zone: 42
+    confidence: 0.9
+  '6522':
+    zone: 42
+    confidence: 0.9
+  '6525':
+    zone: 12
+    confidence: 0.9
+  '6528':
+    zone: 12
+    confidence: 0.9
+  '6530':
+    zone: 12
+    confidence: 0.9
+  '6535':
+    zone: 12
+    confidence: 0.9
+  '6536':
+    zone: 12
+    confidence: 0.9
+  '6564':
+    zone: 44
+    confidence: 0.9
+  '6567':
+    zone: 47
+    confidence: 0.9
+  '6568':
+    zone: 44
+    confidence: 0.9
+  '6569':
+    zone: 44
+    confidence: 0.9
+  '6571':
+    zone: 44
+    confidence: 0.9
+  '6572':
+    zone: 44
+    confidence: 0.9
+  '6574':
+    zone: 44
+    confidence: 0.9
+  '6575':
+    zone: 44
+    confidence: 0.9
+  '6603':
+    zone: 44
+    confidence: 0.9
+  '6605':
+    zone: 44
+    confidence: 0.9
+  '6606':
+    zone: 44
+    confidence: 0.9
+  '6608':
+    zone: 44
+    confidence: 0.9
+  '6609':
+    zone: 42
+    confidence: 0.9
+  '6612':
+    zone: 42
+    confidence: 0.9
+  '6613':
+    zone: 42
+    confidence: 0.9
+  '6614':
+    zone: 42
+    confidence: 0.9
+  '6616':
+    zone: 42
+    confidence: 0.9
+  '6620':
+    zone: 42
+    confidence: 0.9
+  '6623':
+    zone: 42
+    confidence: 0.9
+  '6625':
+    zone: 42
+    confidence: 0.9
+  '6627':
+    zone: 42
+    confidence: 0.9
+  '6628':
+    zone: 42
+    confidence: 0.9
+  '6630':
+    zone: 42
+    confidence: 0.9
+  '6631':
+    zone: 42
+    confidence: 0.9
+  '6632':
+    zone: 42
+    confidence: 0.9
+  '6635':
+    zone: 42
+    confidence: 0.9
+  '6638':
+    zone: 42
+    confidence: 0.9
+  '6707':
+    zone: 34
+    confidence: 0.9
+  '6710':
+    zone: 2
+    confidence: 0.9
+  '6711':
+    zone: 2
+    confidence: 0.9
+  '6712':
+    zone: 2
+    confidence: 0.9
+  '6713':
+    zone: 2
+    confidence: 0.9
+  '6714':
+    zone: 2
+    confidence: 0.9
+  '6718':
+    zone: 2
+    confidence: 0.9
+  '6720':
+    zone: 2
+    confidence: 0.9
+  '6721':
+    zone: 2
+    confidence: 0.9
+  '6722':
+    zone: 2
+    confidence: 0.9
+  '6740':
+    zone: 30
+    confidence: 0.9
+  '6743':
+    zone: 30
+    confidence: 0.9
+  '6751':
+    zone: 40
+    confidence: 0.9
+  '6753':
+    zone: 40
+    confidence: 0.9
+  '6754':
+    zone: 40
+    confidence: 0.9
+  '6758':
+    zone: 40
+    confidence: 0.9
+  '6762':
+    zone: 40
+    confidence: 0.9
+  '6770':
+    zone: 37
+    confidence: 0.9
+  '6798':
+    zone: 31
+    confidence: 0.9
+  '6799':
+    zone: 31
+    confidence: 0.9
+  '7000':
+    zone: 26
+    confidence: 0.9
+  '7001':
+    zone: 26
+    confidence: 0.9
+  '7004':
+    zone: 26
+    confidence: 0.9
+  '7007':
+    zone: 26
+    confidence: 0.9
+  '7009':
+    zone: 26
+    confidence: 0.9
+  '7010':
+    zone: 26
+    confidence: 0.9
+  '7011':
+    zone: 26
+    confidence: 0.9
+  '7012':
+    zone: 26
+    confidence: 0.9
+  '7015':
+    zone: 26
+    confidence: 0.9
+  '7016':
+    zone: 26
+    confidence: 0.9
+  '7017':
+    zone: 26
+    confidence: 0.9
+  '7018':
+    zone: 26
+    confidence: 0.9
+  '7019':
+    zone: 26
+    confidence: 0.9
+  '7020':
+    zone: 26
+    confidence: 0.9
+  '7021':
+    zone: 26
+    confidence: 0.9
+  '7022':
+    zone: 26
+    confidence: 0.9
+  '7023':
+    zone: 26
+    confidence: 0.9
+  '7024':
+    zone: 26
+    confidence: 0.9
+  '7025':
+    zone: 26
+    confidence: 0.9
+  '7026':
+    zone: 26
+    confidence: 0.9
+  '7027':
+    zone: 26
+    confidence: 0.9
+  '7050':
+    zone: 26
+    confidence: 0.9
+  '7052':
+    zone: 26
+    confidence: 0.9
+  '7053':
+    zone: 26
+    confidence: 0.9
+  '7055':
+    zone: 26
+    confidence: 0.9
+  '7109':
+    zone: 26
+    confidence: 0.9
+  '7112':
+    zone: 26
+    confidence: 0.9
+  '7113':
+    zone: 26
+    confidence: 0.9
+  '7116':
+    zone: 26
+    confidence: 0.9
+  '7117':
+    zone: 26
+    confidence: 0.9
+  '7119':
+    zone: 68
+    confidence: 0.9
+  '7120':
+    zone: 68
+    confidence: 0.9
+  '7150':
+    zone: 26
+    confidence: 0.9
+  '7155':
+    zone: 26
+    confidence: 0.9
+  '7162':
+    zone: 26
+    confidence: 0.9
+  '7163':
+    zone: 26
+    confidence: 0.9
+  '7170':
+    zone: 26
+    confidence: 0.9
+  '7171':
+    zone: 26
+    confidence: 0.9
+  '7172':
+    zone: 26
+    confidence: 0.9
+  '7173':
+    zone: 26
+    confidence: 0.9
+  '7174':
+    zone: 26
+    confidence: 0.9
+  '7175':
+    zone: 26
+    confidence: 0.9
+  '7176':
+    zone: 26
+    confidence: 0.9
+  '7177':
+    zone: 26
+    confidence: 0.9
+  '7178':
+    zone: 26
+    confidence: 0.9
+  '7179':
+    zone: 26
+    confidence: 0.9
+  '7180':
+    zone: 26
+    confidence: 0.9
+  '7182':
+    zone: 26
+    confidence: 0.9
+  '7183':
+    zone: 26
+    confidence: 0.9
+  '7184':
+    zone: 26
+    confidence: 0.9
+  '7185':
+    zone: 26
+    confidence: 0.9
+  '7186':
+    zone: 26
+    confidence: 0.9
+  '7187':
+    zone: 26
+    confidence: 0.9
+  '7190':
+    zone: 26
+    confidence: 0.9
+  '7209':
+    zone: 68
+    confidence: 0.9
+  '7210':
+    zone: 68
+    confidence: 0.9
+  '7211':
+    zone: 68
+    confidence: 0.9
+  '7213':
+    zone: 68
+    confidence: 0.9
+  '7214':
+    zone: 68
+    confidence: 0.9
+  '7215':
+    zone: 67
+    confidence: 0.9
+  '7216':
+    zone: 67
+    confidence: 0.9
+  '7248':
+    zone: 23
+    confidence: 0.9
+  '7249':
+    zone: 23
+    confidence: 0.9
+  '7250':
+    zone: 23
+    confidence: 0.9
+  '7252':
+    zone: 68
+    confidence: 0.9
+  '7253':
+    zone: 67
+    confidence: 0.9
+  '7254':
+    zone: 67
+    confidence: 0.9
+  '7255':
+    zone: 67
+    confidence: 0.9
+  '7256':
+    zone: 67
+    confidence: 0.9
+  '7257':
+    zone: 67
+    confidence: 0.9
+  '7258':
+    zone: 68
+    confidence: 0.9
+  '7261':
+    zone: 68
+    confidence: 0.9
+  '7262':
+    zone: 67
+    confidence: 0.9
+  '7264':
+    zone: 67
+    confidence: 0.9
+  '7265':
+    zone: 67
+    confidence: 0.9
+  '7267':
+    zone: 68
+    confidence: 0.9
+  '7268':
+    zone: 68
+    confidence: 0.9
+  '7270':
+    zone: 67
+    confidence: 0.9
+  '7277':
+    zone: 23
+    confidence: 0.9
+  '7290':
+    zone: 68
+    confidence: 0.9
+  '7291':
+    zone: 68
+    confidence: 0.9
+  '7292':
+    zone: 68
+    confidence: 0.9
+  '7300':
+    zone: 68
+    confidence: 0.9
+  '7301':
+    zone: 68
+    confidence: 0.9
+  '7302':
+    zone: 68
+    confidence: 0.9
+  '7303':
+    zone: 68
+    confidence: 0.9
+  '7307':
+    zone: 67
+    confidence: 0.9
+  '7316':
+    zone: 67
+    confidence: 0.9
+  '7320':
+    zone: 67
+    confidence: 0.9
+  '7322':
+    zone: 26
+    confidence: 0.9
+  '7325':
+    zone: 26
+    confidence: 0.9
+  '7330':
+    zone: 26
+    confidence: 0.9
+  '7331':
+    zone: 26
+    confidence: 0.9
+  '7466':
+    zone: 26
+    confidence: 0.9
+  '7467':
+    zone: 26
+    confidence: 0.9
+  '7468':
+    zone: 26
+    confidence: 0.9
+  '7469':
+    zone: 26
+    confidence: 0.9
 ambiguous:
-  "2620":
-    zones: [24, 62]
+  0822:
+    zones:
+    - 1
+    - 37
+    - 30
     confidence: 0.4
-    note: "Queanbeyan/ACT fringe spans more than one NatHERS zone (illustrative)."
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  0847:
+    zones:
+    - 37
+    - 1
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  0852:
+    zones:
+    - 37
+    - 38
+    - 1
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  0862:
+    zones:
+    - 37
+    - 38
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  0872:
+    zones:
+    - 6
+    - 43
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  0886:
+    zones:
+    - 30
+    - 1
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2145':
+    zones:
+    - 28
+    - 56
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2150':
+    zones:
+    - 56
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2151':
+    zones:
+    - 56
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2152':
+    zones:
+    - 56
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2153':
+    zones:
+    - 56
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2154':
+    zones:
+    - 56
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2250':
+    zones:
+    - 15
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2312':
+    zones:
+    - 11
+    - 15
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2322':
+    zones:
+    - 28
+    - 15
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2324':
+    zones:
+    - 11
+    - 15
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2329':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2336':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2337':
+    zones:
+    - 14
+    - 65
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2338':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2339':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2340':
+    zones:
+    - 14
+    - 24
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2341':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2342':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2343':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2344':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2345':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2346':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2347':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2350':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2352':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2353':
+    zones:
+    - 14
+    - 24
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2354':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2355':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2357':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2358':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2360':
+    zones:
+    - 14
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2365':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2370':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2371':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2372':
+    zones:
+    - 14
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2379':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2380':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2381':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2382':
+    zones:
+    - 14
+    - 48
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2395':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2396':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2406':
+    zones:
+    - 8
+    - 19
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2423':
+    zones:
+    - 11
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2427':
+    zones:
+    - 15
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2428':
+    zones:
+    - 15
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2446':
+    zones:
+    - 15
+    - 28
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2453':
+    zones:
+    - 14
+    - 11
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2454':
+    zones:
+    - 11
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2469':
+    zones:
+    - 9
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2470':
+    zones:
+    - 9
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2471':
+    zones:
+    - 9
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2472':
+    zones:
+    - 11
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2475':
+    zones:
+    - 14
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2476':
+    zones:
+    - 14
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2480':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2522':
+    zones:
+    - 56
+    - 18
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2525':
+    zones:
+    - 56
+    - 18
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2526':
+    zones:
+    - 56
+    - 18
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2528':
+    zones:
+    - 56
+    - 18
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2530':
+    zones:
+    - 56
+    - 18
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2577':
+    zones:
+    - 24
+    - 28
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2587':
+    zones:
+    - 65
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2594':
+    zones:
+    - 65
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2618':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2620':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2622':
+    zones:
+    - 24
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2624':
+    zones:
+    - 69
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2625':
+    zones:
+    - 69
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2627':
+    zones:
+    - 69
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2628':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2629':
+    zones:
+    - 25
+    - 69
+    - 24
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2642':
+    zones:
+    - 20
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2649':
+    zones:
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2652':
+    zones:
+    - 20
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2653':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2671':
+    zones:
+    - 48
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2680':
+    zones:
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2681':
+    zones:
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2720':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2787':
+    zones:
+    - 65
+    - 24
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2790':
+    zones:
+    - 65
+    - 24
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2794':
+    zones:
+    - 48
+    - 65
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2803':
+    zones:
+    - 65
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2804':
+    zones:
+    - 48
+    - 65
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2805':
+    zones:
+    - 48
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2806':
+    zones:
+    - 48
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2807':
+    zones:
+    - 65
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2809':
+    zones:
+    - 48
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2810':
+    zones:
+    - 48
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2824':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2825':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2827':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2829':
+    zones:
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2831':
+    zones:
+    - 46
+    - 48
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2838':
+    zones:
+    - 8
+    - 46
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2846':
+    zones:
+    - 65
+    - 24
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '2847':
+    zones:
+    - 65
+    - 24
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3054':
+    zones:
+    - 21
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3055':
+    zones:
+    - 21
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3056':
+    zones:
+    - 21
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3057':
+    zones:
+    - 21
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3058':
+    zones:
+    - 60
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3101':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3141':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3142':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3143':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3144':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3145':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3146':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3181':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3182':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3183':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3184':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3185':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3186':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3187':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3188':
+    zones:
+    - 62
+    - 21
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3204':
+    zones:
+    - 21
+    - 62
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3221':
+    zones:
+    - 60
+    - 64
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3260':
+    zones:
+    - 63
+    - 64
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3266':
+    zones:
+    - 64
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3267':
+    zones:
+    - 64
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3268':
+    zones:
+    - 64
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3312':
+    zones:
+    - 61
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3314':
+    zones:
+    - 61
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3322':
+    zones:
+    - 66
+    - 64
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3323':
+    zones:
+    - 66
+    - 64
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3324':
+    zones:
+    - 66
+    - 64
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3330':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3331':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3340':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3341':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3342':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3345':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3350':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3351':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3352':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3355':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3356':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3357':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3360':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3361':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3363':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3364':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3370':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3371':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3373':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3375':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3377':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3378':
+    zones:
+    - 63
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3379':
+    zones:
+    - 63
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3380':
+    zones:
+    - 66
+    - 63
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3407':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3409':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3412':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3419':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3478':
+    zones:
+    - 66
+    - 60
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3480':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3515':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3516':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3517':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3518':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3523':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3525':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3550':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3551':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3555':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3556':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3557':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3558':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3559':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3561':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3562':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3564':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3565':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3566':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3570':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3571':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3572':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3573':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3575':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3594':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3595':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3596':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3597':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3599':
+    zones:
+    - 27
+    - 66
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3607':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3608':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3610':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3612':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3614':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3616':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3617':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3618':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3620':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3621':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3622':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3623':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3624':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3629':
+    zones:
+    - 66
+    - 27
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3630':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3631':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3633':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3634':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3635':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3636':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3637':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3638':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3639':
+    zones:
+    - 66
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3640':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3641':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3644':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3646':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3647':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3649':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3659':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3660':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3662':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3663':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3664':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3665':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3666':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3669':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3670':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3672':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3673':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3675':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3677':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3678':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3690':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3691':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3699':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3700':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3701':
+    zones:
+    - 66
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3705':
+    zones:
+    - 66
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3707':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3708':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3709':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3711':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3712':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3722':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3723':
+    zones:
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3725':
+    zones:
+    - 66
+    - 20
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3737':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3738':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3739':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3740':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3741':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3744':
+    zones:
+    - 66
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3825':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3833':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3858':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3860':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3862':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3885':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3893':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3895':
+    zones:
+    - 22
+    - 24
+    - 25
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3896':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3898':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3900':
+    zones:
+    - 24
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3956':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3959':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3962':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3964':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3965':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3980':
+    zones:
+    - 62
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3981':
+    zones:
+    - 62
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3984':
+    zones:
+    - 62
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3995':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '3996':
+    zones:
+    - 64
+    - 22
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4066':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4069':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4070':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4073':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4074':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4075':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4076':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4077':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4078':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4105':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4106':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4107':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4108':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4109':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4110':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4111':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4112':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4113':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4114':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4115':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4116':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4117':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4118':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4270':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4271':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4272':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4275':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4280':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4285':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4287':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4300':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4301':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4303':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4304':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4305':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4357':
+    zones:
+    - 19
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4370':
+    zones:
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4371':
+    zones:
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4372':
+    zones:
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4373':
+    zones:
+    - 50
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4374':
+    zones:
+    - 50
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4375':
+    zones:
+    - 50
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4376':
+    zones:
+    - 50
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4377':
+    zones:
+    - 50
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4378':
+    zones:
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4380':
+    zones:
+    - 50
+    - 14
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4385':
+    zones:
+    - 19
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4388':
+    zones:
+    - 50
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4390':
+    zones:
+    - 19
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4403':
+    zones:
+    - 50
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4405':
+    zones:
+    - 19
+    - 50
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4406':
+    zones:
+    - 19
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4411':
+    zones:
+    - 19
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4472':
+    zones:
+    - 19
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4480':
+    zones:
+    - 19
+    - 6
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4481':
+    zones:
+    - 19
+    - 6
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4482':
+    zones:
+    - 19
+    - 6
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4500':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4501':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4502':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4503':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4504':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4505':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4506':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4507':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4508':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4509':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4510':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4511':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4512':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4514':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4515':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4516':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4517':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4518':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4519':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4520':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4521':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4552':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4553':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4554':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4555':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4556':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4557':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4558':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4559':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4560':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4561':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4562':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4563':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4564':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4565':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4566':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4568':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4569':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4570':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4571':
+    zones:
+    - 9
+    - 10
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4574':
+    zones:
+    - 10
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4580':
+    zones:
+    - 10
+    - 36
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4600':
+    zones:
+    - 9
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4620':
+    zones:
+    - 50
+    - 36
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4625':
+    zones:
+    - 19
+    - 36
+    - 50
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4676':
+    zones:
+    - 36
+    - 9
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4702':
+    zones:
+    - 3
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4705':
+    zones:
+    - 7
+    - 35
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4706':
+    zones:
+    - 35
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4709':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4712':
+    zones:
+    - 7
+    - 19
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4713':
+    zones:
+    - 7
+    - 19
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4715':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4716':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4717':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4718':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4719':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4720':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4723':
+    zones:
+    - 19
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4724':
+    zones:
+    - 19
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4735':
+    zones:
+    - 3
+    - 39
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4741':
+    zones:
+    - 35
+    - 7
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4742':
+    zones:
+    - 7
+    - 3
+    - 35
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4744':
+    zones:
+    - 7
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4745':
+    zones:
+    - 7
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4751':
+    zones:
+    - 7
+    - 35
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4804':
+    zones:
+    - 5
+    - 35
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4816':
+    zones:
+    - 5
+    - 39
+    - 3
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4820':
+    zones:
+    - 39
+    - 5
+    - 23
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4825':
+    zones:
+    - 39
+    - 38
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4830':
+    zones:
+    - 29
+    - 39
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4849':
+    zones:
+    - 32
+    - 5
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4850':
+    zones:
+    - 32
+    - 5
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4871':
+    zones:
+    - 29
+    - 32
+    - 31
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4875':
+    zones:
+    - 29
+    - 31
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4876':
+    zones:
+    - 29
+    - 31
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4884':
+    zones:
+    - 35
+    - 32
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4885':
+    zones:
+    - 35
+    - 32
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4886':
+    zones:
+    - 35
+    - 32
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4887':
+    zones:
+    - 32
+    - 29
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4888':
+    zones:
+    - 32
+    - 29
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '4892':
+    zones:
+    - 29
+    - 32
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5072':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5076':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5132':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5133':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5134':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5136':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5157':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5203':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5204':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5210':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5222':
+    zones:
+    - 59
+    - 53
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5223':
+    zones:
+    - 53
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5231':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5255':
+    zones:
+    - 59
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5256':
+    zones:
+    - 59
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5260':
+    zones:
+    - 61
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5261':
+    zones:
+    - 61
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5265':
+    zones:
+    - 61
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5267':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5268':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5269':
+    zones:
+    - 27
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5301':
+    zones:
+    - 27
+    - 59
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5302':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5303':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5304':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5306':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5307':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5308':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5309':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5310':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5311':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5320':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5321':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5322':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5330':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5331':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5332':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5333':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5340':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5341':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5342':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5343':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5344':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5345':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5346':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5351':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5352':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5353':
+    zones:
+    - 27
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5354':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5355':
+    zones:
+    - 59
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5357':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5360':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5371':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5372':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5381':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5400':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5415':
+    zones:
+    - 16
+    - 59
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5417':
+    zones:
+    - 59
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5418':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5419':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5420':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5421':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5422':
+    zones:
+    - 45
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5432':
+    zones:
+    - 16
+    - 45
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5433':
+    zones:
+    - 45
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5434':
+    zones:
+    - 45
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5440':
+    zones:
+    - 45
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5451':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5452':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5453':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5454':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5455':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5460':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5461':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5462':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5464':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5470':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5471':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5472':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5473':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5480':
+    zones:
+    - 27
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5481':
+    zones:
+    - 27
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5482':
+    zones:
+    - 27
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5483':
+    zones:
+    - 27
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5485':
+    zones:
+    - 27
+    - 8
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5490':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5491':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5493':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5495':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5501':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5502':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5510':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5520':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5521':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5522':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5523':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5540':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5550':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5552':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5554':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5555':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5556':
+    zones:
+    - 27
+    - 16
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5581':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5582':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5583':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5600':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5601':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5602':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5603':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5604':
+    zones:
+    - 16
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5605':
+    zones:
+    - 16
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5606':
+    zones:
+    - 16
+    - 61
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5607':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5608':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '5609':
+    zones:
+    - 16
+    - 27
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6009':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6010':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6018':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6023':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6025':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6027':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6031':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6035':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6037':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6043':
+    zones:
+    - 13
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6044':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6056':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6084':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6109':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6110':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6111':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6112':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6122':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6123':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6125':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6126':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6163':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6164':
+    zones:
+    - 13
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6165':
+    zones:
+    - 54
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6166':
+    zones:
+    - 54
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6167':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6168':
+    zones:
+    - 54
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6169':
+    zones:
+    - 54
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6170':
+    zones:
+    - 13
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6171':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6172':
+    zones:
+    - 54
+    - 52
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6173':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6174':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6175':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6176':
+    zones:
+    - 13
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6207':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6208':
+    zones:
+    - 13
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6210':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6213':
+    zones:
+    - 47
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6214':
+    zones:
+    - 54
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6215':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6218':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6220':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6221':
+    zones:
+    - 54
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6223':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6224':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6225':
+    zones:
+    - 47
+    - 58
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6226':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6227':
+    zones:
+    - 47
+    - 54
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6228':
+    zones:
+    - 54
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6229':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6230':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6232':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6233':
+    zones:
+    - 54
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6236':
+    zones:
+    - 54
+    - 58
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6237':
+    zones:
+    - 54
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6239':
+    zones:
+    - 57
+    - 58
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6240':
+    zones:
+    - 58
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6244':
+    zones:
+    - 49
+    - 57
+    - 58
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6251':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6252':
+    zones:
+    - 58
+    - 13
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6253':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6254':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6255':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6256':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6258':
+    zones:
+    - 58
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6271':
+    zones:
+    - 54
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6284':
+    zones:
+    - 54
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6288':
+    zones:
+    - 54
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6302':
+    zones:
+    - 44
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6323':
+    zones:
+    - 58
+    - 49
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6337':
+    zones:
+    - 58
+    - 55
+    - 49
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6346':
+    zones:
+    - 58
+    - 55
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6355':
+    zones:
+    - 44
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6390':
+    zones:
+    - 49
+    - 47
+    - 57
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6440':
+    zones:
+    - 41
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6443':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6445':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6446':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6447':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6448':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6450':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6452':
+    zones:
+    - 55
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6473':
+    zones:
+    - 44
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6503':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6506':
+    zones:
+    - 13
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6511':
+    zones:
+    - 12
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6512':
+    zones:
+    - 44
+    - 12
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6513':
+    zones:
+    - 44
+    - 12
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6514':
+    zones:
+    - 44
+    - 12
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6515':
+    zones:
+    - 12
+    - 42
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6516':
+    zones:
+    - 12
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6521':
+    zones:
+    - 44
+    - 12
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6532':
+    zones:
+    - 12
+    - 4
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6537':
+    zones:
+    - 4
+    - 12
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6556':
+    zones:
+    - 47
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6558':
+    zones:
+    - 47
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6560':
+    zones:
+    - 47
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6562':
+    zones:
+    - 47
+    - 44
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6566':
+    zones:
+    - 44
+    - 47
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6639':
+    zones:
+    - 42
+    - 44
+    - 41
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6640':
+    zones:
+    - 42
+    - 44
+    - 41
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6642':
+    zones:
+    - 40
+    - 42
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6646':
+    zones:
+    - 41
+    - 42
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6701':
+    zones:
+    - 4
+    - 2
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6705':
+    zones:
+    - 42
+    - 40
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6716':
+    zones:
+    - 40
+    - 2
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6725':
+    zones:
+    - 33
+    - 37
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6726':
+    zones:
+    - 33
+    - 37
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6728':
+    zones:
+    - 30
+    - 33
+    - 37
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6733':
+    zones:
+    - 30
+    - 33
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6760':
+    zones:
+    - 41
+    - 37
+    - 40
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6765':
+    zones:
+    - 37
+    - 40
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '6907':
+    zones:
+    - 52
+    - 13
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7005':
+    zones:
+    - 26
+    - 68
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7008':
+    zones:
+    - 26
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7030':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7054':
+    zones:
+    - 26
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7139':
+    zones:
+    - 26
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7140':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7212':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7259':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7260':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7263':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7275':
+    zones:
+    - 67
+    - 23
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7276':
+    zones:
+    - 67
+    - 23
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7304':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7305':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7306':
+    zones:
+    - 68
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7310':
+    zones:
+    - 67
+    - 68
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7315':
+    zones:
+    - 67
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7321':
+    zones:
+    - 26
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).
+  '7470':
+    zones:
+    - 26
+    - 25
+    - 69
+    confidence: 0.4
+    note: Postcode spans multiple NatHERS zones (primary/secondary/tertiary).

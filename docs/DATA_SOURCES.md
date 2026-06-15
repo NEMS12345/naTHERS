@@ -28,12 +28,15 @@ the source before relying on them**.
 - **Wire it in:**
   ```bash
   pip install openpyxl pdfplumber
-  python scripts/build_climate_zone_table.py NatHERSclimatezones.xlsx --out config/climate_zones.yaml
+  python scripts/build_climate_zone_table.py NatHERSclimatezonesSept2025.xlsx --out config/climate_zones.yaml
   ```
   Postcodes with a single zone become high-confidence entries; postcodes spanning
   multiple zones become low-confidence `ambiguous` entries (gap-flagged), so no
   postcode is silently disambiguated.
-- **Current state:** `config/climate_zones.yaml` holds a small capital-city seed.
+- **Current state:** ✅ **Imported.** `config/climate_zones.yaml` holds the full
+  national table built from `NatHERSclimatezonesSept2025.xlsx` (the
+  September 2025 release) — ~2,000 unambiguous postcodes plus ~660 multi-zone
+  `ambiguous` entries (gap-flagged for human confirmation).
 
 ## 2. Postcode → state/territory
 

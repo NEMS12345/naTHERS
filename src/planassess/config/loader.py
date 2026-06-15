@@ -86,7 +86,7 @@ def lookup_climate_zone(
             ).strip(),
         )
     return missing(
-        notes=f"Postcode {postcode} not found in climate-zone table (seed subset). Human input required."
+        notes=f"Postcode {postcode} not found in NatHERS climate-zone table. Human input required."
     )
 
 

@@ -63,19 +63,37 @@ def _find_columns(header: list[str]) -> tuple[int, list[int]]:
     return pc_col, zone_cols
 
 
+def _find_header_index(rows: list[list[str]]) -> int:
+    """Index of the header row (first row mentioning 'postcode').
+
+    The official file carries a title row above the header (and a side
+    'Version Register' block), so the header is not always row 0.
+    """
+    for idx, row in enumerate(rows):
+        if any("postcode" in cell.lower() for cell in row):
+            return idx
+    return 0
+
+
 def build(rows: list[list[str]]) -> tuple[dict, dict]:
     if not rows:
         raise SystemExit("No rows parsed from the input file.")
-    header = rows[0]
+    hidx = _find_header_index(rows)
+    header = rows[hidx]
     pc_col, zone_cols = _find_columns(header)
 
     postcodes: "OrderedDict[str, dict]" = OrderedDict()
     ambiguous: "OrderedDict[str, dict]" = OrderedDict()
-    for row in rows[1:]:
+    for row in rows[hidx + 1 :]:
         if pc_col >= len(row):
             continue
         pc = "".join(ch for ch in row[pc_col] if ch.isdigit())
-        if len(pc) != 4:
+        # Spreadsheets store postcodes as integers, dropping the leading zero
+        # (NT/ACT), so 3-digit values are zero-padded back to 4. Australian
+        # postcodes run 0200–9999; anything else is skipped.
+        if len(pc) in (3, 4):
+            pc = pc.zfill(4)
+        else:
             continue
         zones: list[int] = []
         for c in zone_cols:

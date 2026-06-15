@@ -157,7 +157,7 @@ def test_pipeline_consumes_dxf_model(tmp_path: Path):
     out = run_pipeline(model, State.NSW, tmp_path, config_dir)
     assert (tmp_path / "building_model.json").exists()
     # Geometry-derived climate zone resolved from the supplied postcode.
-    assert model.project.climate_zone.value == 56
+    assert model.project.climate_zone.value == 17
     # Real plan extraction leaves genuine gaps for human review.
     assert len(out.review.gaps) > 0
     # The DXF model lacks wall R-values, so thermal can't be computed -> honest.

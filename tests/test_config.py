@@ -82,10 +82,11 @@ def test_targets_are_config_driven_not_hardcoded(config_dir: Path):
 def test_climate_zone_lookup_known(config_dir: Path):
     tv = lookup_climate_zone("2000", config_dir)
     assert not tv.is_missing
-    assert tv.value is not None
-    # Seed table is unverified -> flagged for review until the official table is imported.
-    assert tv.below(0.6)
-    assert "verify" in (tv.notes or "").lower()
+    # Authoritative NatHERS table: postcode 2000 (Sydney CBD) -> climate zone 17.
+    assert tv.value == 17
+    # Unambiguous, sourced value -> high confidence, not flagged for review.
+    assert not tv.below(0.6)
+    assert "national lookup" in (tv.notes or "").lower()
 
 
 def test_climate_zone_lookup_ambiguous_is_low_confidence(config_dir: Path):

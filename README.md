@@ -47,10 +47,11 @@ scoring models (BASIX energy/water/thermal proxies and the WoH score) are
 **directional only** and are not the regulated BASIX or NatHERS Whole-of-Home
 calculations; the BASIX `energy` figure is an efficiency index, not the
 regulated percentage (the regulated target is recorded alongside as a note).
-The postcode→**NatHERS** climate-zone and climate degree-day tables remain seed
-subsets pending a sourced national dataset — see
-[`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the authoritative sources and
-the one-command importer (`scripts/build_climate_zone_table.py`). The coarse
+The postcode→**NatHERS** climate-zone table is the full national dataset imported
+from the official September 2025 NatHERS *Climate Zones by postcode* file; the
+climate degree-day table remains a seed subset pending a sourced national
+dataset — see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the authoritative
+sources and the one-command importer (`scripts/build_climate_zone_table.py`). The coarse
 **NCC** climate zones (1–8) are now sourced from the ABCB *Australian Climate
 zone map* (CC BY 4.0, retrieved 2026-06) and recorded with provenance in
 [`config/ncc_climate_zones.yaml`](config/ncc_climate_zones.yaml) as a secondary
