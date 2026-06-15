@@ -9,8 +9,15 @@ the source before relying on them**.
 > Note on access: the official datasets are hosted on Australian government sites
 > (`nathers.gov.au`, `abcb.gov.au`, `data.gov.au`). A sandboxed/CI environment
 > with an egress allowlist must add those hosts (or the file must be provided
-> locally) before the build scripts can fetch them. They are not reachable from
-> the default environment.
+> locally) before the build scripts can fetch them.
+>
+> Observed (2026-06-15) from an allowlisted sandbox: `data.gov.au` (CKAN API +
+> resource downloads) and `www.abcb.gov.au` are reachable, but every path on
+> `www.nathers.gov.au` returns an Akamai WAF block ("your request has been
+> blocked") for the sandbox egress IP — i.e. reachable but IP-reputation
+> filtered, independent of the egress allowlist. The NatHERS postcode file
+> (item 1) therefore still has to be supplied locally; the ABCB NCC dataset
+> (item 3) was retrieved successfully from `data.gov.au`.
 
 ## 1. Postcode → NatHERS climate zone (1–69)
 
@@ -36,11 +43,38 @@ the source before relying on them**.
 
 ## 3. NCC climate zones (1–8)
 
-- **Source:** ABCB — *Australian climate zone map* dataset (CC BY 4.0).
-  - https://www.abcb.gov.au/resources/climate-zone-map
-  - Data: https://data.gov.au/data/dataset/australian-climate-zone-map
+- **Source:** ABCB — *Australian Climate zone map* dataset, **CC BY 4.0** (jointly
+  © Commonwealth, States & Territories of Australia, published by the ABCB).
+  - Dataset: https://data.gov.au/data/dataset/australian-climate-zone-map
+  - Dataset id: `97d6c684-a61f-4fdb-a322-4043e7075f8c`
+  - Resources (retrieved 2026-06-15): `abcb-climate-zone-map.zip` (zone polygons,
+    shapefile), `abcb-zone-files.zip` (per-zone shapefiles), and an `.eps` map.
+  - Geometry vintage 2021-03-05; data.gov.au record last modified 2025-10-28.
+  - **Attribution (required by CC BY 4.0):** "The Australian Climate zone map was
+    provided by the Australian Building Codes Board under the CC BY 4.0 licence."
+- **What it contains:** the dataset is **geospatial only** — eight zone polygons
+  keyed by a `clim_zone` attribute (1–8), with **no postcode or suburb attribute**.
+  Per-zone textual descriptors are not in the dataset, and the ABCB
+  `climate-zone-map` web page is login-gated.
 - **Use:** secondary cross-check / coarse zone; PlanAssess assessments use the
-  NatHERS zones (item 1). Not yet wired.
+  finer NatHERS zones (item 1).
+- **Wired in:** `config/ncc_climate_zones.yaml` records the eight zone numbers
+  (verified from the shapefile) with full provenance/attribution, plus the NCC
+  2022 zone descriptors marked **indicative** (confidence 0.5, < the review
+  threshold) pending verification against NCC 2022. Loaded via
+  `planassess.config.loader.load_ncc_climate_zones()`.
+- **Postcode → NCC zone crosswalk (derived):** because the dataset has no
+  postcode field, a postcode→zone table must be *derived* by spatially joining
+  the zone polygons with ABS Postal Area (POA) boundaries:
+  ```bash
+  pip install pyshp shapely
+  python scripts/build_ncc_zone_table.py "Climate zones AU.shp" POA_2021_AUST.shp \
+      --out config/ncc_postcode_zones.yaml
+  ```
+  Single-zone postcodes become derived entries (confidence 0.8, below the
+  official NatHERS table's 0.9); postcodes spanning multiple zones become
+  low-confidence `ambiguous` entries. **Not built here:** ABS POA boundaries
+  (`abs.gov.au`) were not reachable from the sandbox, so no crosswalk is shipped.
 
 ## 4. Climate benchmarks (degree days, star-band load limits, WoH budgets)
 

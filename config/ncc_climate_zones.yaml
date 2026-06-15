@@ -1,0 +1,50 @@
+# NCC (National Construction Code) climate zones 1–8 — coarse cross-reference.
+#
+# PlanAssess assessments use the finer NatHERS zones (1–69, see
+# config/climate_zones.yaml). These eight NCC zones are a SECONDARY, coarse
+# cross-check only.
+#
+# The authoritative dataset is the ABCB "Australian Climate zone map" published
+# on data.gov.au under CC BY 4.0 (provenance below, verified 2026-06-15). It is
+# GEOSPATIAL ONLY: eight zone polygons keyed by a `clim_zone` attribute (1–8),
+# with NO postcode or suburb attribute. A postcode→NCC-zone crosswalk therefore
+# has to be DERIVED by spatially joining these polygons with ABS Postal Area
+# (POA) boundaries — see scripts/build_ncc_zone_table.py. That crosswalk is not
+# built here (POA boundaries are not reachable from this environment).
+#
+# The zone NUMBERS (1–8) below are verified from the ABCB shapefile. The
+# descriptors are the NCC 2022 climate-zone definitions; they are recorded as
+# INDICATIVE (confidence 0.5 < the 0.6 review threshold), so anything relying on
+# them is gap-flagged until verified against NCC 2022 Volume One/Two.
+
+version: "abcb-ncc-2024-03"
+
+source:
+  dataset: "Australian Climate zone map"
+  publisher: "Australian Building Codes Board (ABCB)"
+  licence: "CC BY 4.0"
+  attribution: "The Australian Climate zone map was provided by the Australian Building Codes Board under the CC BY 4.0 licence."
+  dataset_url: "https://data.gov.au/data/dataset/australian-climate-zone-map"
+  dataset_id: "97d6c684-a61f-4fdb-a322-4043e7075f8c"
+  resources:
+    - "https://data.gov.au/data/dataset/97d6c684-a61f-4fdb-a322-4043e7075f8c/resource/3a94bc2a-4f21-4b2d-ac6c-ddbb37945144/download/abcb-climate-zone-map.zip"
+    - "https://data.gov.au/data/dataset/97d6c684-a61f-4fdb-a322-4043e7075f8c/resource/4a1c8427-7cbc-4807-ac6b-0b470ff25636/download/abcb-zone-files.zip"
+  geometry_vintage: "2021-03-05"
+  retrieved: "2026-06-15"
+  note: >-
+    Geospatial only (8 zone polygons keyed by `clim_zone`, no postcode/suburb
+    attribute). NCC zone descriptors are not in the dataset and the ABCB
+    climate-zone-map page is login-gated; descriptors here are the standard NCC
+    2022 definitions, recorded as indicative pending verification against NCC
+    2022 Volume One/Two.
+
+# zone -> indicative descriptor. confidence 0.5 (< 0.6) keeps these gap-flagged.
+zones:
+  1: { description: "High humidity summer, warm winter", confidence: 0.5 }
+  2: { description: "Warm humid summer, mild winter", confidence: 0.5 }
+  3: { description: "Hot dry summer, warm winter", confidence: 0.5 }
+  4: { description: "Hot dry summer, cool winter", confidence: 0.5 }
+  5: { description: "Warm temperate", confidence: 0.5 }
+  6: { description: "Mild temperate", confidence: 0.5 }
+  7: { description: "Cool temperate", confidence: 0.5 }
+  8: { description: "Alpine", confidence: 0.5 }

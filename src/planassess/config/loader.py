@@ -9,7 +9,13 @@ import yaml
 
 from ..model.enums import Provenance
 from ..model.tracked import TrackedValue, missing
-from .models import ClimateDataTable, ClimateZoneTable, JurisdictionsConfig, Settings
+from .models import (
+    ClimateDataTable,
+    ClimateZoneTable,
+    JurisdictionsConfig,
+    NccClimateZoneTable,
+    Settings,
+)
 
 # Repo-root/config by default (…/src/planassess/config/loader.py -> repo root).
 DEFAULT_CONFIG_DIR = Path(__file__).resolve().parents[3] / "config"
@@ -38,6 +44,12 @@ def load_climate_zones(config_dir: Path | None = None) -> ClimateZoneTable:
 def load_climate_data(config_dir: Path | None = None) -> ClimateDataTable:
     config_dir = config_dir or DEFAULT_CONFIG_DIR
     return ClimateDataTable.model_validate(_read_yaml(config_dir / "climate_data.yaml"))
+
+
+def load_ncc_climate_zones(config_dir: Path | None = None) -> NccClimateZoneTable:
+    """Load the coarse NCC zones (1–8) cross-reference table (ABCB, CC BY 4.0)."""
+    config_dir = config_dir or DEFAULT_CONFIG_DIR
+    return NccClimateZoneTable.model_validate(_read_yaml(config_dir / "ncc_climate_zones.yaml"))
 
 
 def lookup_climate_zone(

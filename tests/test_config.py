@@ -8,6 +8,7 @@ import pytest
 
 from planassess.config.loader import (
     load_jurisdictions,
+    load_ncc_climate_zones,
     load_settings,
     lookup_climate_zone,
 )
@@ -98,6 +99,25 @@ def test_climate_zone_lookup_unknown_is_missing_not_guessed(config_dir: Path):
     tv = lookup_climate_zone("9999", config_dir)
     assert tv.is_missing
     assert tv.below(0.6)
+
+
+def test_ncc_climate_zones_load_with_provenance(config_dir: Path):
+    table = load_ncc_climate_zones(config_dir)
+    # The eight NCC zones (1–8), verified from the ABCB shapefile.
+    assert set(table.zones) == set(range(1, 9))
+    # CC BY 4.0 provenance + attribution must be recorded for the sourced dataset.
+    assert table.source.licence == "CC BY 4.0"
+    assert "Australian Building Codes Board" in table.source.attribution
+    assert "data.gov.au" in (table.source.dataset_url or "")
+
+
+def test_ncc_zone_descriptors_are_indicative_until_verified(config_dir: Path):
+    table = load_ncc_climate_zones(config_dir)
+    # Descriptors are NCC 2022 definitions recorded as indicative -> below the
+    # 0.6 review threshold so reliance on them is gap-flagged (no fabrication).
+    for entry in table.zones.values():
+        assert entry.confidence < 0.6
+        assert entry.description
 
 
 def test_unknown_state_raises(config_dir: Path):

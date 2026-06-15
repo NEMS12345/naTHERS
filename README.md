@@ -47,11 +47,17 @@ scoring models (BASIX energy/water/thermal proxies and the WoH score) are
 **directional only** and are not the regulated BASIX or NatHERS Whole-of-Home
 calculations; the BASIX `energy` figure is an efficiency index, not the
 regulated percentage (the regulated target is recorded alongside as a note).
-The postcode→climate-zone and climate degree-day tables remain seed subsets
-pending a sourced national dataset — see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)
-for the authoritative sources and the one-command importer
-(`scripts/build_climate_zone_table.py`). Postcode→**state** is fully wired from
-the Australia Post ranges (offline), so `--state` is optional.
+The postcode→**NatHERS** climate-zone and climate degree-day tables remain seed
+subsets pending a sourced national dataset — see
+[`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the authoritative sources and
+the one-command importer (`scripts/build_climate_zone_table.py`). The coarse
+**NCC** climate zones (1–8) are now sourced from the ABCB *Australian Climate
+zone map* (CC BY 4.0, retrieved 2026-06) and recorded with provenance in
+[`config/ncc_climate_zones.yaml`](config/ncc_climate_zones.yaml) as a secondary
+cross-reference; that dataset is geospatial-only, so a postcode→NCC-zone
+crosswalk has to be derived by spatial join (`scripts/build_ncc_zone_table.py`).
+Postcode→**state** is fully wired from the Australia Post ranges (offline), so
+`--state` is optional.
 
 ## Status — build phases
 

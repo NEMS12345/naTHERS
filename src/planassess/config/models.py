@@ -120,6 +120,37 @@ class ClimateZoneTable(BaseModel):
     ambiguous: dict[str, AmbiguousZoneEntry] = Field(default_factory=dict)
 
 
+# --- ncc_climate_zones.yaml --------------------------------------------------
+
+
+class NccZoneSource(BaseModel):
+    """Provenance for the ABCB NCC climate-zone dataset (CC BY 4.0)."""
+
+    dataset: str
+    publisher: str
+    licence: str
+    attribution: str
+    dataset_url: str | None = None
+    dataset_id: str | None = None
+    resources: list[str] = Field(default_factory=list)
+    geometry_vintage: str | None = None
+    retrieved: str | None = None
+    note: str | None = None
+
+
+class NccZoneEntry(BaseModel):
+    description: str | None = None
+    confidence: float = Field(ge=0.0, le=1.0)
+
+
+class NccClimateZoneTable(BaseModel):
+    """The coarse NCC zones (1–8) used as a secondary cross-reference."""
+
+    version: str
+    source: NccZoneSource
+    zones: dict[int, NccZoneEntry] = Field(default_factory=dict)
+
+
 # --- climate_data.yaml -------------------------------------------------------
 
 
